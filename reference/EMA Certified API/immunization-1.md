@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Base profile: <http://hl7.org/fhir/us/core/StructureDefinition/us-core-immunization>
+Base profile: [http://hl7.org/fhir/us/core/StructureDefinition/us-core-immunization](http://hl7.org/fhir/us/core/StructureDefinition/us-core-immunization)
 
 The Immunization resource is used to define information related to immunization events in a patient's health record.
 
