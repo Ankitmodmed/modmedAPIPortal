@@ -80,8 +80,8 @@ The following attributes are supported:
       <td style={{ textAlign: "left" }}>
         effectivePeriod
 
-        * start\
-          -end
+        -start\
+        -end
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -156,10 +156,77 @@ Note that Medications added or updated through the API will need to be reconcile
 
 The following attributes are supported with required fields marked with \*:
 
-|    |    |
-| :- | :- |
-|    |    |
-|    |    |
+<Table align={["left","left"]}>
+  <thead>
+    <tr>
+      <th style={{ textAlign: "left" }}>
+        Field Name
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        Notes
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        status\*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        will default to active if not passed in
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        subject\*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        patient reference
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        medicationCodeableConcept\*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        RxNorm is supported as a code at this time.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        effectivePeriod
+
+        -start
+        -end
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        dosage
+
+        -route\
+        -doseAndRate
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 <br />
 
@@ -181,3 +248,41 @@ For the purposes of clarity, the following fields are immutable:
 | note\*                      |       |
 
 For the purposes of clarity, the following fields are supported for UPDATE:
+
+<Table align={["left","left"]}>
+  <thead>
+    <tr>
+      <th style={{ textAlign: "left" }}>
+        Field Name
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        Notes
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        status
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        effectivePeriod
+
+        -end
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+
+      </td>
+    </tr>
+  </tbody>
+</Table>
