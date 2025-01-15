@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-
+Base Profile: https:/www.hl7.org/fhir/medicationstatement.html
 
 Common use cases include:
 
@@ -57,4 +57,3 @@ For the purposes of clarity, the following fields are immutable:
 | note\*                      |       |
 
 For the purposes of clarity, the following fields are supported for UPDATE:
-
