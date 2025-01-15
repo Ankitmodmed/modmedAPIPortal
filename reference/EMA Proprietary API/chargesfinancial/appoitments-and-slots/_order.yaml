@@ -1,3 +1,4 @@
 - get_appointment-id
 - put_appointment-id
 - get_appointment
+- post_appointment
