@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Base profile: <https://www.hl7.org/fhir/diagnosticreport.html>
+Base profile: &lt;https://www.hl7.org/fhir/diagnosticreport.html&gt;
 
 DiagnosticReport can be used to find Results PDFs for patients in EMA.
 
