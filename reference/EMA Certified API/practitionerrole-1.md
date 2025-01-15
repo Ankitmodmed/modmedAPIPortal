@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Base profile: <http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole>
+Base profile: [http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole](http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole)
 
 The PractitionerRole resource in FHIR refers to the roles a practitioner plays at an organization.
 
