@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Base profile: <http://hl7.org/fhir/us/core/StructureDefinition/us-core-goal>
+Base profile: [http://hl7.org/fhir/us/core/StructureDefinition/us-core-goal](http://hl7.org/fhir/us/core/StructureDefinition/us-core-goal)
 
 The FHIR (Fast Healthcare Interoperability Resources) Goal resource is used to define specific goals for a patient, such as treatment goals, behavioral change goals, or other types of health-related objectives. The Goal endpoint in an FHIR API allows clients to retrieve and manage these goals.
 
