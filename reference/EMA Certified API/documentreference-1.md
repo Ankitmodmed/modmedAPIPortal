@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Base profile: <http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference>
+Base profile: [http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference](http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference)
 
 The FHIR (Fast Healthcare Interoperability Resources) DocumentReference resource is used in healthcare settings to reference and store documents such as reports, images, and other files relevant to patient care. This resource includes metadata about the document, such as the type of document, the patient it pertains to, and information on who created it.
 
@@ -107,5 +107,5 @@ The FHIR (Fast Healthcare Interoperability Resources) DocumentReference resource
 }
 ```
 
-This JSON provides an overview of how to structure a DocumentReference resource including linking the document  
+This JSON provides an overview of how to structure a DocumentReference resource including linking the document\
 to a patient and providing detailed metadata.
