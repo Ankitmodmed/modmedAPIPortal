@@ -13,4 +13,4 @@ metadata:
 next:
   description: ''
 ---
-**NOTE: ** Append id with "pay|" or "prov|" eg. "pay|33932"
+**NOTE:** Append id with "pay|" or "prov|" eg. "pay|33932"
