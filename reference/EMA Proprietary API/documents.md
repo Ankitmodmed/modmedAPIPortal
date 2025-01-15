@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Base Profile: <https://www.hl7.org/fhir/documentreference.html>
+Base Profile: [https://www.hl7.org/fhir/documentreference.html](https://www.hl7.org/fhir/documentreference.html)
 
 There are several different Document categories and types inside of EMA. Most “documents” can be handled through the ‘DocumentReference’ resource.
 
@@ -24,12 +24,12 @@ Each document has the ability to have a title, category, file name, visit associ
 
 #### **Visit Notes**
 
-The Visit Note is another document type you can find in EMA. These are the nicely designed PDFs of each patient encounter in EMA. You can find ALL of a Patient’s visit notes, by calling: /DocumentReference?patient={patientID}&category=note.  
-If you are looking for the Visit Note of a specific Encounter, you can /DocumentReference/note|{visitID}. You can find Encounters by searching the /Encounter endpoint.
+The Visit Note is another document type you can find in EMA. These are the nicely designed PDFs of each patient encounter in EMA. You can find ALL of a Patient’s visit notes, by calling: /DocumentReference?patient=\{patientID}\&category=note.\
+If you are looking for the Visit Note of a specific Encounter, you can /DocumentReference/note|\{visitID}. You can find Encounters by searching the /Encounter endpoint.
 
 #### **CCDA**
 
-You can also query for a Patient’s CCDA. /DocumentReference?patient={patientID}&category=CCDA. This will be an XML document.
+You can also query for a Patient’s CCDA. /DocumentReference?patient=\{patientID}\&category=CCDA. This will be an XML document.
 
 #### **Results**
 
@@ -81,61 +81,146 @@ If you're looking to POST a **Patient Reported Outcome (PRO)** document to EMA�
 
 Common use cases include:
 
-- Add Documents to a Patient’s chart
-- Find Documents for a Patient
-- Find a specific Visit Note
-- Retrieve a Patient’s CCDA
+* Add Documents to a Patient’s chart
+* Find Documents for a Patient
+* Find a specific Visit Note
+* Retrieve a Patient’s CCDA
 
 The following attributes are supported:
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Field Name",
-    "h-1": "Notes",
-    "0-0": "id",
-    "0-1": "The MMI-specific unique identifier for the Document",
-    "1-0": "identifier",
-    "1-1": "filename",
-    "2-0": "status",
-    "2-1": "current | superseded | entered-in-error  \nNOTE: MMI currently only supports ‘current’",
-    "3-0": "type",
-    "3-1": "the type of file  \n  \n- application/pdf\n- audio/mpeg",
-    "4-0": "category",
-    "4-1": "ValueSet: document-category  \n{base url}/{firm_url_prefix}/ema/fhir/v2/ValueSet/document-category",
-    "5-0": "subject",
-    "5-1": "reference - Patient",
-    "6-0": "date",
-    "6-1": "When this document reference was created",
-    "7-0": "description",
-    "7-1": "The title of the document",
-    "8-0": "content",
-    "8-1": "The document itself",
-    "9-0": "context",
-    "9-1": "Reference to Encounter"
-  },
-  "cols": 2,
-  "rows": 10,
-  "align": [
-    "left",
-    "left"
-  ]
-}
-[/block]
+<Table align={["left","left"]}>
+  <thead>
+    <tr>
+      <th style={{ textAlign: "left" }}>
+        Field Name
+      </th>
 
+      <th style={{ textAlign: "left" }}>
+        Notes
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        id
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The MMI-specific unique identifier for the Document
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        identifier
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        filename
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        status
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        current | superseded | entered-in-error\
+        NOTE: MMI currently only supports ‘current’
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        type
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        the type of file  
+
+        * application/pdf
+        * audio/mpeg
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        category
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        ValueSet: document-category\
+        \{base url}/\{firm\_url\_prefix}/ema/fhir/v2/ValueSet/document-category
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        subject
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        reference - Patient
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        date
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        When this document reference was created
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        description
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The title of the document
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        content
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The document itself
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        context
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Reference to Encounter
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 The Following Operations are supported:
 
-- DocumentReference READ
-- DocumentReference SEARCH
-- DocumentReference CREATE
+* DocumentReference READ
+* DocumentReference SEARCH
+* DocumentReference CREATE
 
 **DocumentReference CCDA and Visit Notes**
 
 Additionally, we’ve added functionality to be able to retrieve:
 
-- A Patient’s CCDA Document (an XML document)
-- A Patient’s Visit Note - the PDF version of a visit note for a specific encounter
+* A Patient’s CCDA Document (an XML document)
+* A Patient’s Visit Note - the PDF version of a visit note for a specific encounter
 
 <br />
 
@@ -143,29 +228,57 @@ Additionally, we’ve added functionality to be able to retrieve:
 
 In order to search for a patient’s CCDA:
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "HTTP Request",
-    "h-1": "Method",
-    "h-2": "Action",
-    "0-0": "{baseurl}/{firm_url_prefix}/ema/fhir/v2/DocumentReference?patient=(PatientID}&category=ccda",
-    "0-1": "GET",
-    "0-2": "Search for a Patient’s CCDA  \n  \nAlternatively, the LOINC for CCDA (81214-9) can be passed instead of ‘ccda’",
-    "1-0": "{baseurl}/{firm_url_prefix}/ema/fhir/v2/DocumentReference/ccda|{patientID}",
-    "1-1": "GET",
-    "1-2": "Retrieve a Patient’s CCDA  \n  \nAlternatively, the LOINC for CCDA (81214-9) can be passed instead of ‘ccda’"
-  },
-  "cols": 3,
-  "rows": 2,
-  "align": [
-    "left",
-    "left",
-    "left"
-  ]
-}
-[/block]
+<Table align={["left","left","left"]}>
+  <thead>
+    <tr>
+      <th style={{ textAlign: "left" }}>
+        HTTP Request
+      </th>
 
+      <th style={{ textAlign: "left" }}>
+        Method
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        Action
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        \{baseurl}/\{firm\_url\_prefix}/ema/fhir/v2/DocumentReference?patient=(PatientID}\&category=ccda
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        GET
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Search for a Patient’s CCDA  
+
+        Alternatively, the LOINC for CCDA (81214-9) can be passed instead of ‘ccda’
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        \{baseurl}/\{firm\_url\_prefix}/ema/fhir/v2/DocumentReference/ccda|\{patientID}
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        GET
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Retrieve a Patient’s CCDA  
+
+        Alternatively, the LOINC for CCDA (81214-9) can be passed instead of ‘ccda’
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 <br />
 
@@ -173,29 +286,57 @@ In order to search for a patient’s CCDA:
 
 In order to search for a patient’s Visit Note(s):
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "HTTP Request",
-    "h-1": "Method",
-    "h-2": "Action",
-    "0-0": "{baseurl}/{firm_url_prefix}/ema/fhir/v2/DocumentReference?patient={PatientID}&category=note",
-    "0-1": "GET",
-    "0-2": "Search for a Patient’s Visit Note  \n  \nAlternatively, the LOINC for Summary of episode note (34133-9) can be passed instead of ‘note’",
-    "1-0": "{baseurl}/{firm_url_prefix}/ema/fhir/v2/DocumentReference/note|{visitID}",
-    "1-1": "GET",
-    "1-2": "Retrieve a Patient’s Visit Note  \n  \nAlternatively, the LOINC for Summary of episode note (34133-9) can be passed instead of ‘note’"
-  },
-  "cols": 3,
-  "rows": 2,
-  "align": [
-    "left",
-    "left",
-    "left"
-  ]
-}
-[/block]
+<Table align={["left","left","left"]}>
+  <thead>
+    <tr>
+      <th style={{ textAlign: "left" }}>
+        HTTP Request
+      </th>
 
+      <th style={{ textAlign: "left" }}>
+        Method
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        Action
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        \{baseurl}/\{firm\_url\_prefix}/ema/fhir/v2/DocumentReference?patient=\{PatientID}\&category=note
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        GET
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Search for a Patient’s Visit Note  
+
+        Alternatively, the LOINC for Summary of episode note (34133-9) can be passed instead of ‘note’
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        \{baseurl}/\{firm\_url\_prefix}/ema/fhir/v2/DocumentReference/note|\{visitID}
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        GET
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Retrieve a Patient’s Visit Note  
+
+        Alternatively, the LOINC for Summary of episode note (34133-9) can be passed instead of ‘note’
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 ***
 
@@ -203,78 +344,190 @@ In order to search for a patient’s Visit Note(s):
 
 ### DocumentReference CREATE
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Step",
-    "h-1": "HTTP Request",
-    "h-2": "Method",
-    "h-3": "Action",
-    "0-0": "1",
-    "0-1": "{base url}/{firm_url_prefix}/ema/fhir/v2/Binary",
-    "0-2": "POST",
-    "0-3": "Retrieve S3 Bucket URL",
-    "1-0": "2",
-    "1-1": "{base_s3_url}/{auto-generated string}  \n  \n**NOTE**:‘base_s3_url’ refers to the URL you will get back from making the Binary POST. There will be different URL structures depending on whether you are POSTing to Development or Production environments. As an example, here is an example of the current development URL:  \n  \n<https://modmed-prod-incoming-fhir-attachments.s3.amazonaws.com/{auto-generated_string}>",
-    "1-2": "PUT",
-    "1-3": "Upload the document to the S3 URL  \n  \n**Note**: If using Postman, or a similar solution, check your hidden headers as it may automatically add a Content-Type which may cause the upload to fail. Content-Type will need to equal “text/plain”",
-    "2-0": "3",
-    "2-1": "{base url}/{firm_url_prefix}/ema/fhir/v2/DocumentReference",
-    "2-2": "POST",
-    "2-3": "Upload document from S3 URL to EMA"
-  },
-  "cols": 4,
-  "rows": 3,
-  "align": [
-    "left",
-    "left",
-    "left",
-    "left"
-  ]
-}
-[/block]
+<Table align={["left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th style={{ textAlign: "left" }}>
+        Step
+      </th>
 
+      <th style={{ textAlign: "left" }}>
+        HTTP Request
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        Method
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        Action
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        1
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        \{base url}/\{firm\_url\_prefix}/ema/fhir/v2/Binary
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        POST
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Retrieve S3 Bucket URL
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        2
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        \{base\_s3\_url}/\{auto-generated string}  
+
+        * \*NOTE\*\*:‘base\_s3\_url’ refers to the URL you will get back from making the Binary POST. There will be different URL structures depending on whether you are POSTing to Development or Production environments. As an example, here is an example of the current development URL:  
+
+        [https://modmed-prod-incoming-fhir-attachments.s3.amazonaws.com/\{auto-generated\_string}](https://modmed-prod-incoming-fhir-attachments.s3.amazonaws.com/\{auto-generated_string})
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        PUT
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Upload the document to the S3 URL  
+
+        * \*Note\*\*: If using Postman, or a similar solution, check your hidden headers as it may automatically add a Content-Type which may cause the upload to fail. Content-Type will need to equal “text/plain”
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        3
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        \{base url}/\{firm\_url\_prefix}/ema/fhir/v2/DocumentReference
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        POST
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Upload document from S3 URL to EMA
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 <br />
 
 The attributes for creating a document are:
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Name",
-    "h-1": "Type",
-    "h-2": "Description",
-    "0-0": "identifier\\*",
-    "0-1": "filename",
-    "0-2": "The name of the file",
-    "1-0": "content\\*",
-    "1-1": "S3 URL returned via POST against the Binary resource in step 1",
-    "1-2": "The actual contents of the document",
-    "2-0": "subject",
-    "2-1": "patient reference",
-    "2-2": "Use this to associate the document to the correct patient. it is not required.  \n  \nAny document posted without a patient will go into an unassociated queue where someone at the practice will need to manually associate the document to a patient.",
-    "3-0": "title",
-    "3-1": "string",
-    "3-2": "The title of the file - not required, but there is a title column in the UI. This could be used to give a little more information than what is in the name of the file.",
-    "4-0": "creation",
-    "4-1": "datetime",
-    "4-2": "When passed in, this will set the ‘Original Creation Date’ in EMA so that  \nwhen a user is searching for attachments in a patient’s chart, the user will see this date as the date rather than the date the document was uploaded into EMA."
-  },
-  "cols": 3,
-  "rows": 5,
-  "align": [
-    "left",
-    "left",
-    "left"
-  ]
-}
-[/block]
+<Table align={["left","left","left"]}>
+  <thead>
+    <tr>
+      <th style={{ textAlign: "left" }}>
+        Name
+      </th>
 
+      <th style={{ textAlign: "left" }}>
+        Type
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        identifier\*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        filename
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The name of the file
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        content\*
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        S3 URL returned via POST against the Binary resource in step 1
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The actual contents of the document
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        subject
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        patient reference
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Use this to associate the document to the correct patient. it is not required.  
+
+        Any document posted without a patient will go into an unassociated queue where someone at the practice will need to manually associate the document to a patient.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        title
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        string
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The title of the file - not required, but there is a title column in the UI. This could be used to give a little more information than what is in the name of the file.
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        creation
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        datetime
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        When passed in, this will set the ‘Original Creation Date’ in EMA so that\
+        when a user is searching for attachments in a patient’s chart, the user will see this date as the date rather than the date the document was uploaded into EMA.
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 **Step 1**: We’ve added the ‘Binary’ resource as a mechanism to retrieve an S3 URL for your customer’s site. You will need to create a POST to this Endpoint in order to retrieve the URL. The POST can simply be blank, however, here is a sample of a payload if you want to use something like this:
 
-POST {base url}/{firm_url_prefix}/ema/fhir/v2/Binary
+POST \{base url}/\{firm\_url\_prefix}/ema/fhir/v2/Binary
 
 ```Text json
 {
