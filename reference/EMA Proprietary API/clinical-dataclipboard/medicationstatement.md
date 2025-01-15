@@ -21,7 +21,6 @@ Common use cases include:
 The following attributes are supported:
 
 
-
 The Following Operations are supported:
 
 - MedicationStatement READ
