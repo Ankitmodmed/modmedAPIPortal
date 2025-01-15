@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Base profile: <http://hl7.org/fhir/us/core/StructureDefinition/us-core-provenance>
+Base profile: [http://hl7.org/fhir/us/core/StructureDefinition/us-core-provenance](http://hl7.org/fhir/us/core/StructureDefinition/us-core-provenance)
 
 FHIR (Fast Healthcare Interoperability Resources) Provenance is used to describe the origin or source of the information that is in a resource. This includes information about the entity or person involved in the creation, modification, or routing of the resource.
 
@@ -79,8 +79,8 @@ FHIR (Fast Healthcare Interoperability Resources) Provenance is used to describe
 
 In this sample response:
 
-- The `target` refers to a Patient resource.
-- The `recorded` time is provided.
-- The `agent` specifies the author (a practitioner).
-- The `entity` specifies a DocumentReference resource used as a source.
-- A `signature` is included to ensure authenticity.
+* The `target` refers to a Patient resource.
+* The `recorded` time is provided.
+* The `agent` specifies the author (a practitioner).
+* The `entity` specifies a DocumentReference resource used as a source.
+* A `signature` is included to ensure authenticity.
