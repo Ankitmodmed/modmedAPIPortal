@@ -10,24 +10,101 @@ metadata:
 next:
   description: ''
 ---
-Base profile: https:/www.hl7.org/fhir/condition.html;
+Base profile: https\:/[www.hl7.org/fhir/condition.html](http://www.hl7.org/fhir/condition.html);
 
 Common use cases include:
 
-- Find all Conditions for a Patient
-- Add a Condition to a Patient’s record
-- Update a Condition’s status
+* Find all Conditions for a Patient
+* Add a Condition to a Patient’s record
+* Update a Condition’s status
 
 The following attributes are supported:
 
+<Table align={["left","left"]}>
+  <thead>
+    <tr>
+      <th style={{ textAlign: "left" }}>
+        Field Name
+      </th>
 
+      <th style={{ textAlign: "left" }}>
+        Notes
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        clinicalStatus
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Active, Inactive, Resolved
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        subject
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Reference to Patient
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        code
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        ICD-9, ICD-10, SNOMED Name
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        onset
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        startdate/enddate
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        recordedDate
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Date Recorded
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        category
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Problem Type:\\
+        Problem|Condition|Diagnosis|Symptom|Finding|Complaint|Functional Limitation|Health Status
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
+<br />
 
 The Following Operations are supported:
 
-- Condition READ
-- Condition SEARCH
-- Condition CREATE
-- Condition UPDATE
+* Condition READ
+* Condition SEARCH
+* Condition CREATE
+* Condition UPDATE
 
 ***
 
