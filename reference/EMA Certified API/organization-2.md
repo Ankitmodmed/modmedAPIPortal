@@ -10,20 +10,20 @@ metadata:
 next:
   description: ''
 ---
-Base profile: <http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization>
+Base profile: [http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization](http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization)
 
 The Organization resource in FHIR represents a group, such as a healthcare provider or insurance company. The endpoint for an organization typically retrieves detailed information about these entities.
 
 ## Key elements in the response
 
-- **resourceType:** Indicates the type of resource, which is Organization.
-- **id:** A unique identifier for the organization resource.
-- **identifier:** An array of identifiers, each with a system and value.
-- **active:** Indicates whether the organization is currently active.
-- **type:** Describes the type of organization, with coding details.
-- **name: **The official name of the organization.
-- **telecom:** Contact information, including phone and email.
-- **address:** Physical address of the organization, typically including lines, city, state, postal code, and country.
+* **resourceType:** Indicates the type of resource, which is Organization.
+* **id:** A unique identifier for the organization resource.
+* **identifier:** An array of identifiers, each with a system and value.
+* **active:** Indicates whether the organization is currently active.
+* **type:** Describes the type of organization, with coding details.
+* **name:** The official name of the organization.
+* **telecom:** Contact information, including phone and email.
+* **address:** Physical address of the organization, typically including lines, city, state, postal code, and country.
 
 **Sample Response Object:**
 
