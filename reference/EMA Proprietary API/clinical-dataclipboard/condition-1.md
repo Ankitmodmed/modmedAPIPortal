@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Base profile: &lt;https://www.hl7.org/fhir/condition.html&gt;
+Base profile: https:/www.hl7.org/fhir/condition.html;
 
 Common use cases include:
 
@@ -20,32 +20,7 @@ Common use cases include:
 
 The following attributes are supported:
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Field Name",
-    "h-1": "Notes",
-    "0-0": "clinicalStatus",
-    "0-1": "Active, Inactive, Resolved",
-    "1-0": "subject",
-    "1-1": "Reference to Patient",
-    "2-0": "code",
-    "2-1": "ICD-9, ICD-10, SNOMED Name",
-    "3-0": "onset",
-    "3-1": "startdate/enddate",
-    "4-0": "recordedDate",
-    "4-1": "Date Recorded",
-    "5-0": "category",
-    "5-1": "Problem Type:  \nProblem|Condition|Diagnosis|Symptom|Finding|Complaint|Functional Limitation|Health Status"
-  },
-  "cols": 2,
-  "rows": 6,
-  "align": [
-    "left",
-    "left"
-  ]
-}
-[/block]
+
 
 The Following Operations are supported:
 
