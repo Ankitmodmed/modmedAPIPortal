@@ -10,9 +10,9 @@ metadata:
 next:
   description: ''
 ---
-Base Profile: <http://hl7.org/fhir/diagnosticreport.html>
+Base Profile: [http://hl7.org/fhir/diagnosticreport.html](http://hl7.org/fhir/diagnosticreport.html)
 
-The DiagnosticReport endpoint in FHIR is used to represent the findings and interpretation of diagnostic tests.  
+The DiagnosticReport endpoint in FHIR is used to represent the findings and interpretation of diagnostic tests.\
 Key components of a DiagnosticReport resource include:
 
 1. **Resource identification and metadata**:
