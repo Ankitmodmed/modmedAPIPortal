@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Base Profile: <https://www.hl7.org/fhir/valueset.html>
+Base Profile: [https://www.hl7.org/fhir/valueset.html](https://www.hl7.org/fhir/valueset.html)
 
 The FHIR Procedure resource is used to record detailed information about actions performed on patients.
 
