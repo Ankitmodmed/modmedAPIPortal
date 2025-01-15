@@ -14,12 +14,12 @@ This API simulates the behavior of a user within a medical practice. Once your a
 
 It's recommended that your application be capable of storing unique credentials for every practice it interacts with. Each MMI practice also has a unique URL structure, distinguished by a practice-specific prefix. The URL format follows this structure:
 
-https\://{practice_prefix}.ema.md
+https\://\{practice\_prefix}.ema.md
 
 For example:
 
-- "Dermatology Associates" might have a URL like <https://dermassoc.ema.md>
-- "Urological Associates" might have a URL like <https://uroassoc.ema.md>
+* "Dermatology Associates" might have a URL like [https://dermassoc.ema.md](https://dermassoc.ema.md)
+* "Urological Associates" might have a URL like [https://uroassoc.ema.md](https://uroassoc.ema.md)
 
 Your application must support this URL prefix system to differentiate between MMI practices.
 
@@ -31,10 +31,10 @@ Before integrating with Modernizing Medicine, it's important to determine whethe
 
 EMA-only practices will not have:
 
-- Appointment or scheduling information (available only in the Practice Management system).
-- Patient account balances.
-- The ability to process inbound charges.
-- Charges available until the visit is finalized.
+* Appointment or scheduling information (available only in the Practice Management system).
+* Patient account balances.
+* The ability to process inbound charges.
+* Charges available until the visit is finalized.
 
 ***
 
@@ -44,8 +44,8 @@ Handling identifiers correctly is crucial when interacting with the API. Here’
 
 #### Patients
 
-Every patient has a unique MMI Identifier (commonly referred to as EMAID).  
-Some patients may also have a PMSID if they interface with another Practice Management System.  
+Every patient has a unique MMI Identifier (commonly referred to as EMAID).\
+Some patients may also have a PMSID if they interface with another Practice Management System.\
 Patients will also have a Medical Record Number (MRN). However, non-MMI identifiers (e.g., PMSID, MRN) cannot be guaranteed as unique.
 
 #### Practitioners(Providers)
@@ -54,5 +54,5 @@ Providers have a unique MMI identifier and an NPI (National Provider Identifier)
 
 #### Locations or Business Units
 
-Locations and Business Units each have unique MMI identifiers. They may also have a PMSID and/or NPI.  
+Locations and Business Units each have unique MMI identifiers. They may also have a PMSID and/or NPI.\
 Make sure that your application retrieves the necessary identifiers from the API to handle these transactions appropriately.
