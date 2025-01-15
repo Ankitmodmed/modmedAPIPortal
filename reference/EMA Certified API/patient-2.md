@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Base profile: <http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient>
+Base profile: [http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient](http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient)
 
 The Patient endpoint in FHIR is used to manage patient information. Here is a general description and a sample response of the FHIR Patient endpoint, highlighting its key components:
 
@@ -169,10 +169,10 @@ The GET: /Patient/$export endpoint is part of the FHIR Bulk Data Access specific
 
 ### Query Parameters
 
-- **\_outputFormat** (optional): Specifies the format of the generated files (e.g., application/fhir+ndjson).
-- **\_since** (optional): Only include resource versions updated after this time.
-- **\_type** (optional): Specifies the types of resources to be included in the export.
-- **\_typeFilter** (optional): A parameter to filter the resources further.
+* **\_outputFormat** (optional): Specifies the format of the generated files (e.g., application/fhir+ndjson).
+* **\_since** (optional): Only include resource versions updated after this time.
+* **\_type** (optional): Specifies the types of resources to be included in the export.
+* **\_typeFilter** (optional): A parameter to filter the resources further.
 
 <br />
 
