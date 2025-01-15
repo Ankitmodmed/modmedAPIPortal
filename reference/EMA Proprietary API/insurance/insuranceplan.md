@@ -26,5 +26,5 @@ The following attributes are supported:
 
 The Following Operations are supported:
 
-- InsurancePlan READ
-- InsurancePlan SEARCH
+* InsurancePlan READ
+* InsurancePlan SEARCH
