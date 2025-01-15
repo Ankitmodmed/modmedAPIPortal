@@ -10,9 +10,9 @@ metadata:
 next:
   description: ''
 ---
-Base profile: <http://hl7.org/fhir/us/core/StructureDefinition/us-core-coverage>
+Base profile: [http://hl7.org/fhir/us/core/StructureDefinition/us-core-coverage](http://hl7.org/fhir/us/core/StructureDefinition/us-core-coverage)
 
-Coverage typically refers to insurance information about a patient, such as the health plan, subscriber, and characteristics of the coverage.  
+Coverage typically refers to insurance information about a patient, such as the health plan, subscriber, and characteristics of the coverage.\
 Here are key components of the Coverage resource in FHIR:
 
 1. **Identifier**: Unique identifiers assigned to the coverage.
