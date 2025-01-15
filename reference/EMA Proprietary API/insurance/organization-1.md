@@ -31,9 +31,9 @@ The Following additional attributes are supported additionally for Organizations
 
 The Following Operations are supported:
 
-- Organization READ
-- Organization SEARCH
-- Organization CREATE(supported only for Referring Institutions)
+* Organization READ
+* Organization SEARCH
+* Organization CREATE(supported only for Referring Institutions)
 
 ### Organization CREATE
 
@@ -41,31 +41,72 @@ The following attributes are required:
 
 <br />
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Field Name",
-    "h-1": "Notes",
-    "0-0": "identifier",
-    "0-1": "NPI:  \n<http://www.hl7.org/fhir/v2/0203/index.html#v2-0203-NPI>",
-    "1-0": "active",
-    "1-1": "true",
-    "2-0": "type",
-    "2-1": "code = ‘prov’",
-    "3-0": "name",
-    "3-1": "",
-    "4-0": "address",
-    "4-1": ""
-  },
-  "cols": 2,
-  "rows": 5,
-  "align": [
-    "left",
-    "left"
-  ]
-}
-[/block]
+<Table align={["left","left"]}>
+  <thead>
+    <tr>
+      <th style={{ textAlign: "left" }}>
+        Field Name
+      </th>
 
+      <th style={{ textAlign: "left" }}>
+        Notes
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        identifier
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        NPI:\
+        [http://www.hl7.org/fhir/v2/0203/index.html#v2-0203-NPI](http://www.hl7.org/fhir/v2/0203/index.html#v2-0203-NPI)
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        active
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        true
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        type
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        code = ‘prov’
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        name
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        address
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 The following attributes are optional to send in:
 
