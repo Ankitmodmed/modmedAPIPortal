@@ -14,26 +14,12 @@ MMI has developed functionality that allows 3rd party vendors to send structured
 
 ## **User Experience**
 
-When a vendor POSTs something new to a Patient, an EMA user will see a modal pop up the next time  
+When a vendor POSTs something new to a Patient, an EMA user will see a modal pop up the next time\
 they visit that Patient’s chart:
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/28bdf52bd934d4d2899569008a27aafade1817c78c97609ac70d3d54100034f0-image.png",
-        null,
-        null
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
+<Image align="center" src="https://files.readme.io/28bdf52bd934d4d2899569008a27aafade1817c78c97609ac70d3d54100034f0-image.png" />
 
-
-From there, any of the new items can either be individually reconciled or all can be accepted or rejected  
+From there, any of the new items can either be individually reconciled or all can be accepted or rejected\
 at once:
 
 ![](https://files.readme.io/11f01d3e651a87900b8b6f7fde1f64a7d6fdd42c35c6904d597cdef0ba0983be-image.png)
