@@ -10,9 +10,9 @@ metadata:
 next:
   description: ''
 ---
-Base profile: <http://hl7.org/fhir/us/core/StructureDefinition/us-core-location>
+Base profile: [http://hl7.org/fhir/us/core/StructureDefinition/us-core-location](http://hl7.org/fhir/us/core/StructureDefinition/us-core-location)
 
-The Location resource is used to describe a physical location where healthcare services are provided.  
+The Location resource is used to describe a physical location where healthcare services are provided.\
 Here is an overview of key components of the FHIR Location resource, along with a sample response:
 
 ### Key Components:
