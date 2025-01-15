@@ -1,8 +1,37 @@
 ---
 name: Test Card
 ---
-[block:html]
-{
-  "html": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Styled Container</title>\n    <link rel=\"stylesheet\" href=\"styles.css\">\n</head>\n<body>\n    <div class=\"container\">\n        <div class=\"image-container\">\n            <div class=\"rotated-bar\"></div>\n        </div>\n        <div class=\"text-content\">\n            <div class=\"title\">\n                Sadipscing elitr sed diam nonumy dolor sit amet\n            </div>\n            <div class=\"spacer\"></div>\n            <div class=\"description\">\n                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor.\n            </div>\n            <div class=\"spacer\"></div>\n            <div class=\"link-container\">\n                <div class=\"link-text\">Link</div>\n                <div class=\"icon\">\n                    <div class=\"icon-background\"></div>\n                </div>\n            </div>\n        </div>\n    </div>\n</body>\n</html>"
-}
-[/block]
+<HTMLBlock>{`
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Container</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="image-container">
+            <div class="rotated-bar"></div>
+        </div>
+        <div class="text-content">
+            <div class="title">
+                Sadipscing elitr sed diam nonumy dolor sit amet
+            </div>
+            <div class="spacer"></div>
+            <div class="description">
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor.
+            </div>
+            <div class="spacer"></div>
+            <div class="link-container">
+                <div class="link-text">Link</div>
+                <div class="icon">
+                    <div class="icon-background"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+`}</HTMLBlock>
