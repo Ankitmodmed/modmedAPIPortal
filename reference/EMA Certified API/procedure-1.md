@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Base profile: <http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure>
+Base profile: [http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure](http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure)
 
 The Procedure resource in FHIR represents an action that is being, has been, or is scheduled to be performed on a patient. Examples of procedures include surgeries, therapies, diagnostic actions, and more.
 
