@@ -10,22 +10,22 @@ metadata:
 next:
   description: ''
 ---
-Base profile: <http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter>
+Base profile: [http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter](http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter)
 
 The FHIR (Fast Healthcare Interoperability Resources) Encounter resource is used to record an interaction between a patient and healthcare provider(s) during which services are provided. A FHIR Encounter endpoint typically deals with the creation, retrieval, and management of these interactions. Below are key components and a sample response of a FHIR Encounter endpoint:
 
 ### Key Components of FHIR Encounter
 
-- **id**: A unique identifier for the encounter.
-- **status**: The current state of the encounter (e.g., planned, arrived, in-progress, etc.).
-- **class**: The classification of the encounter (e.g., outpatient, inpatient).
-- **type**: Specific type of encounter (e.g., emergency, consultation).
-- **subject**: The patient involved in the encounter.
-- **participant**: The individuals involved in the encounter other than the patient (e.g., practitioners).
-- **period**: The start and end time of the encounter.
-- **location**: The location(s) where the encounter took place.
-- **reasonCode**: The reason for the encounter.
-- **diagnosis**: Information about the diagnosis during the encounter.
+* **id**: A unique identifier for the encounter.
+* **status**: The current state of the encounter (e.g., planned, arrived, in-progress, etc.).
+* **class**: The classification of the encounter (e.g., outpatient, inpatient).
+* **type**: Specific type of encounter (e.g., emergency, consultation).
+* **subject**: The patient involved in the encounter.
+* **participant**: The individuals involved in the encounter other than the patient (e.g., practitioners).
+* **period**: The start and end time of the encounter.
+* **location**: The location(s) where the encounter took place.
+* **reasonCode**: The reason for the encounter.
+* **diagnosis**: Information about the diagnosis during the encounter.
 
 **Sample Response Object:**
 
