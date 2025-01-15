@@ -10,44 +10,87 @@ metadata:
 next:
   description: ''
 ---
-Base Profile: <https://www.hl7.org/fhir/location.html>
+Base Profile: [https://www.hl7.org/fhir/location.html](https://www.hl7.org/fhir/location.html)
 
 Common use cases include:
 
-- Find the Locations of a Practice
-- Find the identifiers of Locations
-- Find the BusinessUnit for a Location
-- Search for a Location by name
+* Find the Locations of a Practice
+* Find the identifiers of Locations
+* Find the BusinessUnit for a Location
+* Search for a Location by name
 
 The following attributes are supported:
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Field Name",
-    "h-1": "Notes",
-    "0-0": "id",
-    "0-1": "The MMI-specific unique identifier for the location",
-    "1-0": "identifier",
-    "1-1": "Other identifiers for the Location:    \n  \n- BusinessUnitId (for when the practice is using Modernizing Medicine Practice Management System) \n- PMSID (additional identifier for the location used in HL7 interfaces and sometimes needs to be used in conjunction with the API)",
-    "2-0": "status",
-    "2-1": "active|inactive",
-    "3-0": "name",
-    "3-1": "Name of the practice (location)",
-    "4-0": "address",
-    "4-1": "Address of the location"
-  },
-  "cols": 2,
-  "rows": 5,
-  "align": [
-    "left",
-    "left"
-  ]
-}
-[/block]
+<Table align={["left","left"]}>
+  <thead>
+    <tr>
+      <th style={{ textAlign: "left" }}>
+        Field Name
+      </th>
 
+      <th style={{ textAlign: "left" }}>
+        Notes
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        id
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The MMI-specific unique identifier for the location
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        identifier
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Other identifiers for the Location:    
+
+        * BusinessUnitId (for when the practice is using Modernizing Medicine Practice Management System) 
+        * PMSID (additional identifier for the location used in HL7 interfaces and sometimes needs to be used in conjunction with the API)
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        status
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        active|inactive
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        name
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Name of the practice (location)
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        address
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Address of the location
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 The Following Operations are supported:
 
-- Location READ
-- Location SEARCH
+* Location READ
+* Location SEARCH
