@@ -10,21 +10,21 @@ metadata:
 next:
   description: ''
 ---
-Base profile: <http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest>
+Base profile: [http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest](http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest)
 
 The FHIR (Fast Healthcare Interoperability Resources) MedicationRequest resource is used to request medication for a patient. It covers the prescription of medication to a patient, whether it is intended to be taken by them or administered to them.
 
 ### Key Components of MedicationRequest
 
-- **id**: A unique identifier for the medication request.
-- **status**: The status of the medication request (e.g., active, completed, or stopped).
-- **intent**: Indicates the intention behind the medication request (e.g., order or plan).
-- **medicationCodeableConcept**: The medication to be taken, identified by a code or name.
-- **subject**: The patient for whom the medication request is intended.
-- **authoredOn**: The date and time when the request was created.
-- **requester**: The healthcare provider or organization who requested the medication.
-- **dosageInstruction**: Instructions on how the medication should be taken.
-- **dispenseRequest**: Details on how the medication is to be supplied, including quantity and expected supply duration.
+* **id**: A unique identifier for the medication request.
+* **status**: The status of the medication request (e.g., active, completed, or stopped).
+* **intent**: Indicates the intention behind the medication request (e.g., order or plan).
+* **medicationCodeableConcept**: The medication to be taken, identified by a code or name.
+* **subject**: The patient for whom the medication request is intended.
+* **authoredOn**: The date and time when the request was created.
+* **requester**: The healthcare provider or organization who requested the medication.
+* **dosageInstruction**: Instructions on how the medication should be taken.
+* **dispenseRequest**: Details on how the medication is to be supplied, including quantity and expected supply duration.
 
 **Sample Response Object:**
 
