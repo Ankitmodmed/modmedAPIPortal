@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Base profile: <http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner>
+Base profile: [http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner](http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner)
 
 The FHIR (Fast Healthcare Interoperability Resources) Practitioner resource is used to represent a healthcare practitioner, such as a doctor, nurse, or pharmacist, in a standard format that can be easily shared and understood across different healthcare systems.
 
