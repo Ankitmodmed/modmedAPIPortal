@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Base profile: <https://www.hl7.org/fhir/condition.html>
+Base profile: &lt;https://www.hl7.org/fhir/condition.html&gt;
 
 Common use cases include:
 
@@ -46,7 +46,6 @@ The following attributes are supported:
   ]
 }
 [/block]
-
 
 The Following Operations are supported:
 
