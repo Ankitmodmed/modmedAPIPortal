@@ -18,20 +18,20 @@ OAuth 2.0 offers various grant types (or "methods") for acquiring an access toke
 
 ### Authentication Endpoints
 
-**Generic Sandboxes:**  
-<https://stage.ema-api.com/ema-dev/firm/{firm_url_prefix}/ema/ws/oauth2/grant>
+**Generic Sandboxes:**\
+[https://stage.ema-api.com/ema-dev/firm/\{firm\_url\_prefix}/ema/ws/oauth2/grant](https://stage.ema-api.com/ema-dev/firm/\{firm_url_prefix}/ema/ws/oauth2/grant)
 
-**Practice Sandboxes:**  
-<https://stage.ema-api.com/ema-training/firm/{firm_url_prefix}/ema/ws/oauth2/grant>
+**Practice Sandboxes:**\
+[https://stage.ema-api.com/ema-training/firm/\{firm\_url\_prefix}/ema/ws/oauth2/grant](https://stage.ema-api.com/ema-training/firm/\{firm_url_prefix}/ema/ws/oauth2/grant)
 
-**Production:**  
-<https://mmapi.ema-api.com/ema-prod/firm/{firm_url_prefix}/ema/ws/oauth2/grant>
+**Production:**\
+[https://mmapi.ema-api.com/ema-prod/firm/\{firm\_url\_prefix}/ema/ws/oauth2/grant](https://mmapi.ema-api.com/ema-prod/firm/\{firm_url_prefix}/ema/ws/oauth2/grant)
 
 ### Request Parameters (Body , x-www-form-urlencoded)
 
-grant_type: password  
-username: {the username provided}  
-password: {the password provided}
+grant\_type: password\
+username: \{the username provided}\
+password: \{the password provided}
 
 **Example:**
 
@@ -47,7 +47,7 @@ https://stage.ema-api.com/ema-dev/firm/emapmsandbox01/ema/ws/oauth2/grant \
 
 ![](https://files.readme.io/0986c46764cf83e68c224c7753982048268f63afa8b86e09f3802b26bf4d2ef5-image.png)
 
-Once you make the POST, you should get both the Access token and the Refresh tokens returned to you similar to the example here (the values are intentionally obfuscated):  
+Once you make the POST, you should get both the Access token and the Refresh tokens returned to you similar to the example here (the values are intentionally obfuscated):\
 Sample Return:
 
 ```
@@ -63,7 +63,7 @@ ibW9kbWVkIiwidG9rZW5……..."
 }
 ```
 
-Once you have the Access Token, you will use that in each of the calls to the API. You can use the Refresh Token to obtain additional Access Tokens:  
+Once you have the Access Token, you will use that in each of the calls to the API. You can use the Refresh Token to obtain additional Access Tokens:\
 Example:
 
 ```Text http
