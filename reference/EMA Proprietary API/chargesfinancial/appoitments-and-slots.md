@@ -12,18 +12,18 @@ next:
 ---
 ## Appointments
 
-Base profile: <http://hl7.org/fhir/StructureDefinition/Appointment>
+Base profile: [http://hl7.org/fhir/StructureDefinition/Appointment](http://hl7.org/fhir/StructureDefinition/Appointment)
 
 When scheduling an appointment, it’s essential to understand that an appointment can only be booked if there is a valid **Slot** available. Slots are configured based on the practice’s calendar settings. Different providers may have varying appointment durations for the same appointment type.
 
 To successfully book an appointment, the following details are required:
 
-- Appointment Type 
-- Location 
-- Provider 
-- Patient 
-- Date/Time 
-- Duration
+* Appointment Type 
+* Location 
+* Provider 
+* Patient 
+* Date/Time 
+* Duration
 
 When querying available slots, providing just the **Appointment Type** is the minimum requirement. However, because each practice may configure its calendar differently, it’s recommended to include additional details like at least one **Practitioner**, one **Location**, and a date/time range for more accurate results.
 
@@ -31,81 +31,202 @@ When querying available slots, providing just the **Appointment Type** is the mi
 
 ### Appointment API Information
 
-**Base URL:** {base_url}/{firm_url_prefix}/ema/fhir/v2/Appointment
+**Base URL:** \{base\_url}/\{firm\_url\_prefix}/ema/fhir/v2/Appointment
 
-**Appointment Type ValueSet:**  
-{base_url}/{firm_url_prefix}/ema/fhir/v2/ValueSet/appointment-type
+**Appointment Type ValueSet:**\
+\{base\_url}/\{firm\_url\_prefix}/ema/fhir/v2/ValueSet/appointment-type
 
-- Appointment types are configured at the **firm level **and can be found by referencing the firm-specific appointment-type ValueSet.
-- This ValueSet only returns **active** appointment types. If an expected type is missing, it may have been set to inactive.
+* Appointment types are configured at the **firm level** and can be found by referencing the firm-specific appointment-type ValueSet.
+* This ValueSet only returns **active** appointment types. If an expected type is missing, it may have been set to inactive.
 
-**Reportable Reason ValueSet:**  
-{base_url}/{firm_url_prefix}/ema/fhir/v2/ValueSet/reportable-reason
+**Reportable Reason ValueSet:**\
+\{base\_url}/\{firm\_url\_prefix}/ema/fhir/v2/ValueSet/reportable-reason
 
-- Similarly, reportable reasons are configured at the firm level. Use the firm-specific reportable-reason ValueSet to find these reasons.
+* Similarly, reportable reasons are configured at the firm level. Use the firm-specific reportable-reason ValueSet to find these reasons.
 
-**Cancellation Reason ValueSet:**  
-{base_url}/{firm_url_prefix}/ema/fhir/v2/ValueSet/appointment-cancellation-reason
+**Cancellation Reason ValueSet:**\
+\{base\_url}/\{firm\_url\_prefix}/ema/fhir/v2/ValueSet/appointment-cancellation-reason
 
 ***
 
 ### Common Use Cases
 
-- Retrieve all appointments for a practice
-- Find a specific appointment
-- Create a new appointment
-- Update the status of an appointment
+* Retrieve all appointments for a practice
+* Find a specific appointment
+* Create a new appointment
+* Update the status of an appointment
 
 The following attributes are supported:
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Field Name",
-    "h-1": "Notes",
-    "0-0": "id",
-    "0-1": "The MMI-specific unique identifier for the Appointment",
-    "1-0": "status",
-    "1-1": "FHIR supports the following statuses:  \npending|booked|arrived|fulfilled|cancelled|noshow|entered-in-error|checked-in|waitlist  \n  \nThese statuses are mapped as follows in Modernizing Medicine’s Practice Management System UI:  \npending = pending  \nbooked = confirmed  \narrived = arrived  \nfulfilled = checked-out  \ncancelled = cancelled  \nnoshow = no show  \nentered-in-error = NOT SUPPORTED in MMPM  \nchecked-in = checked in  \nwaitlist = NOT SUPPORTED in MMPM",
-    "2-0": "cancelationReason",
-    "2-1": "{baseurl}/{firm_url_prefix}/ema/fhir/v2/ValueSet/appointment-cancellation-reason",
-    "3-0": "appointment type",
-    "3-1": "Appointment Type ValueSet: {baseurl}/{firm_url_prefix}/ema/fhir/v2/ValueSet/appointment-type",
-    "4-0": "reasonCode",
-    "4-1": "Reportable Reason Value Set: {baseurl}/{firm_url_prefix}/ema/fhir/v2/ValueSet/reportable-reason",
-    "5-0": "description",
-    "5-1": "Free text field that is mapped to the “Reason for Visit” field in MMPM. Max length for description is 100 characters",
-    "6-0": "supportingInformation",
-    "6-1": "identifier: NEW_PATIENT (true/false) boolean",
-    "7-0": "comment",
-    "7-1": "Free Text field that is mapped to the “Appointment Notes” field in MMPM  \nMax length for comment is 2048 characters",
-    "8-0": "start",
-    "8-1": "Start Time and Date for the appointment",
-    "9-0": "end",
-    "9-1": "End time and date for the appointment",
-    "10-0": "minutesDuration",
-    "10-1": "Duration of the appointment in minutes",
-    "11-0": "created",
-    "11-1": "Date and time the appointment was created",
-    "12-0": "participant",
-    "12-1": "References to the Actors for the appointment:  \n  \n- Location\n- Practitioner\n- Patient"
-  },
-  "cols": 2,
-  "rows": 13,
-  "align": [
-    "left",
-    "left"
-  ]
-}
-[/block]
+<Table align={["left","left"]}>
+  <thead>
+    <tr>
+      <th style={{ textAlign: "left" }}>
+        Field Name
+      </th>
 
+      <th style={{ textAlign: "left" }}>
+        Notes
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        id
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        The MMI-specific unique identifier for the Appointment
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        status
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        FHIR supports the following statuses:\
+        pending|booked|arrived|fulfilled|cancelled|noshow|entered-in-error|checked-in|waitlist  
+
+        These statuses are mapped as follows in Modernizing Medicine’s Practice Management System UI:\
+        pending = pending\
+        booked = confirmed\
+        arrived = arrived\
+        fulfilled = checked-out\
+        cancelled = cancelled\
+        noshow = no show\
+        entered-in-error = NOT SUPPORTED in MMPM\
+        checked-in = checked in\
+        waitlist = NOT SUPPORTED in MMPM
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        cancelationReason
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        \{baseurl}/\{firm\_url\_prefix}/ema/fhir/v2/ValueSet/appointment-cancellation-reason
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        appointment type
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Appointment Type ValueSet: \{baseurl}/\{firm\_url\_prefix}/ema/fhir/v2/ValueSet/appointment-type
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        reasonCode
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Reportable Reason Value Set: \{baseurl}/\{firm\_url\_prefix}/ema/fhir/v2/ValueSet/reportable-reason
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        description
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Free text field that is mapped to the “Reason for Visit” field in MMPM. Max length for description is 100 characters
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        supportingInformation
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        identifier: NEW\_PATIENT (true/false) boolean
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        comment
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Free Text field that is mapped to the “Appointment Notes” field in MMPM\
+        Max length for comment is 2048 characters
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        start
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Start Time and Date for the appointment
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        end
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        End time and date for the appointment
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        minutesDuration
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Duration of the appointment in minutes
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        created
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Date and time the appointment was created
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        participant
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        References to the Actors for the appointment:  
+
+        * Location
+        * Practitioner
+        * Patient
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 The Following Operations are supported:
 
-- Appointment READ
-- Appointment SEARCH
-- Appointment CREATE
-- Appointment UPDATE
+* Appointment READ
+* Appointment SEARCH
+* Appointment CREATE
+* Appointment UPDATE
 
 ***
 
@@ -115,41 +236,123 @@ The minimum attributes for creating an appointment are:
 
 <br />
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Name",
-    "h-1": "Type",
-    "h-2": "Description",
-    "0-0": "participant",
-    "0-1": "reference",
-    "0-2": "- Patient\n- Location\n- Practitioner",
-    "1-0": "appointmentType",
-    "1-1": "ValueSet",
-    "1-2": "Appointment Type ValueSet: {baseurl}/{firm_url_prefix}/ema/fhir/v2/ValueSet/appointment-type",
-    "2-0": "start",
-    "2-1": "datetime",
-    "2-2": "start time and date for the appointment",
-    "3-0": "end",
-    "3-1": "datetime",
-    "3-2": "end time and date for the appointment",
-    "4-0": "minutesDuration",
-    "4-1": "integer",
-    "4-2": "Duration of the appointment in minutes",
-    "5-0": "status",
-    "5-1": "code",
-    "5-2": "FHIR supports the following statuses:  \npending|booked|arrived|fulfilled|cancelled|noshow|entered-in-error|checkedin|waitlist  \n  \nThese statuses are mapped as follows in Modernizing Medicine’s Practice Management System UI:  \npending = pending  \nbooked = confirmed  \narrived = arrived  \nfulfilled = checked-out  \ncancelled = cancelled  \nnoshow = no show  \nentered-in-error = NOT SUPPORTED in MMPM  \nchecked-in = checked in  \nwaitlist = NOT SUPPORTED in MMPM"
-  },
-  "cols": 3,
-  "rows": 6,
-  "align": [
-    "left",
-    "left",
-    "left"
-  ]
-}
-[/block]
+<Table align={["left","left","left"]}>
+  <thead>
+    <tr>
+      <th style={{ textAlign: "left" }}>
+        Name
+      </th>
 
+      <th style={{ textAlign: "left" }}>
+        Type
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        participant
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        reference
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        * Patient
+        * Location
+        * Practitioner
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        appointmentType
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        ValueSet
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Appointment Type ValueSet: \{baseurl}/\{firm\_url\_prefix}/ema/fhir/v2/ValueSet/appointment-type
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        start
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        datetime
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        start time and date for the appointment
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        end
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        datetime
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        end time and date for the appointment
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        minutesDuration
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        integer
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Duration of the appointment in minutes
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        status
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        code
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        FHIR supports the following statuses:\
+        pending|booked|arrived|fulfilled|cancelled|noshow|entered-in-error|checkedin|waitlist  
+
+        These statuses are mapped as follows in Modernizing Medicine’s Practice Management System UI:\
+        pending = pending\
+        booked = confirmed\
+        arrived = arrived\
+        fulfilled = checked-out\
+        cancelled = cancelled\
+        noshow = no show\
+        entered-in-error = NOT SUPPORTED in MMPM\
+        checked-in = checked in\
+        waitlist = NOT SUPPORTED in MMPM
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 The payload of appointment create would generate this experience when someone at the practice went to view the created appointment:
 
@@ -157,25 +360,47 @@ The payload of appointment create would generate this experience when someone at
 
 When creating Appointments users will also be able to push ‘Referring Provider’ as well as ‘Referral Source’ data within the context of the Appointment. This data would be sent within the ‘supportingInformation’ field.
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Name",
-    "h-1": "Description",
-    "0-0": "supportingInformation",
-    "0-1": "identifier: NEW_PATIENT (true/false) boolean  \n  \nReference to Practitioner(referring Provider) or Reference to Organization(Referring Institution).  \nThis is optional data.  \n  \nReferral-Source identifier which is a ValueSet  \n{firm_url_prefix}/ema/fhir/v2/ValueSet/referral-source",
-    "1-0": "",
-    "1-1": ""
-  },
-  "cols": 2,
-  "rows": 2,
-  "align": [
-    "left",
-    "left"
-  ]
-}
-[/block]
+<Table align={["left","left"]}>
+  <thead>
+    <tr>
+      <th style={{ textAlign: "left" }}>
+        Name
+      </th>
 
+      <th style={{ textAlign: "left" }}>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        supportingInformation
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        identifier: NEW\_PATIENT (true/false) boolean  
+
+        Reference to Practitioner(referring Provider) or Reference to Organization(Referring Institution).\
+        This is optional data.  
+
+        Referral-Source identifier which is a ValueSet\
+        \{firm\_url\_prefix}/ema/fhir/v2/ValueSet/referral-source
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 ***
 
@@ -185,49 +410,174 @@ Fields accepted for updating an appointment are:
 
 <br />
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Name",
-    "h-1": "Type",
-    "h-2": "Description",
-    "0-0": "description",
-    "0-1": "string",
-    "0-2": "updates the “reason for visit” field in MMPM",
-    "1-0": "minutesDuration",
-    "1-1": "string",
-    "1-2": "updates the duration of an appointment",
-    "2-0": "start",
-    "2-1": "datetime",
-    "2-2": "",
-    "3-0": "end",
-    "3-1": "datetime",
-    "3-2": "",
-    "4-0": "status",
-    "4-1": "code",
-    "4-2": "FHIR supports the following statuses:  \npending|booked|arrived|fulfilled|cancelled|noshow|entered-in-error|checkedin|waitlist  \n  \nThese statuses are mapped as follows in Modernizing Medicine’s Practice Management System UI:  \npending = pending  \nbooked = confirmed  \narrived = arrived  \nfulfilled = checked-out  \ncancelled = cancelled  \nnoshow = no show  \nentered-in-error = NOT SUPPORTED in MMPM  \nchecked-in = checked in  \nwaitlist = NOT SUPPORTED in MMPM",
-    "5-0": "reportableReason",
-    "5-1": "string",
-    "5-2": "",
-    "6-0": "description",
-    "6-1": "string",
-    "6-2": "",
-    "7-0": "supportingInformation",
-    "7-1": "identifier",
-    "7-2": "identifier: NEW_PATIENT (true/false) boolean",
-    "8-0": "comment",
-    "8-1": "string",
-    "8-2": "",
-    "9-0": "cancelationReason",
-    "9-1": "code",
-    "9-2": "{baseurl}/{firm_url_prefix}/ema/fhir/v2/ValueSet/appointment-cancellation-reason"
-  },
-  "cols": 3,
-  "rows": 10,
-  "align": [
-    "left",
-    "left",
-    "left"
-  ]
-}
-[/block]
+<Table align={["left","left","left"]}>
+  <thead>
+    <tr>
+      <th style={{ textAlign: "left" }}>
+        Name
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        Type
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        description
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        string
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        updates the “reason for visit” field in MMPM
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        minutesDuration
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        string
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        updates the duration of an appointment
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        start
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        datetime
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        end
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        datetime
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        status
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        code
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        FHIR supports the following statuses:\
+        pending|booked|arrived|fulfilled|cancelled|noshow|entered-in-error|checkedin|waitlist  
+
+        These statuses are mapped as follows in Modernizing Medicine’s Practice Management System UI:\
+        pending = pending\
+        booked = confirmed\
+        arrived = arrived\
+        fulfilled = checked-out\
+        cancelled = cancelled\
+        noshow = no show\
+        entered-in-error = NOT SUPPORTED in MMPM\
+        checked-in = checked in\
+        waitlist = NOT SUPPORTED in MMPM
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        reportableReason
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        string
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        description
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        string
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        supportingInformation
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        identifier
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        identifier: NEW\_PATIENT (true/false) boolean
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        comment
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        string
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        cancelationReason
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        code
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        \{baseurl}/\{firm\_url\_prefix}/ema/fhir/v2/ValueSet/appointment-cancellation-reason
+      </td>
+    </tr>
+  </tbody>
+</Table>
