@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Base profile: <http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition>
+Base profile: [http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition](http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition)
 
 The Condition endpoint in FHIR is used to capture and share clinical conditions/problems/diagnoses associated with patients.
 
@@ -36,9 +36,9 @@ The key components for a FHIR Condition endpoint typically include the following
 
 10. **encounter**: Reference to the encounter during which the condition was diagnosed.
 
-11. **onset[x]**: The estimated or actual date, age, or period when the condition began.
+11. **onset\[x]**: The estimated or actual date, age, or period when the condition began.
 
-12. **abatement[x]**: The estimated or actual date, age, or period when the condition resolved or went into remission.
+12. **abatement\[x]**: The estimated or actual date, age, or period when the condition resolved or went into remission.
 
 13. **recordedDate**: The date when the condition was recorded.
 
