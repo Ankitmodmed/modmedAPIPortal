@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Base Profile: <https://www.hl7.org/fhir/slot.html>
+Base Profile: &lt;https://www.hl7.org/fhir/slot.html&gt;
 
 Common use cases include:
 
@@ -35,4 +35,4 @@ The Following Operations are supported:
 
 1. Slot Search is currently limited to 5 day increments. When looking for available slots please use time frames which are limited to 5 days or less.  
    Additionally, it is highly recommended that, while not required, you include at least one Practitioner and at least one Location in your query. Any query which does not contain those parameters may be unpredictable in terms of response times.
-2. You cannot do a search with only a single date if the prefix is \<=, \<, >=, or >. Valid prefixes for the date search are only 'eq' or no prefix at all.
+2. You cannot do a search with only a single date if the prefix is &lt;=, &lt;, >=, or >. Valid prefixes for the date search are only 'eq' or no prefix at all.
