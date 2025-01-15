@@ -27,7 +27,7 @@ OAuth 2.0 offers various grant types (or "methods") for acquiring an access toke
 **Production:**\
 [https://mmapi.ema-api.com/ema-prod/firm/\{firm\_url\_prefix}/ema/ws/oauth2/grant](https://mmapi.ema-api.com/ema-prod/firm/\{firm_url_prefix}/ema/ws/oauth2/grant)
 
-### Request Parameters (Body , \x-www-form-urlencoded)
+### Request Parameters (Body , x-www-form-urlencoded)
 
 grant\_type: password\
 username: \{the username provided}\
@@ -38,10 +38,10 @@ password: \{the password provided}
 ```Text http
 curl -X POST \
 https://stage.ema-api.com/ema-dev/firm/emapmsandbox01/ema/ws/oauth2/grant \
--H 'Content-Type: application/\x-www-form-urlencoded' \
--H 'Postman-Token: \ae6d78a9-2cfd-40b0-8256-7a64b7db808a' \
+-H 'Content-Type: application/x-www-form-urlencoded' \
+-H 'Postman-Token: ae6d78a9-2cfd-40b0-8256-7a64b7db808a' \
 -H 'cache-control: no-cache' \
--H 'x-api-key: \5ca254dcc3ee6372d25187h1g76cr6434e8556bd93bd36ea30' \
+-H 'x-api-key: 5ca254dcc3ee6372d25187h1g76cr6434e8556bd93bd36ea30' \
 -d 'grant_type=password&username={username}&password={password}'
 ```
 
@@ -52,7 +52,7 @@ Sample Return:
 
 ```
 {
-"scope": "\emapmsandbox01",
+"scope": "emapmsandbox01",
 "token_type": "Bearer",
 "access_token":
 "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmaGlyX2lEdm1aIiwidXJsUHJlZml4IjoiZGVybXBtc2FuZGJveDQ5IiwidmVuZ
