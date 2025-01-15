@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Base profile: <http://hl7.org/fhir/us/core/StructureDefinition/us-core-implantable-device>
+Base profile: [http://hl7.org/fhir/us/core/StructureDefinition/us-core-implantable-device](http://hl7.org/fhir/us/core/StructureDefinition/us-core-implantable-device)
 
 FHIR (Fast Healthcare Interoperability Resources) Device endpoint is used to represent details about a physical device used in healthcare, such as a medical instrument or a piece of software.
 
@@ -18,14 +18,14 @@ FHIR (Fast Healthcare Interoperability Resources) Device endpoint is used to rep
 
 **Device Resource**
 
-- **Identifier**: Unique ID for the device.
-- **Type**: What kind of device it is.
-- **Manufacturer**: Who made the device.
-- **Model**: Device model number.
-- **Version**: Version number of the device.
-- **Status**: Operational status of the device (available, not available, entered in error).
-- **Patient**: Which patient the device is assigned to.
-- **Location**: Where the device is located.
+* **Identifier**: Unique ID for the device.
+* **Type**: What kind of device it is.
+* **Manufacturer**: Who made the device.
+* **Model**: Device model number.
+* **Version**: Version number of the device.
+* **Status**: Operational status of the device (available, not available, entered in error).
+* **Patient**: Which patient the device is assigned to.
+* **Location**: Where the device is located.
 
 **Sample Response Object:**
 
