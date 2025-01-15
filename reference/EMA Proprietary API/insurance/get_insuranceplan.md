@@ -15,4 +15,4 @@ next:
 ---
 Examples:
 
-1. {base url}/{firm_url_prefix}/ema/fhir/v2/InsurancePlan?owned-by=pay|650
+1. \{base url}/\{firm\_url\_prefix}/ema/fhir/v2/InsurancePlan?owned-by=pay|650
