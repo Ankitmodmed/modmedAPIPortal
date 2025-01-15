@@ -12,14 +12,14 @@ next:
 ---
 ## MMI Proprietary API Terms of Use
 
-By using or accessing any API services or materials, you agree to be bound by the API Terms of Use available at:  
-<https://www.modmed.com/api-terms-of-use/>.
+By using or accessing any API services or materials, you agree to be bound by the API Terms of Use available at:\
+[https://www.modmed.com/api-terms-of-use/](https://www.modmed.com/api-terms-of-use/).
 
-**Overview**  
-This document is intended for any entity looking to create an application or to retrieve data for various purposes from an MMI EMA or MMPM practice using the MMI Proprietary API. **Note:** that currently this is not supported for MMGI practices.  
+**Overview**\
+This document is intended for any entity looking to create an application or to retrieve data for various purposes from an MMI EMA or MMPM practice using the MMI Proprietary API. **Note:** that currently this is not supported for MMGI practices.\
 It is encouraged that you read through the documentation carefully to ensure that your application can be powered by the Proprietary API. It is possible that you may be looking for details regarding the Certified FHIR API. If you are looking for the Certified FHIR API, you can find that documentation here: 
 
-- [https://www.modmed.com/synapsys/fhir-api/](https://emasample.readme.io/reference/getting-started-1)
+* [https://www.modmed.com/synapsys/fhir-api/](https://emasample.readme.io/reference/getting-started-1)
 
 <br />
 
@@ -27,7 +27,7 @@ It is encouraged that you read through the documentation carefully to ensure tha
 
 For Vendors or Partners who believe they can power their application using the Proprietary API, you can apply for a sandbox here:
 
-- [https://www.modmed.com/become-a-partner/](www)
+* [https://www.modmed.com/become-a-partner/](www)
 
 **Provisioning Time:** Sandboxes can take up to **two weeks** to provision from the time that they are requested. We typically provide 2 sandbox environments so that you can get comfortable with the concept of being able to work with multiple practices. Sandboxes are generic databases with sample Patients, Practitioners, Locations, and Encounters. 
 
