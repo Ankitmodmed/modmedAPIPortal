@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Base Profile: <http://hl7.org/fhir/group.html>
+Base Profile: [http://hl7.org/fhir/group.html](http://hl7.org/fhir/group.html)
 
 The FHIR (Fast Healthcare Interoperability Resources) Group endpoint is part of the FHIR standard, which defines how healthcare information can be exchanged electronically. The Group resource represents a defined collection of entities that may be managed and acted upon as a whole. These entities can be patients, practitioners, devices, medications, etc.
 
@@ -70,15 +70,15 @@ The FHIR (Fast Healthcare Interoperability Resources) Group endpoint is part of 
 
 #### Explanation
 
-- **resourceType**: The type of FHIR resource. Here, it is Group.
-- **id**: The unique identifier for this instance of the Group resource.
-- **identifier**: List of unique identifiers assigned to the Group.
-- **type**: Specifies the type of entities included in the group (person in this case).
-- **actual**: Indicates the group's type; true denotes an actual group.
-- **code**: Optional field describing the purpose or use of the group.
-- **name**: Human-readable name for the Group.
-- **quantity**: Number of members in the Group.
-- **member**: List of members within the group, each including an entity reference and optionally the period during which they were part of the group.
+* **resourceType**: The type of FHIR resource. Here, it is Group.
+* **id**: The unique identifier for this instance of the Group resource.
+* **identifier**: List of unique identifiers assigned to the Group.
+* **type**: Specifies the type of entities included in the group (person in this case).
+* **actual**: Indicates the group's type; true denotes an actual group.
+* **code**: Optional field describing the purpose or use of the group.
+* **name**: Human-readable name for the Group.
+* **quantity**: Number of members in the Group.
+* **member**: List of members within the group, each including an entity reference and optionally the period during which they were part of the group.
 
 <br />
 
@@ -90,13 +90,13 @@ The FHIR $export operation is used to initiate the export of data from a FHIR se
 
 1. **Parameters**:
 
-- outputFormat (optional): Specifies the format of the exported data (e.g., application/fhir+ndjson).
-- since (optional): Exports only data updated after the specified time.
-- \_type (optional): Specifies the types of resources to be included in the export.
+* outputFormat (optional): Specifies the format of the exported data (e.g., application/fhir+ndjson).
+* since (optional): Exports only data updated after the specified time.
+* \_type (optional): Specifies the types of resources to be included in the export.
 
-2. **Request**:  
+2. **Request**:\
    The export request is typically a GET request sent to the endpoint. It may include optional query parameters to filter or specify the exported data.
-3. **Response**:  
+3. **Response**:\
    On successful initiation of the export, the server responds with an HTTP 202 Accepted status code and a Content-Location header. The Content-Location header provides the URL of the status endpoint where the client can check the progress of the export operation.
 
 ```
@@ -108,9 +108,9 @@ Content-Location: [polling-url]
 
 #### Example Usage
 
-Assume your FHIR base URL is `https://example.com/fhir`, and you want to export data for a Group with ID 123.  
-**Example Request URL**:  
-`https://example.com/fhir/Group/123/$export`  
+Assume your FHIR base URL is `https://example.com/fhir`, and you want to export data for a Group with ID 123.\
+**Example Request URL**:\
+`https://example.com/fhir/Group/123/$export`\
 **Example Response**:
 
 ```
@@ -129,12 +129,12 @@ Content-Location: <https://example.com/fhir/bulkstatus/xyz>
 GET https://example.com/fhir/Group/123/$export
 ```
 
-2. **Check Export Status**:  
+2. **Check Export Status**:\
    Use the URL provided in the Content-Location header to poll the status of the export job:
 
 ```
 GET https://example.com/fhir/bulkstatus/xyz
 ```
 
-3. **Retrieve Exported Data**:  
+3. **Retrieve Exported Data**:\
    Once the job is complete, the status endpoint will provide URLs to download the exported files.
