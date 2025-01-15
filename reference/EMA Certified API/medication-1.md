@@ -10,18 +10,18 @@ metadata:
 next:
   description: ''
 ---
-Base profile: <http://hl7.org/fhir/StructureDefinition/Medication>
+Base profile: [http://hl7.org/fhir/StructureDefinition/Medication](http://hl7.org/fhir/StructureDefinition/Medication)
 
-The Medication endpoint in FHIR is used to represent a medication that can be or is being dispensed or administered to a patient.  
+The Medication endpoint in FHIR is used to represent a medication that can be or is being dispensed or administered to a patient.\
 Here are some key components of the FHIR Medication resource:
 
-- **Id**: Unique identifier for the medication resource.
-- **Code**: A code (or set of codes) that specify a particular medication.
-- **Status**: The status of the medication (active, inactive, etc.).
-- **Manufacturer**: Information about the manufacturer of the medication.
-- **Form**: The form in which the medication is administered (tablet, injection, etc.).
-- **Ingredient**: Details about the ingredient(s) in the medication.
-- **Batch**: Information about the batch of the medication (if applicable).
+* **Id**: Unique identifier for the medication resource.
+* **Code**: A code (or set of codes) that specify a particular medication.
+* **Status**: The status of the medication (active, inactive, etc.).
+* **Manufacturer**: Information about the manufacturer of the medication.
+* **Form**: The form in which the medication is administered (tablet, injection, etc.).
+* **Ingredient**: Details about the ingredient(s) in the medication.
+* **Batch**: Information about the batch of the medication (if applicable).
 
 **Sample Response Object:**
 
