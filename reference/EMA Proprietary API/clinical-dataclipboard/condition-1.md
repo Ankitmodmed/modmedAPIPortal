@@ -90,7 +90,7 @@ The following attributes are supported:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        Problem Type:\\
+        Problem Type:
         Problem|Condition|Diagnosis|Symptom|Finding|Complaint|Functional Limitation|Health Status
       </td>
     </tr>
