@@ -32,10 +32,10 @@ https://stage.ema-api.com/ema-dev/firm/emapmsandbox01/ema/ws/oauth2/grant \
 
 ***
 
-<Embed url="chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://www.modmed.com/wp-content/uploads/2024/07/MMI-Certified-FHIR-API-Documentation-July-2024.pdf" typeOfEmbed="pdf" provider="efaidnbmnnnibpcajpcglclefindmkaj" title="undefined" href="chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://www.modmed.com/wp-content/uploads/2024/07/MMI-Certified-FHIR-API-Documentation-July-2024.pdf" />
+<Embed url="chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://www.modmed.com/wp-content/uploads/2024/07/MMI-Certified-FHIR-API-Documentation-July-2024.pdf" typeOfEmbed="pdf" href="chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://www.modmed.com/wp-content/uploads/2024/07/MMI-Certified-FHIR-API-Documentation-July-2024.pdf" />
 
-<Embed url="" typeOfEmbed="jsfiddle" provider="" title="undefined" href="" />
+<Embed url="" typeOfEmbed="jsfiddle" href="" />
 
-<Embed url="" typeOfEmbed="iframe" provider="" title="undefined" href="" />
+<Embed url="" typeOfEmbed="iframe" href="" />
 
-<Embed url="https://www.youtube.com/" title="YouTube" favicon="https://www.youtube.com/favicon.ico" image="https://www.youtube.com/img/desktop/yt_1200.png" provider="youtube.com" href="https://www.youtube.com/" typeOfEmbed="youtube" />
+<Embed url="https://www.youtube.com/" href="https://www.youtube.com/" typeOfEmbed="youtube" />
