@@ -51,9 +51,9 @@ The following attributes are supported:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        Other identifiers for the Location:    
+        Other identifiers for the Location:
 
-        * BusinessUnitId (for when the practice is using Modernizing Medicine Practice Management System) 
+        * BusinessUnitId (for when the practice is using ModMed Practice Management System)
         * PMSID (additional identifier for the location used in HL7 interfaces and sometimes needs to be used in conjunction with the API)
       </td>
     </tr>
