@@ -18,11 +18,11 @@ When scheduling an appointment, it’s essential to understand that an appointme
 
 To successfully book an appointment, the following details are required:
 
-* Appointment Type 
-* Location 
-* Provider 
-* Patient 
-* Date/Time 
+* Appointment Type
+* Location
+* Provider
+* Patient
+* Date/Time
 * Duration
 
 When querying available slots, providing just the **Appointment Type** is the minimum requirement. However, because each practice may configure its calendar differently, it’s recommended to include additional details like at least one **Practitioner**, one **Location**, and a date/time range for more accurate results.
@@ -88,18 +88,18 @@ The following attributes are supported:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        FHIR supports the following statuses:\
-        pending|booked|arrived|fulfilled|cancelled|noshow|entered-in-error|checked-in|waitlist  
+        FHIR supports the following statuses:
+        pending|booked|arrived|fulfilled|cancelled|noshow|entered-in-error|checked-in|waitlist
 
-        These statuses are mapped as follows in Modernizing Medicine’s Practice Management System UI:\
-        pending = pending\
-        booked = confirmed\
-        arrived = arrived\
-        fulfilled = checked-out\
-        cancelled = cancelled\
-        noshow = no show\
-        entered-in-error = NOT SUPPORTED in MMPM\
-        checked-in = checked in\
+        These statuses are mapped as follows in ModMed’s Practice Management System UI:
+        pending = pending
+        booked = confirmed
+        arrived = arrived
+        fulfilled = checked-out
+        cancelled = cancelled
+        noshow = no show
+        entered-in-error = NOT SUPPORTED in MMPM
+        checked-in = checked in
         waitlist = NOT SUPPORTED in MMPM
       </td>
     </tr>
@@ -211,7 +211,7 @@ The following attributes are supported:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        References to the Actors for the appointment:  
+        References to the Actors for the appointment:
 
         * Location
         * Practitioner
@@ -337,17 +337,17 @@ The minimum attributes for creating an appointment are:
 
       <td style={{ textAlign: "left" }}>
         FHIR supports the following statuses:\
-        pending|booked|arrived|fulfilled|cancelled|noshow|entered-in-error|checkedin|waitlist  
+        pending|booked|arrived|fulfilled|cancelled|noshow|entered-in-error|checkedin|waitlist
 
         These statuses are mapped as follows in Modernizing Medicine’s Practice Management System UI:\
-        pending = pending\
-        booked = confirmed\
-        arrived = arrived\
-        fulfilled = checked-out\
-        cancelled = cancelled\
-        noshow = no show\
-        entered-in-error = NOT SUPPORTED in MMPM\
-        checked-in = checked in\
+        pending = pending
+        booked = confirmed
+        arrived = arrived
+        fulfilled = checked-out
+        cancelled = cancelled
+        noshow = no show
+        entered-in-error = NOT SUPPORTED in MMPM
+        checked-in = checked in
         waitlist = NOT SUPPORTED in MMPM
       </td>
     </tr>
@@ -380,12 +380,12 @@ When creating Appointments users will also be able to push ‘Referring Provider
       </td>
 
       <td style={{ textAlign: "left" }}>
-        identifier: NEW\_PATIENT (true/false) boolean  
+        identifier: NEW\_PATIENT (true/false) boolean
 
-        Reference to Practitioner(referring Provider) or Reference to Organization(Referring Institution).\
-        This is optional data.  
+        Reference to Practitioner(referring Provider) or Reference to Organization(Referring Institution).
+        This is optional data.
 
-        Referral-Source identifier which is a ValueSet\
+        Referral-Source identifier which is a ValueSet
         \{firm\_url\_prefix}/ema/fhir/v2/ValueSet/referral-source
       </td>
     </tr>
@@ -494,18 +494,18 @@ Fields accepted for updating an appointment are:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        FHIR supports the following statuses:\
-        pending|booked|arrived|fulfilled|cancelled|noshow|entered-in-error|checkedin|waitlist  
+        FHIR supports the following statuses:
+        pending|booked|arrived|fulfilled|cancelled|noshow|entered-in-error|checkedin|waitlist
 
-        These statuses are mapped as follows in Modernizing Medicine’s Practice Management System UI:\
-        pending = pending\
-        booked = confirmed\
-        arrived = arrived\
-        fulfilled = checked-out\
-        cancelled = cancelled\
-        noshow = no show\
-        entered-in-error = NOT SUPPORTED in MMPM\
-        checked-in = checked in\
+        These statuses are mapped as follows in Modernizing Medicine’s Practice Management System UI:
+        pending = pending
+        booked = confirmed
+        arrived = arrived
+        fulfilled = checked-out
+        cancelled = cancelled
+        noshow = no show
+        entered-in-error = NOT SUPPORTED in MMPM
+        checked-in = checked in
         waitlist = NOT SUPPORTED in MMPM
       </td>
     </tr>
