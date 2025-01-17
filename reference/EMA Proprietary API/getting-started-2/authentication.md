@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Modernizing Medicine's API uses the [OAuth 2.0](https://datatracker.ietf.org/doc/html/rfc6749) standard for authorizing API calls. To authenticate requests, an access token must be included with each API request. This token identifies your application and defines which resources (e.g., Appointments, Patients) it can access. If your application has received explicit authorization from multiple practices, you can interact with the MMI FHIR API on behalf of each.
+ModMed's API uses the [OAuth 2.0](https://datatracker.ietf.org/doc/html/rfc6749) standard for authorizing API calls. To authenticate requests, an access token must be included with each API request. This token identifies your application and defines which resources (e.g., Appointments, Patients) it can access. If your application has received explicit authorization from multiple practices, you can interact with the MMI FHIR API on behalf of each.
 
 ### Obtaining Authorization
 
@@ -30,7 +30,7 @@ OAuth 2.0 offers various grant types (or "methods") for acquiring an access toke
 ### Request Parameters (Body , x-www-form-urlencoded)
 
 grant\_type: password\
-username: \{the username provided}\
+username: \{the username provided}
 password: \{the password provided}
 
 **Example:**
