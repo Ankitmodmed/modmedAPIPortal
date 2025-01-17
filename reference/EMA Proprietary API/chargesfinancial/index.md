@@ -18,7 +18,7 @@ Common use cases include:
 * Find Charges from an Encounter
 * Add Charges to a Patient’s account
 
-Modernizing Medicine has several different flavors of ChargeItem depending on each practice’s unique configuration.
+ModMed has several different flavors of ChargeItem depending on each practice’s unique configuration.
 
 * Practices which have EMA-only (no MMPM) will notice the following:
   * Charges are only available once an encounter is finalized
@@ -87,11 +87,11 @@ The following attributes are supported:
 
     <tr>
       <td style={{ textAlign: "left" }}>
-         totalCost
+        totalCost
       </td>
 
       <td style={{ textAlign: "left" }}>
-        The totalCost of a financialTransaction if it cannot or will not be computed by other inputs.   
+        The totalCost of a financialTransaction if it cannot or will not be computed by other inputs.
 
         valueMoney: currency USD
       </td>
@@ -173,7 +173,7 @@ The following attributes are supported:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        Custom Extension designed to replicate FT1 segment of an HL7 DFT   
+        Custom Extension designed to replicate FT1 segment of an HL7 DFT
 
         NOTE: You can add multiple financialTransactionDetail(s).
       </td>
@@ -275,7 +275,7 @@ The following attributes are supported:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        Custom Extension designed to replicate the DG1 segment of an HL7 DFT    
+        Custom Extension designed to replicate the DG1 segment of an HL7 DFT
 
         NOTE: You can add multiple diagnosisDetail(s)
       </td>
@@ -309,7 +309,7 @@ The following attributes are supported:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        Custom Extension designed to replicate FT1 segment of an HL7 DFT    
+        Custom Extension designed to replicate FT1 segment of an HL7 DFT
 
         NOTE: You can add multiple procedureDetail(s)
       </td>
@@ -383,7 +383,7 @@ The following attributes are supported:
 
       <td style={{ textAlign: "left" }}>
         valueString\
-        Procedure Charge Code Modifier Goes here\
+        Procedure Charge Code Modifier Goes here
         NOTE: You can add multiple procedureCodeModifier(s).
       </td>
     </tr>
@@ -394,7 +394,7 @@ The following attributes are supported:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        planned | billable | not-billable | aborted | billed | entered-in-error | unknown    
+        planned | billable | not-billable | aborted | billed | entered-in-error | unknown
 
         NOTE: Only ‘billable’ is supported at this time.
       </td>
