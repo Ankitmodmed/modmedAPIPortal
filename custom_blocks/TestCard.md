@@ -21,7 +21,12 @@ name: Test Card
             </div>
             <div class="spacer"></div>
             <div class="description">
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor.
+                Consistent with ASTP/ONC standards, ModMed® developed a certified Fast Healthcare Interoperability Resources (FHIR) API that enables providers and patients to access and share their clinical health data.
+
+
+Patients and providers have the ability to connect to FHIR applications through EMA® and gGastro® EHRs.
+The API was designed in compliance with ONC regulatory requirements, and maps EMA and gGastro systems to various US Core Profiles to enhance interoperability and accessibility through standardized data formats.
+
             </div>
             <div class="spacer"></div>
             <div class="link-container">
