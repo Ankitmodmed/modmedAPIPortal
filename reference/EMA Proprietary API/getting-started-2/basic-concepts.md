@@ -27,7 +27,7 @@ Your application must support this URL prefix system to differentiate between MM
 
 ### **EMA vs MMPM**
 
-Before integrating with Modernizing Medicine, it's important to determine whether your application will rely on Practice Management data, Clinical data, or both. Practices may use either Electronic Medical Assistant (EMA) or Modernizing Medicine Practice Management (MMPM). Ensure the practice has the necessary products to support your application's functionality. Key differences to be aware of:
+Before integrating with ModMed, it's important to determine whether your application will rely on Practice Management data, Clinical data, or both. Practices may use either Electronic Medical Assistant (EMA) or ModMed Practice Management (MMPM). Ensure the practice has the necessary products to support your application's functionality. Key differences to be aware of:
 
 EMA-only practices will not have:
 
@@ -45,7 +45,7 @@ Handling identifiers correctly is crucial when interacting with the API. Here’
 #### Patients
 
 Every patient has a unique MMI Identifier (commonly referred to as EMAID).\
-Some patients may also have a PMSID if they interface with another Practice Management System.\
+Some patients may also have a PMSID if they interface with another Practice Management System.
 Patients will also have a Medical Record Number (MRN). However, non-MMI identifiers (e.g., PMSID, MRN) cannot be guaranteed as unique.
 
 #### Practitioners(Providers)
