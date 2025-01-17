@@ -26,9 +26,9 @@ By default, your sandbox environment provides access to **all resources** so you
 
 # Requesting Resources
 
-Once development is nearing completion, you'll need to inform Modernizing Medicine which specific resources your application requires to go live. Please note that resource provisioning can take up to two weeks after submission, so it’s important to submit your request in advance to avoid delays.
+Once development is nearing completion, you'll need to inform ModMed which specific resources your application requires to go live. Please note that resource provisioning can take up to two weeks after submission, so it’s important to submit your request in advance to avoid delays.
 
-To register your application with Modernizing Medicine, submit the following details to your MMI contact:
+To register your application with ModMed, submit the following details to your MMI contact:
 
 * Vendor Name
 * Application Name
@@ -99,7 +99,7 @@ Once the demo and technical discussion are successfully completed and your desir
 [https://stage.ema-api.com/ema-dev/firm/dermpmsandbox1/ema/ws/oauth2/grant](https://stage.ema-api.com/ema-dev/firm/dermpmsandbox1/ema/ws/oauth2/grant)
 
 **Practice Sandbox Authentication**\
-G5rWTGwOgB461tVmqUlDc3JUHCzoyURh6q25Td65\
+G5rWTGwOgB461tVmqUlDc3JUHCzoyURh6q25Td65
 [https://stage.ema-api.com/ema-training/firm/dermassoc/ema/ws/oauth2/grant](https://stage.ema-api.com/ema-training/firm/dermassoc/ema/ws/oauth2/grant)
 
 **Production Authentication**\
