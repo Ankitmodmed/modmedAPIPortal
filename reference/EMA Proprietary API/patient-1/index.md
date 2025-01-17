@@ -24,7 +24,7 @@ Base profile: [https://hl7.org/fhir/R4/patient.html](https://hl7.org/fhir/R4/pat
 ### Important Considerations
 
 * Patient Creation: If your application uses the Patient CREATE resource, the API will allow the creation of new patient records. Be mindful of avoiding duplicate entries for patients already in the system.
-* Patient Matching: To minimize duplicate patient records, ensure that your application at least matches on the following key identifiers: 
+* Patient Matching: To minimize duplicate patient records, ensure that your application at least matches on the following key identifiers:
   * First name
   * Last name
   * Date of birth (DOB)
@@ -72,12 +72,12 @@ The following attributes are supported:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        Lists the various identifiers of a patient.\
-        A patient may have one, many, or all of the following identifiers:  
+        Lists the various identifiers of a patient.
+        A patient may have one, many, or all of the following identifiers:
 
-        * **PMS** : (Practice Management System ID) - Note: For practices using Modernizing Medicine’s Practice Management System, this will be the MMI PMS ID. For practices using another Practice Management System, this will be the ID from that system.
+        * **PMS** : (Practice Management System ID) - Note: For practices using ModMed’s Practice Management System, this will be the MMI PMS ID. For practices using another Practice Management System, this will be the ID from that system.
         * **MRN** : [https://hl7.org/fhir/R4/v2/0203/index.html#v2-0203-MR](https://hl7.org/fhir/R4/v2/0203/index.html#v2-0203-MR)
-        * **SSN** : [http://hl7.org/fhir/sid/us-ssn](http://hl7.org/fhir/sid/us-ssn)**Note:**If you pass a header of ‘Content-Flag’ with a value of ‘Referral’ you can view this information (if it exists) for the Patient.  
+        * **SSN** : [http://hl7.org/fhir/sid/us-ssn](http://hl7.org/fhir/sid/us-ssn)\*\*Note:\*\*If you pass a header of ‘Content-Flag’ with a value of ‘Referral’ you can view this information (if it exists) for the Patient.
           * \*Referral Source\*\* :  /fhir/v2/ValueSet/referral-source (populates only when Content-Flag: Referral is sent)
       </td>
     </tr>
@@ -210,12 +210,12 @@ The following attributes are supported:
 
       <td style={{ textAlign: "left" }}>
         [http://hl7.org/fhir/valueset-encounter-participant-type.html](http://hl7.org/fhir/valueset-encounter-participant-type.html)\
-        MMI will support:  
+        MMI will support:
 
         * REF Referrer : This is typically a referring physician and will reference an NPI if there is one in the system
         * PPRF Primary Performer : This is typically the patient’s Primary Practitioner at the practice and\
-            will be a reference to the /Practitioner  
-          * \*Note:**These are the values at the Patient level - meaning that these values are general. You may find different Primary and Referring practitioners at the Encounter level as many times those are specific to an individual encounter.**Note:\*\* When Content-Flag: Referral is sent in the FHIR request, if the Patient has a ‘Referring Provider’, there will be a reference to a Practitioner within this field.
+          will be a reference to the /Practitioner
+          * \*Note:\*\*These are the values at the Patient level - meaning that these values are general. You may find different Primary and Referring practitioners at the Encounter level as many times those are specific to an individual encounter.\*\*Note:\*\* When Content-Flag: Referral is sent in the FHIR request, if the Patient has a ‘Referring Provider’, there will be a reference to a Practitioner within this field.
       </td>
     </tr>
 
