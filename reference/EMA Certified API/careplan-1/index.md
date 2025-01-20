@@ -93,3 +93,5 @@ The AllergyIntolerance resource is used to record information about condition-re
   ]
 }
 ```
+```json new json
+```
