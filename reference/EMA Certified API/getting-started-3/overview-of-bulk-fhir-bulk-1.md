@@ -34,3 +34,94 @@ The vendor needs to authenticate with something similar to the following.\
 For assistance, [this](https://hl7.org/fhir/smart-app-launch/example-backend-services.html#step-3-access-token) has a good tutorial about how to connect.
 
 POST: [https://sso.ema.md/auth/realms/fhir/protocol/openid-connect/token](https://sso.ema.md/auth/realms/fhir/protocol/openid-connect/token)
+
+<Table align={["left","left"]}>
+  <thead>
+    <tr>
+      <th style={{ textAlign: "left" }}>
+
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        client\_id (here you would have your client ID but here is a sample one)
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        fhir000623719917a5c0008fa3b07182314edeb0cfc804639cfa5e
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        scope
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        system/AllergyIntolerance.rs\\
+        system/CarePlan.rs
+        system/CarePlan.rs
+        system/CareTeam.rs
+        system/DocumentReference.rs
+        system/DiagnosticReport.rs
+        system/Goal.rs system/Condition.rs
+        system/Immunization.rs
+        system/Observation.rs
+        system/Medication.rs
+        system/MedicationRequest.rs
+        system/Patient.rs system/Procedure.rs
+        system/Provenance.rs
+        system/Device.rs system/Encounter.rs
+        system/Organization.rs
+        system/Practitioner.rs
+        system/PractitionerRole.rs
+        system/Location.rs
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        encryption\_method
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        ES384
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        client\_assertion
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzM
+        4NCIsImtpZCI6IjRiNDlhNzM5ZDFlYjEx
+        NWIzMjI1ZjRjZjliZWI2ZDFiIn0.eyJpc3
+        MiOiJmaGlyMDAwNjIzNzE5OTE3YTVj
+        MDAwOGZhM2IwNzE4MjMxNGVkZWI
+        wY2ZjODA0NjM5Y2ZhNWUiLCJzdWIi
+        OiJmaGlyMDAwNjIzNzE5OTE3YTVjM
+        DAwOGZhM2IwNzE4MjMxNGVkZWIw
+        Y2ZjODA0NjM5Y2ZhNWUiL…dWQiOi
+        JodHRwczovL3Nzby5lbWEubWQvYX
+        V0aC9yZWFsbXMvZmhpci9wcm90b2
+        NvbC9vcGVuaWQtY29ubmVjdC90b2tl
+        biIsImV4cCI6MTY4MTI0MjgzNSwianR
+        pIjoiZTkyYWNiNDk5NTFlNjdiMjRhYTlk
+        MTYwNjM0YzU3ODlkYWNlMTgyMjAz
+        Nzc0OTIxZmMxMzA3MDE3NjViZDc4
+        NyJ9.KKnqeIWCpJ-OlfSqe--YPCzIlkQ
+        6l8skQW\_9CEgsksprosJUfK7huxhagi
+        NeuJX\_5fem\_OBfFW5mMmuD9sGXOSZ8cU-pk5vWmi2Osg3lOs2gqWFP6Olh0O68HLDQ4z
+      </td>
+    </tr>
+  </tbody>
+</Table>
