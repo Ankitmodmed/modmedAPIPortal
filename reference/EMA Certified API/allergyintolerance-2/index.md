@@ -39,16 +39,18 @@ The AllergyIntolerance resource is used to record, search, and retrieve informat
 
 ### Key components of the AllergyIntolerance resource include
 
-Clinical Status: Indicates the current state of the allergy (e.g., active, resolved).\
-Constraints:
-SHALL be present if the verification status is not "entered-in-error."
-SHALL NOT be present if the verification status is "entered-in-error."
-Code: Identifies the specific substance the patient is allergic to.
-Patient: Specifies the individual associated with the allergy or intolerance.
-Each AllergyIntolerance resource MUST SUPPORT the following elements:
+* **Clinical Status**:Indicates the current state of the allergy (e.g., active, resolved).\
+  Constraints:
+  SHALL be present if the verification status is not "entered-in-error."
+  SHALL NOT be present if the verification status is "entered-in-error."
+* **Code**: Identifies the specific substance the patient is allergic to.
+* **Patient**: Specifies the individual associated with the allergy or intolerance.
+* **Verification Status**: Describes the degree of certainty about the presence of the allergy (e.g., confirmed, unconfirmed).
+* **Reaction Manifestation**: Describes the clinical signs or symptoms resulting from exposure to the allergen.
 
-Verification Status: Describes the degree of certainty about the presence of the allergy (e.g., confirmed, unconfirmed).\
-Reaction Manifestation: Describes the clinical signs or symptoms resulting from exposure to the allergen.
+<br />
+
+<br />
 
 <br />
 
