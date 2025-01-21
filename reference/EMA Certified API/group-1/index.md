@@ -27,6 +27,14 @@ The FHIR (Fast Healthcare Interoperability Resources) Group endpoint is part of 
 
 <br />
 
+New content:
+
+Group represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively, and are not formally or legally recognized; i.e. a collection of entities that isn't an Organization.
+
+Read more from: [https://hl7.org/fhir/group.html](https://hl7.org/fhir/group.html)
+
+<br />
+
 #### **Sample Response Object**
 
 ```Text json
@@ -65,6 +73,40 @@ The FHIR (Fast Healthcare Interoperability Resources) Group endpoint is part of 
       }  
     }  
   ]  
+}
+```
+```json new json
+{
+  "resourceType" : "Group",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : [{ Identifier }], // Business Identifier for this Group
+  "active" : <boolean>, // Whether this group's record is in active use
+  "type" : "<code>", // R!  person | animal | practitioner | device | careteam | healthcareservice | location | organization | relatedperson | specimen
+  "membership" : "<code>", // R!  definitional | enumerated
+  "code" : { CodeableConcept }, // Kind of Group members
+  "name" : "<string>", // Label for Group
+  "description" : "<markdown>", // Natural language description of the group
+  "quantity" : "<unsignedInt>", // Number of members
+  "managingEntity" : { Reference(Organization|Practitioner|PractitionerRole|
+   RelatedPerson) }, // Entity that is the custodian of the Group's definition
+  "characteristic" : [{ // Include / Exclude group members by Trait
+    "code" : { CodeableConcept }, // R!  Kind of characteristic
+    // value[x]: Value held by characteristic. One of these 5:
+    "valueCodeableConcept" : { CodeableConcept },
+    "valueBoolean" : <boolean>,
+    "valueQuantity" : { Quantity },
+    "valueRange" : { Range },
+    "valueReference" : { Reference },
+    "exclude" : <boolean>, // R!  Group includes or excludes
+    "period" : { Period } // Period over which characteristic is tested
+  }],
+  "member" : [{ // Who or what is in group
+    "entity" : { Reference(CareTeam|Device|Group|HealthcareService|Location|
+    Organization|Patient|Practitioner|PractitionerRole|RelatedPerson|Specimen) }, // R!  Reference to the group member
+    "period" : { Period }, // Period member belonged to the group
+    "inactive" : <boolean> // If member is no longer in group
+  }]
 }
 ```
 
@@ -109,8 +151,8 @@ Content-Location: [polling-url]
 #### Example Usage
 
 Assume your FHIR base URL is `https://example.com/fhir`, and you want to export data for a Group with ID 123.\
-**Example Request URL**:\
-`https://example.com/fhir/Group/123/$export`\
+**Example Request URL**:
+`https://example.com/fhir/Group/123/$export`
 **Example Response**:
 
 ```
@@ -123,7 +165,7 @@ Content-Location: <https://example.com/fhir/bulkstatus/xyz>
 
 #### Step-by-Step Process
 
-1. **Initiate Export**: 
+1. **Initiate Export**:
 
 ```
 GET https://example.com/fhir/Group/123/$export
