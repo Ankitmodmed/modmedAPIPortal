@@ -25,6 +25,12 @@ The CareTeam endpoint is used to interact with CareTeam resources over RESTful A
 * **Period**: The time period the care team covers.
 * **Participant**: Members of the care team with their roles, contact details, and statuses.
 
+<br />
+
+New content:
+
+<br />
+
 Sample Response Object:
 
 ```Text json
