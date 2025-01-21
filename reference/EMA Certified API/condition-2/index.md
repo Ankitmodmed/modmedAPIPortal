@@ -132,3 +132,25 @@ Here's a concise JSON structure showcasing these components:
   }  
 }
 ```
+```Text concise json
+{  
+  "resourceType": "Condition",  
+  "id": "unique-id",  
+  "clinicalStatus": { /_ clinical status details _/ },  
+  "verificationStatus": { /_ verification status details _/ },  
+  "category": [ /* category details */ ],  
+  "severity": { /_ severity details, if any _/ },  
+  "code": { /_ condition code details _/ },  
+  "bodySite": [ /* body site details, if any */ ],  
+  "subject": { /_ patient reference _/ },  
+  "encounter": { /_ encounter reference, if any _/ },  
+  "onsetDateTime": "onset-date-or-period",  
+  "abatementDateTime": "abatement-date-or-period",  
+  "recordedDate": "recorded-date",  
+  "recorder": { /_ recorder reference, if any _/ },  
+  "asserter": { /_ asserter reference, if any _/ },  
+  "stage": [ /* stage details, if any */ ],  
+  "evidence": [ /* evidence details, if any */ ],  
+  "note": [ /* additional notes, if any */ ]  
+}
+```
