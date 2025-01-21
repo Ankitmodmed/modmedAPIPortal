@@ -27,6 +27,14 @@ The FHIR (Fast Healthcare Interoperability Resources) Encounter resource is used
 * **reasonCode**: The reason for the encounter.
 * **diagnosis**: Information about the diagnosis during the encounter.
 
+<br />
+
+New content:
+
+An Encounter is an interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.During the life-cycle of an encounter it will pass through many statuses. Typically these are in order or the organization's workflow: planned, in-progress, finished/cancelled.
+
+Read more from : [https://hl7.org/fhir/R4/encounter.html](https://hl7.org/fhir/R4/encounter.html)
+
 **Sample Response Object:**
 
 ```Text json
@@ -90,6 +98,66 @@ The FHIR (Fast Healthcare Interoperability Resources) Encounter resource is used
       }
     }
   ]
+}
+```
+```json new json
+{
+  "resourceType" : "Encounter",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : [{ Identifier }], // Identifier(s) by which this encounter is known
+  "status" : "<code>", // R!  planned | arrived | triaged | in-progress | onleave | finished | cancelled +
+  "statusHistory" : [{ // List of past encounter statuses
+    "status" : "<code>", // R!  planned | arrived | triaged | in-progress | onleave | finished | cancelled +
+    "period" : { Period } // R!  The time that the episode was in the specified status
+  }],
+  "class" : { Coding }, // R!  Classification of patient encounter
+  "classHistory" : [{ // List of past encounter classes
+    "class" : { Coding }, // R!  inpatient | outpatient | ambulatory | emergency +
+    "period" : { Period } // R!  The time that the episode was in the specified class
+  }],
+  "type" : [{ CodeableConcept }], // Specific type of encounter
+  "serviceType" : { CodeableConcept }, // Specific type of service
+  "priority" : { CodeableConcept }, // Indicates the urgency of the encounter
+  "subject" : { Reference(Patient|Group) }, // The patient or group present at the encounter
+  "episodeOfCare" : [{ Reference(EpisodeOfCare) }], // Episode(s) of care that this encounter should be recorded against
+  "basedOn" : [{ Reference(ServiceRequest) }], // The ServiceRequest that initiated this encounter
+  "participant" : [{ // List of participants involved in the encounter
+    "type" : [{ CodeableConcept }], // Role of participant in encounter
+    "period" : { Period }, // Period of time during the encounter that the participant participated
+    "individual" : { Reference(Practitioner|PractitionerRole|RelatedPerson) } // Persons involved in the encounter other than the patient
+  }],
+  "appointment" : [{ Reference(Appointment) }], // The appointment that scheduled this encounter
+  "period" : { Period }, // The start and end time of the encounter
+  "length" : { Duration }, // Quantity of time the encounter lasted (less time absent)
+  "reasonCode" : [{ CodeableConcept }], // Coded reason the encounter takes place
+  "reasonReference" : [{ Reference(Condition|Procedure|Observation|
+   ImmunizationRecommendation) }], // Reason the encounter takes place (reference)
+  "diagnosis" : [{ // The list of diagnosis relevant to this encounter
+    "condition" : { Reference(Condition|Procedure) }, // R!  The diagnosis or procedure relevant to the encounter
+    "use" : { CodeableConcept }, // Role that this diagnosis has within the encounter (e.g. admission, billing, discharge â€¦)
+    "rank" : "<positiveInt>" // Ranking of the diagnosis (for each role type)
+  }],
+  "account" : [{ Reference(Account) }], // The set of accounts that may be used for billing for this Encounter
+  "hospitalization" : { // Details about the admission to a healthcare service
+    "preAdmissionIdentifier" : { Identifier }, // Pre-admission identifier
+    "origin" : { Reference(Location|Organization) }, // The location/organization from which the patient came before admission
+    "admitSource" : { CodeableConcept }, // From where patient was admitted (physician referral, transfer)
+    "reAdmission" : { CodeableConcept }, // The type of hospital re-admission that has occurred (if any). If the value is absent, then this is not identified as a readmission
+    "dietPreference" : [{ CodeableConcept }], // Diet preferences reported by the patient
+    "specialCourtesy" : [{ CodeableConcept }], // Special courtesies (VIP, board member)
+    "specialArrangement" : [{ CodeableConcept }], // Wheelchair, translator, stretcher, etc.
+    "destination" : { Reference(Location|Organization) }, // Location/organization to which the patient is discharged
+    "dischargeDisposition" : { CodeableConcept } // Category or kind of location after discharge
+  },
+  "location" : [{ // List of locations where the patient has been
+    "location" : { Reference(Location) }, // R!  Location the encounter takes place
+    "status" : "<code>", // planned | active | reserved | completed
+    "physicalType" : { CodeableConcept }, // The physical type of the location (usually the level in the location hierachy - bed room ward etc.)
+    "period" : { Period } // Time period during which the patient was present at the location
+  }],
+  "serviceProvider" : { Reference(Organization) }, // The organization (facility) responsible for this encounter
+  "partOf" : { Reference(Encounter) } // Another Encounter this encounter is part of
 }
 ```
 
