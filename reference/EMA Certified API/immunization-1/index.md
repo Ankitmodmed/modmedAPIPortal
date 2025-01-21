@@ -35,11 +35,7 @@ New content:
 
 The Immunization resource is intended to cover the recording of current and historical administration of vaccines to patients across all healthcare disciplines in all care settings and all regions. This includes immunization of both humans and animals but does not include the administration of non-vaccine agents, even those that may have or claim to have immunological effects.
 
-<br />
-
 Read more from : [https://hl7.org/fhir/R4/immunization.html](https://hl7.org/fhir/R4/immunization.html)
-
-<br />
 
 <br />
 
