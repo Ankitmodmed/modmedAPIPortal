@@ -25,6 +25,14 @@ The AllergyIntolerance resource is used to record information about condition-re
 * **Reaction**: Details about specific adverse reactions including severity, manifestations, and other relevant facts.
 * **Patient**: The individual to whom the Allergy/Intolerance is recorded.
 
+<br />
+
+New content:
+
+<br />
+
+<br />
+
 **Sample Response Object:**
 
 ```Text json
