@@ -23,6 +23,12 @@ Here are some key components of the FHIR Medication resource:
 * **Ingredient**: Details about the ingredient(s) in the medication.
 * **Batch**: Information about the batch of the medication (if applicable).
 
+<br />
+
+New content:
+
+Medication resource is primarily used for the identification and definition of a medication, including ingredients, for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use.
+
 **Sample Response Object:**
 
 ```Text json
