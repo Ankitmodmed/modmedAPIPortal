@@ -58,7 +58,7 @@ New content:
 
 Condition resource is used to record detailed information about a condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern.
 
-<br />
+Read more from: [https://hl7.org/fhir/R4/condition.html](https://hl7.org/fhir/R4/condition.html)
 
 Here's a concise JSON structure showcasing these components:
 
