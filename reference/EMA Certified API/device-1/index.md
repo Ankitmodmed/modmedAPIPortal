@@ -12,66 +12,13 @@ next:
 ---
 Base profile: [http://hl7.org/fhir/us/core/StructureDefinition/us-core-implantable-device](http://hl7.org/fhir/us/core/StructureDefinition/us-core-implantable-device)
 
-FHIR (Fast Healthcare Interoperability Resources) Device endpoint is used to represent details about a physical device used in healthcare, such as a medical instrument or a piece of software.
-
-### Key Components
-
-**Device Resource**
-
-* **Identifier**: Unique ID for the device.
-* **Type**: What kind of device it is.
-* **Manufacturer**: Who made the device.
-* **Model**: Device model number.
-* **Version**: Version number of the device.
-* **Status**: Operational status of the device (available, not available, entered in error).
-* **Patient**: Which patient the device is assigned to.
-* **Location**: Where the device is located.
-
-<br />
-
-New content:
-
 The Device resource tracks individual devices and their locations, records device usage (e.g., in procedures or observations), supports prescribing and dispensing, and manages Unique Device Identifier (UDI) information, such as for patient implants.
 
 Read more from : [https://hl7.org/fhir/R4/device.html](https://hl7.org/fhir/R4/device.html)
 
-<br />
-
 **Sample Response Object:**
 
-```Text json
-{  
-    "resourceType": "Device",  
-    "id": "example-device",  
-    "identifier": [  
-        {  
-            "system": "http://hospital.smarthealthit.org/devices",  
-            "value": "12345X"  
-        }  
-    ],  
-    "type": {  
-        "coding": [  
-            {  
-                "system": "http://snomed.info/sct",  
-                "code": "86184003",  
-                "display": "Electrocardiographic monitor and recorder"  
-            }  
-        ],  
-        "text": "ECG monitor"  
-    },  
-    "manufacturer": "Acme Devices",  
-    "model": "UltraECG 2000",  
-    "version": "3.2",  
-    "status": "available",  
-    "patient": {  
-        "reference": "Patient/example"  
-    },  
-    "location": {  
-        "reference": "Location/1"  
-    }  
-}
-```
-```json new json
+```json json
 {
   "resourceType" : "Device",
   // from Resource: id, meta, implicitRules, and language
