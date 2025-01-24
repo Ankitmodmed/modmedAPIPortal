@@ -12,104 +12,15 @@ next:
 ---
 Base profile: [http://hl7.org/fhir/us/core/StructureDefinition/us-core-goal](http://hl7.org/fhir/us/core/StructureDefinition/us-core-goal)
 
-The FHIR (Fast Healthcare Interoperability Resources) Goal resource is used to define specific goals for a patient, such as treatment goals, behavioral change goals, or other types of health-related objectives. The Goal endpoint in an FHIR API allows clients to retrieve and manage these goals.
-
-### Key Components of a FHIR Goal Resource
-
-1. **id**: Unique identifier for the goal.
-2. **meta**: Metadata about the resource, including version, last updated time, etc.
-3. **status**: Indicates the current status of the goal (e.g., proposed, accepted, planned, in-progress, on-target, ahead-of-target, behind-target, suspended, cancelled, completed, entered-in-error, rejected).
-4. **description**: A detailed description of the goal, often in natural language.
-5. **subject**: Reference to the patient or other entity to whom this goal is associated.
-6. **startDate**: The date when the goal was defined.
-7. **target**: Sub-component that specifies target outcomes, dates, and other measures.
-8. **category**: Categorical descriptor for the goal (e.g., dietary, behavioral, etc.).
-9. **priority**: The priority of the goal (e.g., high-priority, medium-priority).
-10. **addresses**: References to conditions/problem statements/issues being addressed by the goal.
-11. **note**: Comments or notes about the goal.
-
-<br />
-
-New content:
-
 A goal represents a specific goal instance for a particular patient, group, etc. It is not intended to be used to define types of potential goals as part of an order set or protocol definition.
 
 The Goal resource is intended to be used once an order set is instantiated or assigned to a patient, which is when the potential goals become the actual goals, if not changed or deleted.
 
 Read more from : [https://hl7.org/fhir/R4/goal.html](https://hl7.org/fhir/R4/goal.html)
 
-<br />
-
 **Sample Response Object:**
 
-```Text json
-{  
-  "resourceType": "Goal",  
-  "id": "example",  
-  "status": "in-progress",  
-  "description": {  
-    "text": "Achieve a weight loss of 10 kg over the next 6 months"  
-  },  
-  "subject": {  
-    "reference": "Patient/12345",  
-    "display": "John Doe"  
-  },  
-  "startDate": "2023-01-01",  
-  "target": \[  
-    {  
-      "measure": {  
-        "coding": [  
-          {  
-            "system": "http://loinc.org",  
-            "code": "29463-7",  
-            "display": "Body Weight"  
-          }  
-        ],  
-        "text": "Body Weight"  
-      },  
-      "detailQuantity": {  
-        "value": 70,  
-        "unit": "kg",  
-        "system": "<http://unitsofmeasure.org">,  
-        "code": "kg"  
-      },  
-      "dueDate": "2023-07-01"  
-    }  
-  ],  
-  "category": \[  
-    {  
-      "coding": [  
-        {  
-          "system": "http://hl7.org/fhir/goal-category",  
-          "code": "dietary",  
-          "display": "Dietary"  
-        }  
-      ]  
-    }  
-  ],  
-  "priority": {  
-    "coding": [  
-      {  
-        "system": "http://hl7.org/fhir/goal-priority",  
-        "code": "high-priority",  
-        "display": "High Priority"  
-      }  
-    ]  
-  },  
-  "addresses": [  
-    {  
-      "reference": "Condition/67890",  
-      "display": "Obesity"  
-    }  
-  ],  
-  "note": [  
-    {  
-      "text": "Patient is motivated and has strong family support."  
-    }  
-  ]  
-}
-```
-```json new json
+```json json
 {
   "resourceType" : "Goal",
   // from Resource: id, meta, implicitRules, and language
