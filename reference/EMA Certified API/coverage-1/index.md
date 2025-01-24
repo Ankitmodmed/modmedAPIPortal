@@ -16,8 +16,6 @@ The Coverage resource provides key identifiers and details of an insurance plan,
 
 Read more from : [https://hl7.org/fhir/R4/coverage.html](https://hl7.org/fhir/R4/coverage.html)
 
-<br />
-
 **Sample Response Object:**
 
 ```json json
