@@ -12,70 +12,13 @@ next:
 ---
 Base Profile: [http://hl7.org/fhir/group.html](http://hl7.org/fhir/group.html)
 
-The FHIR (Fast Healthcare Interoperability Resources) Group endpoint is part of the FHIR standard, which defines how healthcare information can be exchanged electronically. The Group resource represents a defined collection of entities that may be managed and acted upon as a whole. These entities can be patients, practitioners, devices, medications, etc.
-
-### Key Components of a FHIR Group Resource
-
-1. **id**: Unique identifier for the Group resource.
-2. **identifier**: A distinct identification code for the Group.
-3. **type**: The type of resource that the Group contains (e.g., person, animal, practitioner, device).
-4. **actual**: Indicates whether the group is an actual group or a potential group (boolean).
-5. **code**: The meaning of the group as a whole.
-6. **name**: A label assigned to the group for human identification.
-7. **quantity**: The number of members in the group.
-8. **member**: The members that are part of the group. Each member includes an entity reference and a period indicating when the member was active in the group.
-
-<br />
-
-New content:
-
 Group represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively, and are not formally or legally recognized; i.e. a collection of entities that isn't an Organization.
 
 Read more from: [https://hl7.org/fhir/group.html](https://hl7.org/fhir/group.html)
 
-<br />
-
 #### **Sample Response Object**
 
-```Text json
-{  
-  "resourceType": "Group",  
-  "id": "example",  
-  "identifier": [  
-    {  
-      "system": "http://example.org/fhir/ids",  
-      "value": "example-group"  
-    }  
-  ],  
-  "type": "person",  
-  "actual": true,  
-  "code": {  
-    "text": "VIP Patients"  
-  },  
-  "name": "VIP Patient Group",  
-  "quantity": 5,  
-  "member": [  
-    {  
-      "entity": {  
-        "reference": "Patient/1"  
-      },  
-      "period": {  
-        "start": "2020-01-01",  
-        "end": "2020-12-31"  
-      }  
-    },  
-    {  
-      "entity": {  
-        "reference": "Patient/2"  
-      },  
-      "period": {  
-        "start": "2020-01-01"  
-      }  
-    }  
-  ]  
-}
-```
-```json new json
+```json json
 {
   "resourceType" : "Group",
   // from Resource: id, meta, implicitRules, and language
