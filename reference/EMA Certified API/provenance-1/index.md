@@ -30,7 +30,7 @@ New content:
 
 The Provenance resource tracks information about the activity that created, revised, deleted, or signed a version of a resource, describing the entities and agents involved. This information can be used to form assessments about its quality, reliability, trustworthiness, or to provide pointers for where to go to further investigate the origins of the resource and the information in it.
 
-<br />
+Read more from: [https://hl7.org/fhir/R4/provenance.html](https://hl7.org/fhir/R4/provenance.html)
 
 **Sample Response Object:**
 
