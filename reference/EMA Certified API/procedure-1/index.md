@@ -37,7 +37,7 @@ New content:
 
 Procedure resource is used to record the details of current and historical procedures performed on or for a patient. A procedure is an activity that is performed on, with, or for a patient as part of the provision of care.
 
-<br />
+Read more from: [https://hl7.org/fhir/R4/procedure.html](https://hl7.org/fhir/R4/procedure.html)
 
 **Sample Response Object:**
 
