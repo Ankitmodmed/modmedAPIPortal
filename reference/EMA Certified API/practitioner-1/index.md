@@ -27,6 +27,16 @@ The FHIR (Fast Healthcare Interoperability Resources) Practitioner resource is u
 9. **qualification**: The qualifications/certifications of the practitioner.
 10. **communication**: A list of languages the practitioner can communicate in, with proficiency details.
 
+<br />
+
+New content:
+
+Practitioner covers all individuals who are engaged in the healthcare process and healthcare-related services as part of their formal responsibilities and this Resource is used for attribution of activities and responsibilities to these individuals.
+
+Read more from: [https://hl7.org/fhir/R4/practitioner.html](https://hl7.org/fhir/R4/practitioner.html)
+
+<br />
+
 **Sample Response Object:**
 
 ```Text json
@@ -111,5 +121,27 @@ The FHIR (Fast Healthcare Interoperability Resources) Practitioner resource is u
       "preferred": true
     }
   ]
+}
+```
+```json new json
+{
+  "resourceType" : "Practitioner",
+  // from Resource: id, meta, implicitRules, and language
+  // from DomainResource: text, contained, extension, and modifierExtension
+  "identifier" : [{ Identifier }], // An identifier for the person as this agent
+  "active" : <boolean>, // Whether this practitioner's record is in active use
+  "name" : [{ HumanName }], // The name(s) associated with the practitioner
+  "telecom" : [{ ContactPoint }], // A contact detail for the practitioner (that apply to all roles)
+  "address" : [{ Address }], // Address(es) of the practitioner that are not role specific (typically home address)
+  "gender" : "<code>", // male | female | other | unknown
+  "birthDate" : "<date>", // The date  on which the practitioner was born
+  "photo" : [{ Attachment }], // Image of the person
+  "qualification" : [{ // Certification, licenses, or training pertaining to the provision of care
+    "identifier" : [{ Identifier }], // An identifier for this qualification for the practitioner
+    "code" : { CodeableConcept }, // R!  Coded representation of the qualification
+    "period" : { Period }, // Period during which the qualification is valid
+    "issuer" : { Reference(Organization) } // Organization that regulates and issues the qualification
+  }],
+  "communication" : [{ CodeableConcept }] // A language the practitioner can use in patient communication
 }
 ```
