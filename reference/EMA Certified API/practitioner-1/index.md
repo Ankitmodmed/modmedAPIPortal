@@ -12,9 +12,9 @@ next:
 ---
 Base profile: [http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner](http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner)
 
-Practitioner covers all individuals who are engaged in the healthcare process and healthcare-related services as part of their formal responsibilities and this Resource is used for attribution of activities and responsibilities to these individuals.
+Practitioner covers all individuals who are engaged in the healthcare process and healthcare-related services as part of their formal responsibilities. This Resource is used for attribution of activities and responsibilities to these individuals.
 
-Read more from: [https://hl7.org/fhir/R4/practitioner.html](https://hl7.org/fhir/R4/practitioner.html)
+Read more on: [https://hl7.org/fhir/R4/practitioner.html](https://hl7.org/fhir/R4/practitioner.html)
 
 **Sample Response Object:**
 
