@@ -12,9 +12,9 @@ next:
 ---
 Base profile: [http://hl7.org/fhir/StructureDefinition/OperationDefinition](http://hl7.org/fhir/StructureDefinition/OperationDefinition)
 
-The OperationDefinition resource provides a formal computable definition of an operation(on the RESTful interface) or a named query(using the search interaction).
+The OperationDefinition resource provides a formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).
 
-Read more from: [https://hl7.org/fhir/operationdefinition.html](https://hl7.org/fhir/operationdefinition.html)
+Read more on: [https://hl7.org/fhir/operationdefinition.html](https://hl7.org/fhir/operationdefinition.html)
 
 **Sample Response Object:**
 
