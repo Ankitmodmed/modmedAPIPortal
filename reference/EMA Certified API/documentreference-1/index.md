@@ -57,5 +57,4 @@ Read more from : [https://hl7.org/fhir/R4/documentreference.html](https://hl7.or
 }
 ```
 
-This JSON provides an overview of how to structure a DocumentReference resource including linking the document\
-to a patient and providing detailed metadata.
+This JSON provides an overview of how to structure a DocumentReference resource including linking the document to a patient and providing detailed metadata.
