@@ -17,16 +17,16 @@ The general process for apps built upon the Certified FHIR API is as follows:
 1. Register with MMI: [https://fhir-vendor-dashboard.kube.prod.mmicse.com/](https://fhir-vendor-dashboard.kube.prod.mmicse.com/)
 2. Create a Bulk FHIR application:
 
-   ![](https://files.readme.io/e1fb26b4a31e13b6752f427975aa5b61b4d62cbfd246c33a1215f9b7755b8331-image.png)
+   ![New SMART on FHIR App Registration form ](https://files.readme.io/e1fb26b4a31e13b6752f427975aa5b61b4d62cbfd246c33a1215f9b7755b8331-image.png)
 3. Your app will be created in a ‘Disabled’ state:
 
    ![](https://files.readme.io/6e0eec5f9f8729070c27ec7b70d4488e132e9a10437d5f18a2fe664f425fa388-image.png)
-4. For Bulk applications, This type of app will require consent from the practice. A Practice can provide your app consent by adding your app’s ClientID to their ‘Manage Bulk FHIR’ section in their Admin section:
+4. For Bulk applications, this type of app will require consent from the practice. A Practice can provide your app consent by adding your app’s ClientID to their ‘Manage Bulk FHIR’ section in their Admin section:
 
-   ![](https://files.readme.io/f17458ce586ae36a96713a1e7ca6af387a3d56bd5e6dcbe250ca91aae3c36b98-image.png)
+   ![Manage Bulk FHIR Vendors in Practice Settings ](https://files.readme.io/f17458ce586ae36a96713a1e7ca6af387a3d56bd5e6dcbe250ca91aae3c36b98-image.png)
 5. Once a customer has added you, your app will become ‘Enabled’:
 
-   ![](https://files.readme.io/422bdbad072a8235be230e6c8b7c01c91b1ea04b85372eb0e0846d647c4d8518-image.png)
+   ![Registered FHIR Applications with an enabled status ](https://files.readme.io/422bdbad072a8235be230e6c8b7c01c91b1ea04b85372eb0e0846d647c4d8518-image.png)
 
 **Authentication**
 
@@ -283,12 +283,12 @@ Here is a sample of a file for the ‘Medication Request’ Resource.
 
 **Deleting the Bulk Request**
 
-If a vendor started a bulk request and then decides to delete the request, we can support that using a delete CALL on the Bulk Request.  &#x20;
+If a vendor started a bulk request and then decides to delete the request, we can support that using a delete CALL on the Bulk Request.\
 \{base\\\_url}/fhir-services/$export-status/d60cbaa19d337fbfb8ba2677d4dc30a4
 
 <br />
 
 **Error Cases**
 
-If vendors try to access les in a dierent format, for example ‘csv’, then we will throw a ‘400 Bad Request’ error as this format is not supported. The error message would state ‘Invalid Tenant’. &#x20;
+If vendors try to access les in a dierent format, for example ‘csv’, then we will throw a ‘400 Bad Request’ error as this format is not supported. The error message would state ‘Invalid Tenant’.\
 \{base\\\_url}/$export?\\\_since=2022-10-01T00:00:00&\\\_outputFormat=csv
