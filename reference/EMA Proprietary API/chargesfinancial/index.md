@@ -484,6 +484,6 @@ Some customers have a setting which automatically creates bills from Charges ass
 
 Customers that use this functionality have an ‘Inbound Charges’ queue in their ‘Financials’ experience:
 
-![](https://files.readme.io/896fd4e2e111abdfcd8fe6dc13a51fb22bb8a67a5d2b194111f4a856eff9d38f-image.png)
+![Financials Home Image](https://files.readme.io/896fd4e2e111abdfcd8fe6dc13a51fb22bb8a67a5d2b194111f4a856eff9d38f-image.png)
 
 If they are Auto-creating bills from charges, you may want to instruct your customers to check the New Bills tab if they are looking for something they are expecting to be here.
