@@ -123,7 +123,7 @@ The following attributes are supported:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        [https://www.hl7.org/fhir/codesystem-coverage-class.html#coverage-class-plan](https://www.hl7.org/fhir/codesystem-coverage-class.html#coverage-class-plan)\
+        [https://www.hl7.org/fhir/codesystem-coverage-class.html#coverage-class-plan](https://www.hl7.org/fhir/codesystem-coverage-class.html#coverage-class-plan)
         [https://www.hl7.org/fhir/codesystem-coverage-class.html#coverage-class-group](https://www.hl7.org/fhir/codesystem-coverage-class.html#coverage-class-group)
       </td>
     </tr>
@@ -134,10 +134,10 @@ The following attributes are supported:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        1=Primary\
-        2=Secondary\
-        3=Tertiary\
-        0=Non-ordered\
+        1=Primary
+        2=Secondary
+        3=Tertiary
+        0=Non-ordered
         Please note that any insurance that is not Primary, Secondary, Tertiary will return as order=0
       </td>
     </tr>
@@ -212,7 +212,7 @@ A vendor has the ability to capture and send all of the following data:
 
 Assuming all (or some) of that is included, the EMA/MMPM user would see this when they went to the Patient’s chart:
 
-![](https://files.readme.io/6a1c2b8452ea9b4444a89889682212699a4d9c391c64730b33056bd85b43a230-image.png)
+![Patient Updates Modal Image](https://files.readme.io/6a1c2b8452ea9b4444a89889682212699a4d9c391c64730b33056bd85b43a230-image.png)
 
 Essentially from there, the user can Accept All or reject All or go through and accept and reject different fields if they so choose. If the user accepts the insurance, it will become the Primary Insurance by default and the user will need to go to the ‘Insurance’ section of the Patient’s chart to change the order. If the user rejects the insurance, the vendor would need to send another message to get different insurance information there. If the user takes no action, a prompt will remain in the patient’s chart from which the user can return and choose to take action at any time.
 
@@ -252,7 +252,7 @@ Essentially from there, the user can Accept All or reject All or go through and 
       </td>
 
       <td style={{ textAlign: "left" }}>
-        Perform a Patient SEARCH to retrieve the Patient Id    
+        Perform a Patient SEARCH to retrieve the Patient Id
 
         Reference Patient SEARCH for a list of parameters
       </td>
@@ -308,10 +308,10 @@ Essentially from there, the user can Accept All or reject All or go through and 
       </td>
 
       <td style={{ textAlign: "left" }}>
-        OPTIONAL (if the practice requires a supported InsurancePlan)    
+        OPTIONAL (if the practice requires a supported InsurancePlan)
 
         Perform an InsurancePlan SEARCH to retrieve the InsurancePlan Id , and the\
-        insurance-policy-type    
+        insurance-policy-type
 
         Reference InsurancePlan SEARCH for a list of parameters
       </td>
@@ -331,7 +331,7 @@ Essentially from there, the user can Accept All or reject All or go through and 
       </td>
 
       <td style={{ textAlign: "left" }}>
-        OPTIONAL    
+        OPTIONAL
 
         Used to add the ID card images. This step will retrieve the S3 Bucket URL. One S3 URL will need to be generated for each image (front/back)
       </td>
@@ -351,15 +351,15 @@ Essentially from there, the user can Accept All or reject All or go through and 
       </td>
 
       <td style={{ textAlign: "left" }}>
-        OPTIONAL    
+        OPTIONAL
 
-        Upload insurance card images to the S3 Bucket URLs. One S3 Bucket URL will need to be used for each image (front/back)    
+        Upload insurance card images to the S3 Bucket URLs. One S3 Bucket URL will need to be used for each image (front/back)
 
-        NOTE: ‘base\_s3\_url’ refers to the URL you will get back from making the Binary POST. There will be different URL structures depending on whether you are POSTing to Development or Production environments. As an example, here is an example of the current Production URL:   
+        NOTE: ‘base\_s3\_url’ refers to the URL you will get back from making the Binary POST. There will be different URL structures depending on whether you are POSTing to Development or Production environments. As an example, here is an example of the current Production URL:
 
         https\://modmed-prod-incoming-fhir-at\
-        tachments.s3.amazonaws.com/\{auto-g\
-        enerated string}    
+        tachments.s3.amazonaws.com/\{auto-g
+        enerated string}
 
         Note: If using Postman, or a similar solution, check your hidden headers as it may automatically add a Content-Type which may cause the upload to fail. Content-Type will need to equal “text/plain”
       </td>
@@ -379,7 +379,7 @@ Essentially from there, the user can Accept All or reject All or go through and 
       </td>
 
       <td style={{ textAlign: "left" }}>
-        OPTIONAL   
+        OPTIONAL
 
         If relationship ≠ SELF, perform a GET on ValueSet insured-relationship to retrieve the relationship type
       </td>
@@ -467,23 +467,23 @@ The minimum attributes for creating a new Coverage are:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        policyHolder information is only required when relationship is ≠ SELF   
+        policyHolder information is only required when relationship is ≠ SELF
 
-        PolicyHolderFirst\
-        PolicyHolderLast\
-        PolicyHolderMiddle\
-        PolicyHolderSuffix\
-        PolicyHolderDOB\
-        PolicyHolderBirthSex\
-        PolicyHolderAddress1\
-        PolicyHolderAddress2\
-        PolicyHolderAddressCity\
-        PolicyHolderAddressState\
-        PolicyHolderAddressZipCode\
-        PolicyHolderPhoneHome\
-        PolicyHolderPhoneMobile\
-        PolicyHolderPhoneWork\
-        InsuranceCardFrontUrl (always optional)\
+        PolicyHolderFirst
+        PolicyHolderLast
+        PolicyHolderMiddle
+        PolicyHolderSuffix
+        PolicyHolderDOB
+        PolicyHolderBirthSex
+        PolicyHolderAddress1
+        PolicyHolderAddress2
+        PolicyHolderAddressCity
+        PolicyHolderAddressState
+        PolicyHolderAddressZipCode
+        PolicyHolderPhoneHome
+        PolicyHolderPhoneMobile
+        PolicyHolderPhoneWork
+        InsuranceCardFrontUrl (always optional)
         InsuranceCardBackUrl (always optional)
       </td>
     </tr>
@@ -541,9 +541,9 @@ The minimum attributes for creating a new Coverage are:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        Reference to Insured Relationship ValueSet   
+        Reference to Insured Relationship ValueSet
 
-        \{baseurl}/\{firm\_url\_prefix}/ValueSet/insured-relationship   
+        \{baseurl}/\{firm\_url\_prefix}/ValueSet/insured-relationship
 
         NOTE: If relationship ≠ SELF, use the “identifier” attribute to pass the patients identifiers
       </td>
@@ -595,15 +595,15 @@ Additional attributes for creating a new Coverage are:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        Use this to pass in the Plan and/or Group Numbers and Names.  
+        Use this to pass in the Plan and/or Group Numbers and Names.
 
-        For Plans, use the Reference to Coverage Class Plan   
+        For Plans, use the Reference to Coverage Class Plan
 
-        [https://www.hl7.org/fhir/codesystem-coverage-class.html#coverage-class-plan](https://www.hl7.org/fhir/codesystem-coverage-class.html#coverage-class-plan)    
+        [https://www.hl7.org/fhir/codesystem-coverage-class.html#coverage-class-plan](https://www.hl7.org/fhir/codesystem-coverage-class.html#coverage-class-plan)
 
-        For Groups, use the Reference to Coverage Class Group:    
+        For Groups, use the Reference to Coverage Class Group:
 
-        [https://www.hl7.org/fhir/codesystem-coverage-class.html#coverage-class-group](https://www.hl7.org/fhir/codesystem-coverage-class.html#coverage-class-group)    
+        [https://www.hl7.org/fhir/codesystem-coverage-class.html#coverage-class-group](https://www.hl7.org/fhir/codesystem-coverage-class.html#coverage-class-group)
 
         And then add values and names per the examples below.
       </td>
@@ -619,7 +619,7 @@ Additional attributes for creating a new Coverage are:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        Reference to Cost to Beneficiary ValueSet    
+        Reference to Cost to Beneficiary ValueSet
 
         \{baseurl}/\{firm\_url\_prefix}/ValueSet/cost-to-beneficiary-type
       </td>
@@ -635,7 +635,7 @@ Additional attributes for creating a new Coverage are:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        Policy Effective Date and Policy End Date   
+        Policy Effective Date and Policy End Date
 
         start = yyyy-MM-dd\
         end = yyyy-MM-dd
