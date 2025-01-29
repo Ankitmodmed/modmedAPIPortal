@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Base Profile: https\:/[www.hl7.org/fhir/medicationstatement.html](http://www.hl7.org/fhir/medicationstatement.html)
+Base Profile: https:[www.hl7.org/fhir/medicationstatement.html](http://www.hl7.org/fhir/medicationstatement.html)
 
 Common use cases include:
 
