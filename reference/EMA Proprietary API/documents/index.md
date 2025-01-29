@@ -18,7 +18,7 @@ There are several different Document categories and types inside of EMA. Most �
 
 Each Patient chart has a section called ‘Attachments’
 
-![](https://files.readme.io/b1dba00eef180cd84ae6314cb675c33facf828f837649772cbdb91caa83b4540-image.png)
+![Patient Chart in the Attachment's section](https://files.readme.io/b1dba00eef180cd84ae6314cb675c33facf828f837649772cbdb91caa83b4540-image.png)
 
 Each document has the ability to have a title, category, file name, visit associated (if relevant), and date. The document categories in this section are defined by the customer. Each customer will have different document categories and therefore different IDs for these categories. Each customer’s document categories can be found by querying their ValueSet.
 
@@ -128,7 +128,7 @@ The following attributes are supported:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        current | superseded | entered-in-error\
+        current | superseded | entered-in-error
         NOTE: MMI currently only supports ‘current’
       </td>
     </tr>
@@ -139,7 +139,7 @@ The following attributes are supported:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        the type of file  
+        the type of file
 
         * application/pdf
         * audio/mpeg
@@ -256,7 +256,7 @@ In order to search for a patient’s CCDA:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        Search for a Patient’s CCDA  
+        Search for a Patient’s CCDA
 
         Alternatively, the LOINC for CCDA (81214-9) can be passed instead of ‘ccda’
       </td>
@@ -272,7 +272,7 @@ In order to search for a patient’s CCDA:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        Retrieve a Patient’s CCDA  
+        Retrieve a Patient’s CCDA
 
         Alternatively, the LOINC for CCDA (81214-9) can be passed instead of ‘ccda’
       </td>
@@ -314,7 +314,7 @@ In order to search for a patient’s Visit Note(s):
       </td>
 
       <td style={{ textAlign: "left" }}>
-        Search for a Patient’s Visit Note  
+        Search for a Patient’s Visit Note
 
         Alternatively, the LOINC for Summary of episode note (34133-9) can be passed instead of ‘note’
       </td>
@@ -330,7 +330,7 @@ In order to search for a patient’s Visit Note(s):
       </td>
 
       <td style={{ textAlign: "left" }}>
-        Retrieve a Patient’s Visit Note  
+        Retrieve a Patient’s Visit Note
 
         Alternatively, the LOINC for Summary of episode note (34133-9) can be passed instead of ‘note’
       </td>
@@ -390,9 +390,9 @@ In order to search for a patient’s Visit Note(s):
       </td>
 
       <td style={{ textAlign: "left" }}>
-        \{base\_s3\_url}/\{auto-generated string}  
+        \{base\_s3\_url}/\{auto-generated string}
 
-        * \*NOTE\*\*:‘base\_s3\_url’ refers to the URL you will get back from making the Binary POST. There will be different URL structures depending on whether you are POSTing to Development or Production environments. As an example, here is an example of the current development URL:  
+        * \*NOTE\*\*:‘base\_s3\_url’ refers to the URL you will get back from making the Binary POST. There will be different URL structures depending on whether you are POSTing to Development or Production environments. As an example, here is an example of the current development URL:
 
         [https://modmed-prod-incoming-fhir-attachments.s3.amazonaws.com/\{auto-generated\_string}](https://modmed-prod-incoming-fhir-attachments.s3.amazonaws.com/\{auto-generated_string})
       </td>
@@ -402,7 +402,7 @@ In order to search for a patient’s Visit Note(s):
       </td>
 
       <td style={{ textAlign: "left" }}>
-        Upload the document to the S3 URL  
+        Upload the document to the S3 URL
 
         * \*Note\*\*: If using Postman, or a similar solution, check your hidden headers as it may automatically add a Content-Type which may cause the upload to fail. Content-Type will need to equal “text/plain”
       </td>
@@ -488,7 +488,7 @@ The attributes for creating a document are:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        Use this to associate the document to the correct patient. it is not required.  
+        Use this to associate the document to the correct patient. it is not required.
 
         Any document posted without a patient will go into an unassociated queue where someone at the practice will need to manually associate the document to a patient.
       </td>
