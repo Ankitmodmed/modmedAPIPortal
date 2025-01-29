@@ -12,9 +12,9 @@ next:
 ---
 Base profile: [http://hl7.org/fhir/us/core/StructureDefinition/us-core-servicerequest](http://hl7.org/fhir/us/core/StructureDefinition/us-core-servicerequest)
 
-ServiceRequest is a record of a request for a procedure or diagnostic or other service to be planned, proposed, or performed.
+ServiceRequest is a record of a request for a procedure, diagnostic, or other service to be planned, proposed, or performed.
 
-Read more from: [https://hl7.org/fhir/R4/servicerequest.html](https://hl7.org/fhir/R4/servicerequest.html)
+Read more on: [https://hl7.org/fhir/R4/servicerequest.html](https://hl7.org/fhir/R4/servicerequest.html)
 
 **Sample Response Object:**
 
