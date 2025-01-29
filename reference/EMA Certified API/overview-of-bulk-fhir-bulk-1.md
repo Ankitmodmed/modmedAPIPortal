@@ -290,5 +290,5 @@ If a vendor started a bulk request and then decides to delete the request, we ca
 
 **Error Cases**
 
-If vendors try to access les in a dierent format, for example ‘csv’, then we will throw a ‘400 Bad Request’ error as this format is not supported. The error message would state ‘Invalid Tenant’.\
+If vendors try to access les in a different format, for example ‘csv’, then we will throw a ‘400 Bad Request’ error as this format is not supported. The error message would state ‘Invalid Tenant’.\
 \{base\\\_url}/$export?\\\_since=2022-10-01T00:00:00&\\\_outputFormat=csv
