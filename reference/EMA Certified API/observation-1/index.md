@@ -14,7 +14,7 @@ Base profile: [http://hl7.org/fhir/observation.html](http://hl7.org/fhir/observa
 
 Observation resource contains the Measurements and simple assertions made about a patient, device or other subject.
 
-Read more from: [https://hl7.org/fhir/observation.html](https://hl7.org/fhir/observation.html)
+Read more on: [https://hl7.org/fhir/observation.html](https://hl7.org/fhir/observation.html)
 
 **Sample Response Object:**
 
