@@ -14,7 +14,7 @@ Base profile: [http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicatio
 
 MedicationRequest resource covers all type of orders for medications for a patient. This includes inpatient medication orders as well as community orders.
 
-Read more from: [https://hl7.org/fhir/R4/medicationrequest.html](https://hl7.org/fhir/R4/medicationrequest.html)
+Read more on: [https://hl7.org/fhir/R4/medicationrequest.html](https://hl7.org/fhir/R4/medicationrequest.html)
 
 **Sample Response Object:**
 
