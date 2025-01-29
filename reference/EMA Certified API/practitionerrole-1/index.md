@@ -14,7 +14,7 @@ Base profile: [http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitio
 
 PractitionerRole covers the recording of the location and types of services that Practitioners are able to provide for an organization.
 
-Read more from: [https://www.hl7.org/implement/standards/fhir/R4/practitionerrole.html](https://www.hl7.org/implement/standards/fhir/R4/practitionerrole.html)
+Read more on: [https://www.hl7.org/implement/standards/fhir/R4/practitionerrole.html](https://www.hl7.org/implement/standards/fhir/R4/practitionerrole.html)
 
 **Sample Response Object:**
 
