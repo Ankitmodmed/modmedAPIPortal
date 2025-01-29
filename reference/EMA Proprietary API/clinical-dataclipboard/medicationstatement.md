@@ -1,5 +1,5 @@
 ---
-title: MedicationStatement
+title: Medication Statement
 excerpt: ''
 deprecated: false
 hidden: false
