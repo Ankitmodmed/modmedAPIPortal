@@ -14,7 +14,7 @@ Base profile: [http://hl7.org/fhir/StructureDefinition/Medication](http://hl7.or
 
 Medication resource is primarily used for the identification and definition of a medication, including ingredients, for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use.
 
-Read more from: [https://hl7.org/fhir/medication.html](https://hl7.org/fhir/medication.html)
+Read more on: [https://hl7.org/fhir/medication.html](https://hl7.org/fhir/medication.html)
 
 **Sample Response Object:**
 
