@@ -14,7 +14,7 @@ Base Profile: [https://www.hl7.org/fhir/valueset.html](https://www.hl7.org/fhir/
 
 A ValueSet resource instance specifies a set of codes drawn from one or more code systems, intended for use in a particular context.
 
-Read more from: [https://www.hl7.org/fhir/valueset.html](https://www.hl7.org/fhir/valueset.html)
+Read more on: [https://www.hl7.org/fhir/valueset.html](https://www.hl7.org/fhir/valueset.html)
 
 **Sample Response Object:**
 
