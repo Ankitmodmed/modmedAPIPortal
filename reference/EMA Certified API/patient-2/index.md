@@ -14,7 +14,7 @@ Base profile: [http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient](
 
 The data in the Resource covers the "who" information about the patient: its attributes are focused on the demographic information necessary to support the administrative, financial and logistic procedures.
 
-Read more from: [https://hl7.org/fhir/R4/patient.html](https://hl7.org/fhir/R4/patient.html)
+Read more on: [https://hl7.org/fhir/R4/patient.html](https://hl7.org/fhir/R4/patient.html)
 
 **Sample Response Object:**
 
