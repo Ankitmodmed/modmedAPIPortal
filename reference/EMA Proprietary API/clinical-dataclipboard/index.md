@@ -22,7 +22,7 @@ they visit that Patient’s chart:
 From there, any of the new items can either be individually reconciled or all can be accepted or rejected\
 at once:
 
-![](https://files.readme.io/11f01d3e651a87900b8b6f7fde1f64a7d6fdd42c35c6904d597cdef0ba0983be-image.png)
+![Patient Updates Modal with reconciliation Image](https://files.readme.io/11f01d3e651a87900b8b6f7fde1f64a7d6fdd42c35c6904d597cdef0ba0983be-image.png)
 
 The following sections of the clipboard can be updated and a sample payload is provided for each type:
 
