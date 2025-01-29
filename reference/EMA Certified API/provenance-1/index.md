@@ -14,7 +14,7 @@ Base profile: [http://hl7.org/fhir/us/core/StructureDefinition/us-core-provenanc
 
 The Provenance resource tracks information about the activity that created, revised, deleted, or signed a version of a resource, describing the entities and agents involved. This information can be used to form assessments about its quality, reliability, trustworthiness, or to provide pointers for where to go to further investigate the origins of the resource and the information in it.
 
-Read more from: [https://hl7.org/fhir/R4/provenance.html](https://hl7.org/fhir/R4/provenance.html)
+Read more on: [https://hl7.org/fhir/R4/provenance.html](https://hl7.org/fhir/R4/provenance.html)
 
 **Sample Response Object:**
 
