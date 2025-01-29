@@ -14,7 +14,7 @@ Base profile: [http://hl7.org/fhir/us/core/StructureDefinition/us-core-organizat
 
 The Organization resource is used for collections of people that have come together to achieve an objective.It often exists as a hierarchy of organization resources, using the part-of property to provide the association of the child to its parent organization.
 
-Read more from: [https://hl7.org/fhir/R4/organization.html](https://hl7.org/fhir/R4/organization.html)
+Read more on: [https://hl7.org/fhir/R4/organization.html](https://hl7.org/fhir/R4/organization.html)
 
 **Sample Response Object:**
 
