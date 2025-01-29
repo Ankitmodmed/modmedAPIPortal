@@ -21,8 +21,6 @@ It is encouraged that you read through the documentation carefully to ensure tha
 
 * [https://www.modmed.com/synapsys/fhir-api/](https://emasample.readme.io/reference/getting-started-1)
 
-<br />
-
 ### Sandbox Access
 
 For Vendors or Partners who believe they can power their application using the Proprietary API, you can apply for a sandbox here:
