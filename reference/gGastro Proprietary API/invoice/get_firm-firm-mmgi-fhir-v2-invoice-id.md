@@ -1,5 +1,5 @@
 ---
-title: 'read-instance: Read Invoice instance'
+title: /firm/{firm}/mmgi/fhir/v2/Invoice/{id}
 excerpt: ''
 api:
   file: mmgi-synapsys-v2.json

@@ -1,5 +1,5 @@
 ---
-title: 'create-type: Create a new Patient instance'
+title: /firm/{firm}/mmgi/fhir/v2/Patient
 excerpt: ''
 api:
   file: mmgi-synapsys-v2.json

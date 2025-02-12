@@ -1,5 +1,5 @@
 ---
-title: 'search-type: Search for Invoice instances'
+title: /firm/{firm}/mmgi/fhir/v2/Invoice
 excerpt: This is a search type
 api:
   file: mmgi-synapsys-v2.json

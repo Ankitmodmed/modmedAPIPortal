@@ -1,5 +1,5 @@
 ---
-title: 'GET search-type: Search for Patient instances'
+title: /firm/{firm}/mmgi/fhir/v2/Patient
 excerpt: This is a search type that returns a bundle of patient records
 api:
   file: mmgi-synapsys-v2.json

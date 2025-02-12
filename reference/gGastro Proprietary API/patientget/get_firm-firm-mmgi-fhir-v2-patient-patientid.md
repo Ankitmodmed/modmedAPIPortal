@@ -1,5 +1,5 @@
 ---
-title: GET Patient By Id
+title: /firm/{firm}/mmgi/fhir/v2/Patient/{patientid}
 excerpt: "Example use:\r\n\r\n GET {baseurl}/firm/{firm}/mmgi/fhir/v2/Patient"
 api:
   file: mmgi-synapsys-v2.json

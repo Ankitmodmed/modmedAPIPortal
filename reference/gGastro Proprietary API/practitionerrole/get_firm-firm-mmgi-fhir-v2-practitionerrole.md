@@ -1,5 +1,5 @@
 ---
-title: 'search-type: Search for PractitionerRole instances'
+title: /firm/{firm}/mmgi/fhir/v2/PractitionerRole
 excerpt: This is a search type
 api:
   file: mmgi-synapsys-v2.json

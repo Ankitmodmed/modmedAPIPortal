@@ -1,5 +1,5 @@
 ---
-title: Sync data
+title: /firm/{firm}/mmgi/fhir/v2/fhirsync
 excerpt: ''
 api:
   file: mmgi-synapsys-v2.json

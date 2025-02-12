@@ -1,5 +1,5 @@
 ---
-title: Get clients Sync settings
+title: /firm/mmgi/fhir/v2/clients
 excerpt: ''
 api:
   file: mmgi-synapsys-v2.json

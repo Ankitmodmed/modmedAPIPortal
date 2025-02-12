@@ -1,5 +1,5 @@
 ---
-title: POST Get S3 link for the document
+title: /firm/{firm}/mmgi/fhir/v2/binary
 excerpt: "Example use:\r\n\r\n POST /binary\r\n {}"
 api:
   file: mmgi-synapsys-v2.json

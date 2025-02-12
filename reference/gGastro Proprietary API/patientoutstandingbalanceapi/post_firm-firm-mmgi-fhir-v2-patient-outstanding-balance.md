@@ -1,5 +1,5 @@
 ---
-title: Get a list of invoices per the aging and BU
+title: /firm/{firm}/mmgi/fhir/v2/patient-outstanding-balance
 excerpt: ''
 api:
   file: mmgi-synapsys-v2.json

@@ -1,7 +1,5 @@
 ---
-title: >-
-  type-history: Fetch the resource change history for all resources of type
-  PractitionerRole
+title: /firm/{firm}/mmgi/fhir/v2/PractitionerRole/{id}
 excerpt: ''
 api:
   file: mmgi-synapsys-v2.json

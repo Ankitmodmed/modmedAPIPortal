@@ -1,5 +1,5 @@
 ---
-title: Add/update client for FHIR Sync
+title: /firm/{firm}/mmgi/fhir/v2/register
 excerpt: ''
 api:
   file: mmgi-synapsys-v2.json
