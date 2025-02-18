@@ -1,0 +1,4 @@
+- post_upcertpatient
+- post_deletepatient
+- post_undeletepatient
+- post_mergepatient

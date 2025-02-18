@@ -1,0 +1,4 @@
+---
+title: EMRPatientEvents
+hidden: false
+---
