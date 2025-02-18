@@ -1,3 +1,4 @@
+- authentication-1
 - appointmentget-1
 - appointmentpost-1
 - binary-1
@@ -20,4 +21,3 @@
 - clientsget-1
 - registerclient-1
 - appointmentput-1
-- authentication-1
