@@ -18,4 +18,3 @@ To ensure API changes remain non-breaking for our vendors, we sometimes use head
 
 * `Referral:` Adds Referral Contact and Referral Source information to the Patient and Appointment payloads.
 * `Pagination_optimization_disabled:` Provides the total count for all resources, not just the current page.
-* `Universal_Id:` Adds a GUID to the Patient payloads.
