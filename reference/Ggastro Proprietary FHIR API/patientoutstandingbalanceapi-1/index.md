@@ -1,4 +1,4 @@
 ---
-title: PatientOutstandingBalanceApi
+title: PatientOutstandingBalance
 hidden: false
 ---
