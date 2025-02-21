@@ -1,4 +1,4 @@
 ---
-title: AppointmentPut
+title: Appointment
 hidden: false
 ---
