@@ -1,4 +1,4 @@
 ---
-title: ClientGet
+title: Client
 hidden: false
 ---
