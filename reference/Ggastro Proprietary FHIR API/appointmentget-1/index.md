@@ -1,4 +1,4 @@
 ---
-title: AppointmentGet
+title: Appointment
 hidden: false
 ---
