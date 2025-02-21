@@ -1,4 +1,4 @@
 ---
-title: LocationGet
+title: Location
 hidden: false
 ---
