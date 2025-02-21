@@ -1,4 +1,4 @@
 ---
-title: PatientCommunicationAPI
+title: PatientCommunication
 hidden: false
 ---
