@@ -1,4 +1,4 @@
 ---
-title: PatientGet
+title: Patient
 hidden: false
 ---
