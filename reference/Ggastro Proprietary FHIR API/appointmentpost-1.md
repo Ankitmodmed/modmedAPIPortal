@@ -1,4 +1,0 @@
----
-title: AppointmentPost
-hidden: false
----
