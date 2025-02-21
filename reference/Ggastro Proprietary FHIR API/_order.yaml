@@ -13,7 +13,6 @@
 - valueset-2
 - emrpatientevents-1
 - patientget-1
-- patientpost-1
 - patientcommunicationapi-1
 - patientoutstandingbalanceapi-1
 - emrfhirsync-1
