@@ -1,4 +1,4 @@
 ---
-title: SlotGet
+title: Slot
 hidden: false
 ---
