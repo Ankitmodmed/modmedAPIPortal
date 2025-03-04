@@ -1,4 +1,0 @@
----
-title: Bundle
-hidden: false
----
