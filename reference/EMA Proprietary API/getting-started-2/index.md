@@ -19,7 +19,7 @@ By using or accessing any API services or materials, you agree to be bound by th
 This document is intended for any entity looking to create an application or to retrieve data for various purposes from an MMI EMA or MMPM practice using the MMI Proprietary API. **Note:** that currently this is not supported for MMGI practices.
 It is encouraged that you read through the documentation carefully to ensure that your application can be powered by the Proprietary API. It is possible that you may be looking for details regarding the Certified FHIR API. If you are looking for the Certified FHIR API, you can find that documentation here:
 
-* [https://www.modmed.com/synapsys/fhir-api/](https://www.modmed.com/synapsys/fhir-api/)
+* [https://www.modmed.com/what-we-do/integrations/synapsys/ema-api/](https://www.modmed.com/what-we-do/integrations/synapsys/ema-api/)
 
 ### Sandbox Access
 
