@@ -1,4 +1,0 @@
----
-title: PatientCommunication
-hidden: false
----

@@ -1,4 +1,0 @@
----
-title: Invoice
-hidden: false
----

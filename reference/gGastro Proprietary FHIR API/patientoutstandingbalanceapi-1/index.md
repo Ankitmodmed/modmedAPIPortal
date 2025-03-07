@@ -1,4 +1,0 @@
----
-title: PatientOutstandingBalance
-hidden: false
----

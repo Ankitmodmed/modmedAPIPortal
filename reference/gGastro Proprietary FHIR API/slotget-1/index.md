@@ -1,4 +1,0 @@
----
-title: Slot
-hidden: false
----

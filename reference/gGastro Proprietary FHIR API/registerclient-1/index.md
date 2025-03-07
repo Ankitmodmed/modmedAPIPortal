@@ -1,4 +1,0 @@
----
-title: RegisterClient
-hidden: false
----
