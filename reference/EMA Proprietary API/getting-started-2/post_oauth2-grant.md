@@ -1,5 +1,5 @@
 ---
-title: Authentication
+title: Authentication Endpoint
 excerpt: Obtain an OAuth2 access token using password grant type. Use Default Values.
 api:
   file: ema-proprietary-api.json
