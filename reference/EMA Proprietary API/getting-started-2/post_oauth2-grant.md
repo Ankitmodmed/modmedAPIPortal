@@ -6,3 +6,5 @@ api:
 hidden: false
 ---
 Obtain an OAuth2 access token using password grant type. **Use Default Values.**
+
+Use x-api-key: Zt9tXPIgz17uxEU6gkZPWa3ZAFhZOqm04oEDHC1f
