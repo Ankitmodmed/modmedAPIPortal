@@ -1,4 +1,5 @@
 - get_fhir-v2-patient-id
 - put_fhir-v2-patient-id
 - get_fhir-v2-patient
+- post_fhir-v2-patient
 - patient
