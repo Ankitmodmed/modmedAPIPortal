@@ -6,5 +6,5 @@
 - post_fhir-v2-chargeitem
 - account
 - get_fhir-v2-account
-- get_fhir-v2-relatedperson-id
 - relatedperson
+- get_fhir-v2-relatedperson-id
