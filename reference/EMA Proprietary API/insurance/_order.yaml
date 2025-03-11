@@ -1,9 +1,9 @@
-- organization-1
 - insuranceplan
 - get_fhir-v2-coverage-id
 - put_fhir-v2-coverage-id
 - get_fhir-v2-coverage
 - post_fhir-v2-coverage
+- organization-1
 - get_fhir-v2-organization-id
 - get_fhir-v2-organization
 - post_fhir-v2-organization
