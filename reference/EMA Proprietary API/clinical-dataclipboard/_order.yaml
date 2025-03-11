@@ -1,5 +1,4 @@
 - medicationstatement
-- allergyintolerance-1
 - condition-1
 - familymemberhistory
 - servicerequest-orders
@@ -8,6 +7,7 @@
 - put_fhir-v2-medicationstatement-id
 - get_fhir-v2-medicationstatement
 - post_fhir-v2-medicationstatement
+- allergyintolerance-1
 - get_fhir-v2-allergyintolerance-id
 - put_fhir-v2-allergyintolerance-id
 - get_fhir-v2-allergyintolerance
