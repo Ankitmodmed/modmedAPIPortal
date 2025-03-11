@@ -1,4 +1,3 @@
-- relatedperson
 - appoitments-and-slots
 - get_fhir-v2-chargeitem-chg-id
 - get_fhir-v2-chargeitem-inbound-id
@@ -8,3 +7,4 @@
 - account
 - get_fhir-v2-account
 - get_fhir-v2-relatedperson-id
+- relatedperson
