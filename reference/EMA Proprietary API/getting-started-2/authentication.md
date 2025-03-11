@@ -33,6 +33,8 @@ grant\_type: password\
 username: \{the username provided}
 password: \{the password provided}
 
+**NOTE:** Use [https://portal.api.modmed.com/reference/post\_oauth2-grant#/](https://portal.api.modmed.com/reference/post_oauth2-grant#/) for getting Token for this portal.
+
 **Example:**
 
 ```Text http
