@@ -1,4 +1,0 @@
----
-title: Patient
-hidden: false
----
