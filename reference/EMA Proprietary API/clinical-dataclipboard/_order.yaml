@@ -1,5 +1,4 @@
 - medicationstatement
-- servicerequest-orders
 - diagnosticreport-results
 - get_fhir-v2-medicationstatement-id
 - put_fhir-v2-medicationstatement-id
@@ -18,6 +17,7 @@
 - familymemberhistory
 - get_fhir-v2-familymemberhistory-id
 - get_fhir-v2-familymemberhistory
+- servicerequest-orders
 - get_fhir-v2-servicerequest-id
 - get_fhir-v2-servicerequest
 - get_fhir-v2-diagnosticreport-id
