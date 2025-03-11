@@ -1,5 +1,4 @@
 - medicationstatement
-- condition-1
 - familymemberhistory
 - servicerequest-orders
 - diagnosticreport-results
@@ -12,6 +11,7 @@
 - put_fhir-v2-allergyintolerance-id
 - get_fhir-v2-allergyintolerance
 - post_fhir-v2-allergyintolerance
+- condition-1
 - get_fhir-v2-condition-id
 - put_fhir-v2-condition-id
 - get_fhir-v2-condition
