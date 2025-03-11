@@ -1,10 +1,10 @@
-- get_chargeitem-chg-id
-- get_chargeitem-inbound-id
-- get_chargeitem-inbound
-- get_chargeitem
-- post_chargeitem
 - account
-- get_account
 - relatedperson
-- get_relatedperson-id
 - appoitments-and-slots
+- get_fhir-v2-chargeitem-chg-id
+- get_fhir-v2-chargeitem-inbound-id
+- get_fhir-v2-chargeitem-inbound
+- get_fhir-v2-chargeitem
+- post_fhir-v2-chargeitem
+- get_fhir-v2-account
+- get_fhir-v2-relatedperson-id

@@ -1,6 +1,6 @@
-- get_appointment-id
-- put_appointment-id
-- get_appointment
-- post_appointment
 - slot
-- get_slot
+- get_fhir-v2-appointment-id
+- put_fhir-v2-appointment-id
+- get_fhir-v2-appointment
+- post_fhir-v2-appointment
+- get_fhir-v2-slot
