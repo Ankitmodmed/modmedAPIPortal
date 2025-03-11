@@ -38,12 +38,12 @@ password: \{the password provided}
 **Example:**
 
 ```Text http
-curl --location 'https://stage.ema-api.com/ema-dev/firm/modmedapiophth1/ema/ws/oauth2/grant' \
---header 'x-api-key: 5ca254dcc3ee6372d2513de1274fe4b5334f463eb1bfc5c28219fef9' \
+curl --location 'https://stage.ema-api.com/ema-dev/firm/apiportal/ema/ws/oauth2/grant' \
+--header 'x-api-key: Zt9tXPIgz17uxEU6gkZPWa3ZAFhZOqm04oEDHC1f' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'grant_type=password' \
---data-urlencode 'username=fhir_sHdvq' \
---data-urlencode 'password=IktdESIMVg'
+--data-urlencode 'username=fhir_QfLlo' \
+--data-urlencode 'password=925X3LZ505'
 ```
 
 ![](https://files.readme.io/0986c46764cf83e68c224c7753982048268f63afa8b86e09f3802b26bf4d2ef5-image.png)
