@@ -63,7 +63,7 @@ ibW9kbWVkIiwidG9rZW5……..."
 ```
 
 Once you have the Access Token, you will use that in each of the calls to the API. You can use the Refresh Token to obtain additional Access Tokens:\
-Example:
+**Example:**
 
 ```Text http
 curl -X POST \
