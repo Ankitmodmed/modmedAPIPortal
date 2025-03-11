@@ -1,5 +1,5 @@
 ---
-title: Obtain OAuth2 Token
+title: Authentication Endpoint
 api:
   file: ema-proprietary-api.json
   operationId: post_ws-oauth2-grant
