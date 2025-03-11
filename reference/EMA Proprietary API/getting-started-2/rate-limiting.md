@@ -10,4 +10,4 @@ metadata:
 next:
   description: ''
 ---
-By default, each API key is limited to 1250 calls per minute. If your application requires more frequent calls, please reach out to the person who provisioned your credentials and set up a call to understand your needs.
+By default, each API key is limited to 120 calls per minute. If your application requires more frequent calls, please reach out to the person who provisioned your credentials and set up a call to understand your needs. Support email: [synapsys@modmed.com](mailto:synapsys@modmed.com)
