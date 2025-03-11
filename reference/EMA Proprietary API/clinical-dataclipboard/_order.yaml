@@ -1,5 +1,4 @@
 - medicationstatement
-- familymemberhistory
 - servicerequest-orders
 - diagnosticreport-results
 - get_fhir-v2-medicationstatement-id
@@ -16,6 +15,7 @@
 - put_fhir-v2-condition-id
 - get_fhir-v2-condition
 - post_fhir-v2-condition
+- familymemberhistory
 - get_fhir-v2-familymemberhistory-id
 - get_fhir-v2-familymemberhistory
 - get_fhir-v2-servicerequest-id
