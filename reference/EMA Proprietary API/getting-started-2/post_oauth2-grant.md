@@ -1,6 +1,6 @@
 ---
-title: Obtain OAuth2 Token
-excerpt: Obtain an OAuth2 access token using password grant type.
+title: Authentication
+excerpt: Obtain an OAuth2 access token using password grant type. Use Default Values.
 api:
   file: ema-proprietary-api.json
   operationId: post_oauth2-grant
