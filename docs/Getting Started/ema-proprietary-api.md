@@ -24,4 +24,4 @@ Our proprietary API allows connected applications to take advantage of some of t
 
 ***
 
-Want to get connected with an application on the ModMed synapSYS Marketplace? Please reach out to your account manager or email [practicesolutions@modmed.com](mailto:practicesolutions@modmed.com) for more information.
+Want to get connected with an application on the ModMed synapSYS Marketplace? Please reach out to your account manager or email: [synapsys@modmed.com](mailto:synapsys@modmed.com) for more information.
