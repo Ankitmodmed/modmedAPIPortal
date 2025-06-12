@@ -10,7 +10,7 @@ MMI provides access to several APIs for various purposes. This documentation is 
 
 By using or accessing any API services or materials, you agree to be bound by the API Terms of Use available at: [https://www.modmed.com/api-terms-of-use/](https://www.modmed.com/api-terms-of-use/)
 
-The main dierence between the two APIs relates to use cases and access. The Certified FHIR API Supports two types of API-enabled services:
+The main difference between the two APIs relates to use cases and access. The Certified FHIR API Supports two types of API-enabled services:
 
 * Services for which a single patient’s data is the focus
   * A Patient, using their Patient Portal credentials, can authenticate to the API in order to retrieve, access, exchange, or visualize their data.
