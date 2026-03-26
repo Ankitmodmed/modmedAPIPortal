@@ -1,5 +1,5 @@
 ---
-title: Copy of Authentication
+title: Authentication
 deprecated: false
 hidden: false
 metadata:
