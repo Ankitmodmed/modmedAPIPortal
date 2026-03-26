@@ -1,10 +1,10 @@
 - basic-concepts
 - development-basics
 - authentication
+- copy-of-authentication
 - post_ws-oauth2-grant
 - rate-limiting
 - response-codes
 - count-and-pagination
 - value-sets
 - header-flags
-- copy-of-authentication
