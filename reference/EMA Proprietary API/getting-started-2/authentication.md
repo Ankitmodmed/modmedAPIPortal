@@ -1,5 +1,5 @@
 ---
-title: Authentication
+title: Authentication (Deprecated)
 excerpt: ''
 deprecated: false
 hidden: false
