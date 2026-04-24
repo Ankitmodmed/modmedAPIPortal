@@ -6,7 +6,8 @@
     "version": "4.1-SNAPSHOT"
   },
   "x-readme": {
-    "explorer-enabled": true
+    "explorer-enabled": false,
+    "proxy-enabled": false
   },
   "servers": [
     {
