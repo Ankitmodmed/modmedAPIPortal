@@ -1,6 +1,4 @@
 ---
-title: 'read-instance: Read Observation instance'
-excerpt: ''
 api:
   file: ema-certified-api.json
   operationId: get_observation-id

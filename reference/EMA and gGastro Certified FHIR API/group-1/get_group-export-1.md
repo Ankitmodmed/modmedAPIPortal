@@ -1,6 +1,4 @@
 ---
-title: 'GET: /Group/$export'
-excerpt: ''
 api:
   file: ema-certified-api.json
   operationId: get_group-export

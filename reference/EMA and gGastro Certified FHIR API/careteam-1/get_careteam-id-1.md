@@ -1,6 +1,4 @@
 ---
-title: 'read-instance: Read CareTeam instance'
-excerpt: ''
 api:
   file: ema-certified-api.json
   operationId: get_careteam-id

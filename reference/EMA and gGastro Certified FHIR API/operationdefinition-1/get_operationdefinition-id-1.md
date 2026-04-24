@@ -1,6 +1,4 @@
 ---
-title: 'read-instance: Read OperationDefinition instance'
-excerpt: ''
 api:
   file: ema-certified-api.json
   operationId: get_operationdefinition-id
