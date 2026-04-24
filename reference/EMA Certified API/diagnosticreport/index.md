@@ -1,0 +1,4 @@
+---
+title: DiagnosticReport
+hidden: false
+---
