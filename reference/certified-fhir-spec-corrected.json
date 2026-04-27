@@ -11,7 +11,7 @@
   },
   "servers": [
     {
-      "url": "https://{firm}.mmi.prod.fhir.ema-api.com/fhir/r4",
+      "url": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4",
       "description": "EMA Certified FHIR API",
       "variables": {
         "firm": {
