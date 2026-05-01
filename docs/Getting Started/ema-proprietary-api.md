@@ -14,6 +14,8 @@ At ModMed®, we understand that practices may depend on many applications and sy
 
 Our proprietary API allows connected applications to take advantage of some of the key functionality of our EMA® EHR and Practice Management software, helping to create a smoother experience for our customers.
 
+While we offer the ability to discover the capabilities and interact with the APIs in this API Portal, there is also a version of the documentation in a PDF which may be more consumable for some needs here: https://www.modmed.com/modmed-synapsys-api/
+
 <br />
 
 **Are you a vendor who's ready to bring your application to our ecosystem of providers and patients?**
