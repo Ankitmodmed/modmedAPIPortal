@@ -26,7 +26,7 @@ If you are looking for the Certified FHIR API, you can find that documentation h
 
 For Vendors or Partners who believe they can power their application using the Proprietary API, you can apply for a sandbox here:
 
-* [https://www.modmed.com/become-a-partner/](https://www.modmed.com/become-a-partner/)
+* <Anchor label="https://www.modmed.com/become-a-partner/" target="_blank" href="https://www.modmed.com/become-a-partner/">https://www.modmed.com/become-a-partner/</Anchor>
 
 **Provisioning Time:** Sandboxes can take up to **two weeks** to provision from the time that they are requested. We typically provide 2 sandbox environments so that you can get comfortable with the concept of being able to work with multiple practices. Sandboxes are generic databases with sample Patients, Practitioners, Locations, and Encounters.
 
