@@ -12,14 +12,15 @@ next:
 ---
 ## MMI Proprietary API Terms of Use
 
-By using or accessing any API services or materials, you agree to be bound by the API Terms of Use available at:\
+By using or accessing any API services or materials, you agree to be bound by the API Terms of Use available at:  
 [https://www.modmed.com/api-terms-of-use/](https://www.modmed.com/api-terms-of-use/).
 
-**Overview**\
-This document is intended for any entity looking to create an application or to retrieve data for various purposes from an MMI EMA or MMPM practice using the MMI Proprietary API. **Note:** that currently this is not supported for MMGI practices.
-It is encouraged that you read through the documentation carefully to ensure that your application can be powered by the Proprietary API. It is possible that you may be looking for details regarding the Certified FHIR API. If you are looking for the Certified FHIR API, you can find that documentation here:
+**Overview**  
+This document is intended for any entity looking to create an application or to retrieve data for various purposes from an MMI EMA or MMPM practice using the MMI Proprietary API. **Note:** that currently this is not supported for MMGI practices. It is encouraged that you read through the documentation carefully to ensure that your application can be powered by the Proprietary API. It is possible that you may be looking for details regarding the Certified FHIR API. 
 
-* [https://www.modmed.com/what-we-do/integrations/synapsys/ema-api/](https://www.modmed.com/what-we-do/integrations/synapsys/ema-api/)
+If you are looking for the Certified FHIR API, you can find that documentation here:
+
+* <Anchor label="https://portal.api.modmed.com/docs/register-to-become-a-modmed-certified-fhir-api-vendor" target="_blank" href="https://portal.api.modmed.com/docs/register-to-become-a-modmed-certified-fhir-api-vendor">https://portal.api.modmed.com/docs/register-to-become-a-modmed-certified-fhir-api-vendor</Anchor>
 
 ### Sandbox Access
 
