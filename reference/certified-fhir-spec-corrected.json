@@ -142,13 +142,13 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 },
                 "example": "{\n  \"resourceType\": \"CapabilityStatement\"\n}"
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 },
@@ -179,8 +179,8 @@
                       },
                       "fhirVersion": "4.0.1",
                       "format": [
-                        "application/fhir+xml",
-                        "application/fhir+json"
+                        "application/xml+fhir",
+                        "application/json+fhir"
                       ],
                       "rest": [
                         {
@@ -1556,12 +1556,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -1611,12 +1611,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -1650,12 +1650,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -1723,12 +1723,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -1762,12 +1762,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -1817,12 +1817,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -1856,12 +1856,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -1974,12 +1974,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -2013,12 +2013,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -2059,12 +2059,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -2098,12 +2098,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -2153,12 +2153,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -2192,12 +2192,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -2283,12 +2283,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -2322,12 +2322,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -2431,12 +2431,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -2470,12 +2470,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -2570,12 +2570,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -2609,12 +2609,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -2682,12 +2682,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -2721,12 +2721,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -2781,12 +2781,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -2853,12 +2853,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -2892,12 +2892,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -2965,12 +2965,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -3004,12 +3004,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -3122,12 +3122,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -3161,12 +3161,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -3200,12 +3200,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -3291,12 +3291,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -3330,12 +3330,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -3421,12 +3421,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -3460,12 +3460,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -3499,12 +3499,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -3563,12 +3563,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -3602,12 +3602,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -3836,12 +3836,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -3896,12 +3896,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -3968,12 +3968,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -4007,12 +4007,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -4116,12 +4116,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -4155,12 +4155,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -4273,12 +4273,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -4312,12 +4312,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -4394,12 +4394,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -4433,12 +4433,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -4470,12 +4470,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -4509,12 +4509,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -4600,12 +4600,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -4639,12 +4639,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
@@ -4703,12 +4703,12 @@
           "200": {
             "description": "Success",
             "content": {
-              "application/fhir+json": {
+              "application/json+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
                 }
               },
-              "application/fhir+xml": {
+              "application/xml+fhir": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
                 }
