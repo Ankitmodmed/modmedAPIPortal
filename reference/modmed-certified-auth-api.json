@@ -1,0 +1,196 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "ModMed Certified API Authentication",
+    "version": "1.0.0",
+    "description": "OAuth 2.0 / SMART App Launch authorization for the ModMed Certified (ONC) FHIR API.\n\nDiscovery document: `https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4/.well-known/smart-configuration`.\n\n- **`authorization_code` (with PKCE)** — for user- and patient-facing apps: redirect the browser to the authorization endpoint, then exchange the returned `code` at the token endpoint.\n- **`client_credentials`** — for system/backend access.\n\nToken endpoint authentication is `client_secret_post` (send `client_id`/`client_secret` in the request body). Scopes use SMART v1 syntax, e.g. `system/Patient.rs`, `patient/Observation.rs`, plus `openid`, `fhirUser`, `launch`, `offline_access`."
+  },
+  "servers": [
+    {
+      "url": "https://fhirmp.mmi.prod.fhir.ema-api.com",
+      "description": "Production"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Authentication",
+      "description": "SMART-on-FHIR OAuth 2.0 endpoints."
+    }
+  ],
+  "paths": {
+    "/fhir/r4/auth/realms/fhir/protocol/openid-connect/auth": {
+      "get": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Authorization endpoint (authorization_code)",
+        "description": "Begin the SMART App Launch `authorization_code` flow. Redirect the user's browser here; on approval the server redirects to your `redirect_uri` with a `code` to exchange at the token endpoint. PKCE (`S256`) is supported.",
+        "parameters": [
+          {
+            "name": "response_type",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "code"
+            }
+          },
+          {
+            "name": "client_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "redirect_uri",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "scope",
+            "in": "query",
+            "required": true,
+            "description": "Space-separated SMART scopes",
+            "schema": {
+              "type": "string"
+            },
+            "example": "openid fhirUser launch/patient patient/Patient.rs"
+          },
+          {
+            "name": "state",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "aud",
+            "in": "query",
+            "required": true,
+            "description": "The FHIR base URL",
+            "schema": {
+              "type": "string"
+            },
+            "example": "https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4"
+          },
+          {
+            "name": "code_challenge",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "code_challenge_method",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "default": "S256"
+            }
+          }
+        ],
+        "responses": {
+          "302": {
+            "description": "Redirect to redirect_uri with an authorization code"
+          }
+        }
+      }
+    },
+    "/fhir/r4/auth/realms/fhir/protocol/openid-connect/token": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Token endpoint",
+        "description": "Exchange an authorization `code` for tokens, refresh a token, or obtain a `client_credentials` token. Send `client_id`/`client_secret` in the body (`client_secret_post`).",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "grant_type": {
+                    "type": "string",
+                    "description": "`authorization_code`, `refresh_token`, or `client_credentials`",
+                    "default": "authorization_code"
+                  },
+                  "code": {
+                    "type": "string",
+                    "description": "Authorization code (authorization_code grant)"
+                  },
+                  "redirect_uri": {
+                    "type": "string",
+                    "description": "Must match the authorize request (authorization_code grant)"
+                  },
+                  "code_verifier": {
+                    "type": "string",
+                    "description": "PKCE code verifier (authorization_code grant)"
+                  },
+                  "refresh_token": {
+                    "type": "string",
+                    "description": "(refresh_token grant)"
+                  },
+                  "client_id": {
+                    "type": "string"
+                  },
+                  "client_secret": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "grant_type",
+                  "client_id",
+                  "client_secret"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Token response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "access_token": {
+                      "type": "string"
+                    },
+                    "token_type": {
+                      "type": "string",
+                      "example": "Bearer"
+                    },
+                    "expires_in": {
+                      "type": "integer"
+                    },
+                    "refresh_token": {
+                      "type": "string",
+                      "description": "Present when offline_access is granted"
+                    },
+                    "scope": {
+                      "type": "string"
+                    },
+                    "id_token": {
+                      "type": "string",
+                      "description": "Present when the openid scope is requested"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
