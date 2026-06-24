@@ -5,7 +5,8 @@
     "contact": {
       "email": "ankit.srivastava@modmed.com"
     },
-    "version": "3.4.3_FINAL"
+    "version": "3.4.3_FINAL",
+    "description": "The EMA Proprietary FHIR API provides programmatic access to ModMed EMA clinical and practice-management data using FHIR R4-style resources under `/fhir/v2`.\n\nThis documentation targets the **public sandbox** (`stage.ema-api.com`).\n\n**Authentication.** Two mechanisms are supported during the current migration: the **legacy OAuth2 `password` grant** (being sunset) and the **new Keycloak `client_credentials`** flow (recommended for new integrations). See the **Authentication** section below. Every API call also requires the `x-api-key` header."
   },
   "servers": [
     {
@@ -42,7 +43,7 @@
       "description": "Documents details"
     },
     {
-      "name": "Appoitments and Slots",
+      "name": "Appointments and Slots",
       "description": "Appoitments and Slots Details"
     },
     {
@@ -68,8 +69,8 @@
         "tags": [
           "Authentication"
         ],
-        "summary": "Obtain OAuth2 Token",
-        "description": "Obtain an OAuth2 access token using password grant type.",
+        "summary": "Obtain OAuth2 Token (Legacy — password grant)",
+        "description": "**Legacy authentication — being sunset.** Obtain an access token using the OAuth2 `password` grant. Send your sandbox `x-api-key` plus `username`/`password`. The token is an HS256 JWT and a `refresh_token` is returned. New integrations should use the Keycloak `client_credentials` flow instead. Treat the returned `access_token` as an opaque Bearer token.",
         "requestBody": {
           "required": true,
           "content": {
@@ -118,6 +119,90 @@
                     },
                     "refresh_token": {
                       "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/realms/ema-fhir/protocol/openid-connect/token": {
+      "servers": [
+        {
+          "url": "https://ssoqa01-lb-01.m2qa.com",
+          "description": "Sandbox Keycloak (SSO)"
+        }
+      ],
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Obtain OAuth2 Token (New — Keycloak client_credentials)",
+        "description": "**New authentication — recommended.** Obtain an access token directly from Keycloak using the OAuth2 `client_credentials` grant with the `client_id` and `client_secret` provisioned for your vendor application. Returns an RS256-signed JWT whose `scope` claim is a space-separated list of ACLs. **No refresh token is issued** — request a new token when the current one expires. Use the token as `Authorization: Bearer <token>` on FHIR calls, along with your `x-api-key`.\n\n- Sandbox token endpoint: `https://ssoqa01-lb-01.m2qa.com/auth/realms/ema-fhir/protocol/openid-connect/token`\n- Production token endpoint: `https://sso.ema.md/auth/realms/ema-fhir/protocol/openid-connect/token`",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "grant_type": {
+                    "type": "string",
+                    "default": "client_credentials"
+                  },
+                  "client_id": {
+                    "type": "string",
+                    "description": "Your vendor application's Keycloak client_id"
+                  },
+                  "client_secret": {
+                    "type": "string",
+                    "description": "Your vendor application's Keycloak client_secret"
+                  }
+                },
+                "required": [
+                  "grant_type",
+                  "client_id",
+                  "client_secret"
+                ]
+              }
+            }
+          }
+        },
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Access token response (Keycloak passthrough)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "access_token": {
+                      "type": "string",
+                      "description": "RS256-signed JWT"
+                    },
+                    "expires_in": {
+                      "type": "integer",
+                      "example": 900
+                    },
+                    "refresh_expires_in": {
+                      "type": "integer",
+                      "example": 0
+                    },
+                    "token_type": {
+                      "type": "string",
+                      "example": "Bearer"
+                    },
+                    "not-before-policy": {
+                      "type": "integer",
+                      "example": 0
+                    },
+                    "scope": {
+                      "type": "string",
+                      "description": "Space-separated list of ACL scopes",
+                      "example": "acl/enc_s acl/pat_s_name_dob_gen"
                     }
                   }
                 }
@@ -1607,7 +1692,7 @@
     "/fhir/v2/Appointment/{id}": {
       "get": {
         "tags": [
-          "Appoitments and Slots"
+          "Appointments and Slots"
         ],
         "summary": "Retrieve details for a specific Appointment by ID",
         "parameters": [
@@ -1644,7 +1729,7 @@
       },
       "put": {
         "tags": [
-          "Appoitments and Slots"
+          "Appointments and Slots"
         ],
         "summary": "Update an Appointment",
         "parameters": [
@@ -1694,7 +1779,7 @@
     "/fhir/v2/Appointment": {
       "get": {
         "tags": [
-          "Appoitments and Slots"
+          "Appointments and Slots"
         ],
         "summary": "Retrieve All Appointments for a Practice/Firm",
         "parameters": [
@@ -1821,7 +1906,7 @@
       },
       "post": {
         "tags": [
-          "Appoitments and Slots"
+          "Appointments and Slots"
         ],
         "summary": "Create an Appointment",
         "requestBody": {
@@ -1857,7 +1942,7 @@
     "/fhir/v2/Slot": {
       "get": {
         "tags": [
-          "Appoitments and Slots"
+          "Appointments and Slots"
         ],
         "summary": "Search for a slot",
         "parameters": [
@@ -3220,71 +3305,6 @@
           }
         }
       }
-    },
-    "/ws/oauth2/grant-1": {
-      "post": {
-        "tags": [
-          "Authentication"
-        ],
-        "summary": "Copy of Obtain OAuth2 Token",
-        "description": "Obtain an OAuth2 access token using password grant type.",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "grant_type": {
-                    "type": "string",
-                    "default": "password"
-                  },
-                  "username": {
-                    "type": "string",
-                    "default": "fhir_QfLlo"
-                  },
-                  "password": {
-                    "type": "string",
-                    "default": "925X3LZ505"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "ApiKeyAuth": []
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Access token response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "access_token": {
-                      "type": "string"
-                    },
-                    "token_type": {
-                      "type": "string"
-                    },
-                    "expires_in": {
-                      "type": "integer"
-                    },
-                    "refresh_token": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "operationId": "post_ws-oauth2-grant-1"
-      }
     }
   },
   "security": [
@@ -3309,13 +3329,13 @@
         "type": "http",
         "scheme": "bearer",
         "bearerFormat": "JWT",
-        "description": "Get token from Authentication page"
+        "description": "OAuth2 access token (JWT). Obtain it via one of the token endpoints under the **Authentication** tag — the legacy `password` grant or the new Keycloak `client_credentials` flow — then send as `Authorization: Bearer <token>`."
       },
       "ApiKeyAuth": {
         "type": "apiKey",
         "in": "header",
         "name": "x-api-key",
-        "description": "Use this fixed API key: `Zt9tXPIgz17uxEU6gkZPWa3ZAFhZOqm04oEDHC1f`\n"
+        "description": "Shared **sandbox** API key (public sandbox only). Send as the `x-api-key` header.\n\n`Zt9tXPIgz17uxEU6gkZPWa3ZAFhZOqm04oEDHC1f`"
       }
     }
   }
