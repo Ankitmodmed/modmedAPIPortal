@@ -2,7 +2,7 @@
 title: Authentication
 hidden: false
 ---
-The ModMed Certified FHIR API uses **OAuth 2.0** with the **SMART App Launch** framework to authorize requests. Your application obtains an access token, then includes it as a `Bearer` token on every FHIR call. Which flow you use depends on the kind of application you're building — see **App Types** below.
+The ModMed Certified (ONC) FHIR API uses **OAuth 2.0** with the **SMART App Launch** framework to authorize requests. Your application obtains an access token, then includes it as a `Bearer` token on every FHIR call. Which flow you use depends on the kind of application you're building — see **App Types** below.
 
 > 📘 Production only
 >
