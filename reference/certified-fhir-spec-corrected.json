@@ -3,7 +3,8 @@
   "info": {
     "title": "ModMed Certified API",
     "contact": {},
-    "version": "4.1-SNAPSHOT"
+    "version": "4.1-SNAPSHOT",
+    "description": "**FHIR endpoints are customer-specific.** Each practice has its own Certified FHIR endpoint — browse the directory at https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/. The server below (`https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4`) is a production **demonstration endpoint** for testing your integration; it behaves exactly like any practice's endpoint. See the **Authentication** documentation for the OAuth 2.0 / SMART App Launch flow."
   },
   "x-readme": {
     "explorer-enabled": true,
