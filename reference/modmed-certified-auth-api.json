@@ -3,7 +3,7 @@
   "info": {
     "title": "ModMed Certified API Authentication",
     "version": "1.0.0",
-    "description": "OAuth 2.0 / SMART App Launch authorization for the ModMed Certified (ONC) FHIR API.\n\n- **`authorization_code` (with PKCE)** — for user- and patient-facing apps: redirect the browser to the authorization endpoint, then exchange the returned `code` at the token endpoint.\n- **`client_credentials`** — for system/backend access.\n\nToken endpoint authentication is `client_secret_post` (send `client_id`/`client_secret` in the request body). Scopes use SMART v1 syntax, e.g. `system/Patient.rs`, `patient/Observation.rs`, plus `openid`, `fhirUser`, `launch`, `offline_access`. The `aud` parameter is the FHIR base URL (`https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4`)."
+    "description": "OAuth 2.0 / SMART App Launch authorization for the ModMed Certified (ONC) FHIR API.\n\n- **`authorization_code` (with PKCE)** — for user- and patient-facing apps: redirect the browser to the authorization endpoint, then exchange the returned `code` at the token endpoint.\n- **`client_credentials`** — for system/backend access.\n\nToken endpoint authentication is `client_secret_post` (send `client_id`/`client_secret` in the request body). Scopes use SMART v1 syntax, e.g. `system/Patient.rs`, `patient/Observation.rs`, plus `openid`, `fhirUser`, `launch`, `offline_access`.\n\n**FHIR endpoints are customer-specific.** Each practice has its own Certified FHIR endpoint (directory: https://mm-fhir-endpoint-display.prod.fhir.ema-api.com/). The `aud` parameter is the FHIR base URL of the endpoint you're connecting to. ModMed also provides a production **demonstration endpoint** (https://fhirmp.mmi.prod.fhir.ema-api.com/fhir/r4) that behaves like any customer endpoint, so vendors can test their integration."
   },
   "servers": [
     {
@@ -73,7 +73,7 @@
             "name": "aud",
             "in": "query",
             "required": true,
-            "description": "The FHIR base URL",
+            "description": "The FHIR base URL of the endpoint you're connecting to (a customer endpoint from the directory, or the demonstration endpoint for testing)",
             "schema": {
               "type": "string"
             },
