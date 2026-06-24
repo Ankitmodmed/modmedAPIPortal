@@ -1,2 +1,2 @@
-- get_fhir-r4-auth-realms-fhir-protocol-openid-connect-auth
-- post_fhir-r4-auth-realms-fhir-protocol-openid-connect-token
+- get_auth-realms-fhir-protocol-openid-connect-auth
+- post_auth-realms-fhir-protocol-openid-connect-token
