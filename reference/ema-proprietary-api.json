@@ -6,7 +6,7 @@
       "email": "ankit.srivastava@modmed.com"
     },
     "version": "3.4.3_FINAL",
-    "description": "The EMA Proprietary FHIR API provides programmatic access to ModMed EMA clinical and practice-management data using FHIR R4-style resources under `/fhir/v2`.\n\nThis documentation targets the **public sandbox** (`stage.ema-api.com`).\n\n**Authentication.** Two mechanisms are supported during the current migration: the **legacy OAuth2 `password` grant** (being sunset) and the **new Keycloak `client_credentials`** flow (recommended for new integrations). See the **Authentication** section below. Every API call also requires the `x-api-key` header."
+    "description": "The EMA Proprietary FHIR API provides programmatic access to ModMed EMA clinical and practice-management data using FHIR R4-style resources under `/fhir/v2`.\n\nThis documentation targets the **public sandbox** (`stage.ema-api.com`).\n\n**Authentication.** Two mechanisms are supported during the current migration: the **legacy OAuth2 `password` grant** (being sunset) and the **new OAuth2 `client_credentials`** flow (recommended for new integrations) — see the **Authentication** guide. Every API call also requires the `x-api-key` header."
   },
   "servers": [
     {
@@ -70,7 +70,7 @@
           "Authentication"
         ],
         "summary": "Obtain OAuth2 Token (Legacy — password grant)",
-        "description": "**Legacy authentication — being sunset.** Obtain an access token using the OAuth2 `password` grant. Send your sandbox `x-api-key` plus `username`/`password`. The token is an HS256 JWT and a `refresh_token` is returned. New integrations should use the Keycloak `client_credentials` flow instead. Treat the returned `access_token` as an opaque Bearer token.",
+        "description": "**Legacy authentication — being sunset.** Obtain an access token using the OAuth2 `password` grant. Send your sandbox `x-api-key` plus `username`/`password`. The token is an HS256 JWT and a `refresh_token` is returned. New integrations should use the OAuth2 `client_credentials` flow described in the **Authentication** guide. Treat the returned `access_token` as an opaque Bearer token.",
         "requestBody": {
           "required": true,
           "content": {
@@ -119,90 +119,6 @@
                     },
                     "refresh_token": {
                       "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/auth/realms/ema-fhir/protocol/openid-connect/token": {
-      "servers": [
-        {
-          "url": "https://ssoqa01-lb-01.m2qa.com",
-          "description": "Sandbox Keycloak (SSO)"
-        }
-      ],
-      "post": {
-        "tags": [
-          "Authentication"
-        ],
-        "summary": "Obtain OAuth2 Token (New — Keycloak client_credentials)",
-        "description": "**New authentication — recommended.** Obtain an access token directly from Keycloak using the OAuth2 `client_credentials` grant with the `client_id` and `client_secret` provisioned for your vendor application. Returns an RS256-signed JWT whose `scope` claim is a space-separated list of ACLs. **No refresh token is issued** — request a new token when the current one expires. Use the token as `Authorization: Bearer <token>` on FHIR calls, along with your `x-api-key`.\n\n- Sandbox token endpoint: `https://ssoqa01-lb-01.m2qa.com/auth/realms/ema-fhir/protocol/openid-connect/token`\n- Production token endpoint: `https://sso.ema.md/auth/realms/ema-fhir/protocol/openid-connect/token`",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "grant_type": {
-                    "type": "string",
-                    "default": "client_credentials"
-                  },
-                  "client_id": {
-                    "type": "string",
-                    "description": "Your vendor application's Keycloak client_id"
-                  },
-                  "client_secret": {
-                    "type": "string",
-                    "description": "Your vendor application's Keycloak client_secret"
-                  }
-                },
-                "required": [
-                  "grant_type",
-                  "client_id",
-                  "client_secret"
-                ]
-              }
-            }
-          }
-        },
-        "security": [],
-        "responses": {
-          "200": {
-            "description": "Access token response (Keycloak passthrough)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "access_token": {
-                      "type": "string",
-                      "description": "RS256-signed JWT"
-                    },
-                    "expires_in": {
-                      "type": "integer",
-                      "example": 900
-                    },
-                    "refresh_expires_in": {
-                      "type": "integer",
-                      "example": 0
-                    },
-                    "token_type": {
-                      "type": "string",
-                      "example": "Bearer"
-                    },
-                    "not-before-policy": {
-                      "type": "integer",
-                      "example": 0
-                    },
-                    "scope": {
-                      "type": "string",
-                      "description": "Space-separated list of ACL scopes",
-                      "example": "acl/enc_s acl/pat_s_name_dob_gen"
                     }
                   }
                 }
@@ -3329,7 +3245,7 @@
         "type": "http",
         "scheme": "bearer",
         "bearerFormat": "JWT",
-        "description": "OAuth2 access token (JWT). Obtain it via one of the token endpoints under the **Authentication** tag — the legacy `password` grant or the new Keycloak `client_credentials` flow — then send as `Authorization: Bearer <token>`."
+        "description": "OAuth2 access token (JWT). Obtain it via the legacy `password` grant or the new `client_credentials` flow (see the **Authentication** guide), then send as `Authorization: Bearer <token>`."
       },
       "ApiKeyAuth": {
         "type": "apiKey",
