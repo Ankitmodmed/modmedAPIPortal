@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "EMA Certified API",
+    "title": "ModMed Certified API",
     "contact": {},
     "version": "4.1-SNAPSHOT"
   },
