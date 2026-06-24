@@ -1,0 +1,103 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "EMA Proprietary API Authentication",
+    "version": "1.0.0",
+    "description": "Token issuance for the EMA Proprietary FHIR API.\n\nNew integrations obtain an access token using the OAuth2 `client_credentials` grant with the `client_id` and `client_secret` provisioned for your vendor application. The response is an RS256-signed JWT whose `scope` claim is a space-separated list of ACLs; **no refresh token is issued** — request a new token when the current one expires. Use the returned token as `Authorization: Bearer <token>` on FHIR calls, along with your `x-api-key`.\n\nSelect **Sandbox** or **Production** from the server dropdown. The legacy `password` grant (being sunset) is documented with the Proprietary API and in the Authentication guide."
+  },
+  "servers": [
+    {
+      "url": "https://ssoqa01-lb-01.m2qa.com",
+      "description": "Sandbox"
+    },
+    {
+      "url": "https://sso.ema.md",
+      "description": "Production"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Authentication",
+      "description": "Obtain an access token."
+    }
+  ],
+  "paths": {
+    "/auth/realms/ema-fhir/protocol/openid-connect/token": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Obtain OAuth2 Token (client_credentials)",
+        "description": "Obtain an access token using the OAuth2 `client_credentials` grant. Send your `client_id` and `client_secret`. Returns an RS256-signed JWT; the `scope` claim is a space-separated list of ACLs and no refresh token is returned.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "grant_type": {
+                    "type": "string",
+                    "default": "client_credentials"
+                  },
+                  "client_id": {
+                    "type": "string",
+                    "description": "Your vendor application's client_id"
+                  },
+                  "client_secret": {
+                    "type": "string",
+                    "description": "Your vendor application's client_secret"
+                  }
+                },
+                "required": [
+                  "grant_type",
+                  "client_id",
+                  "client_secret"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Access token response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "access_token": {
+                      "type": "string",
+                      "description": "RS256-signed JWT"
+                    },
+                    "expires_in": {
+                      "type": "integer",
+                      "example": 900
+                    },
+                    "refresh_expires_in": {
+                      "type": "integer",
+                      "example": 0
+                    },
+                    "token_type": {
+                      "type": "string",
+                      "example": "Bearer"
+                    },
+                    "not-before-policy": {
+                      "type": "integer",
+                      "example": 0
+                    },
+                    "scope": {
+                      "type": "string",
+                      "description": "Space-separated list of ACL scopes",
+                      "example": "acl/enc_s acl/pat_s_name_dob_gen"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
