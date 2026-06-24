@@ -14,6 +14,7 @@
 - immunization
 - location
 - medication
+- medicationdispense
 - medicationrequest
 - observation
 - operationdefinition
