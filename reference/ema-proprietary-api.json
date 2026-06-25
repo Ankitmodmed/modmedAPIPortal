@@ -124,6 +124,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -151,6 +172,27 @@
                 "example": "<CapabilityStatement xmlns=\"http://hl7.org/fhir\"/>"
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -173,6 +215,19 @@
               "type": "string"
             },
             "example": "123"
+          },
+          {
+            "name": "Content-flag",
+            "in": "header",
+            "required": false,
+            "description": "Optional header to include additional content in the payload. For Patient: `Referral` (adds Referral Contact/Source) or `Universal_Id` (adds a GUID).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Referral",
+                "Universal_Id"
+              ]
+            }
           }
         ],
         "responses": {
@@ -182,6 +237,56 @@
               "application/fhir+json": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
+                },
+                "example": {
+                  "resourceType": "Patient",
+                  "id": "375390",
+                  "meta": {
+                    "lastUpdated": "2025-09-23T14:51:45.000+00:00"
+                  },
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+                      "extension": [
+                        {
+                          "url": "text",
+                          "valueString": "Unspecified"
+                        }
+                      ]
+                    }
+                  ],
+                  "identifier": [
+                    {
+                      "system": "http://www.hl7.org/fhir/v2/0203/index.html#v2-0203-MR",
+                      "value": "MM0000000002"
+                    },
+                    {
+                      "system": "PMS",
+                      "value": "112416PAT000000002"
+                    }
+                  ],
+                  "active": true,
+                  "name": [
+                    {
+                      "family": "Test",
+                      "given": [
+                        "Female"
+                      ]
+                    }
+                  ],
+                  "gender": "male",
+                  "birthDate": "2000-09-09",
+                  "deceasedBoolean": false,
+                  "maritalStatus": {
+                    "coding": [
+                      {
+                        "system": "http://www.hl7.org/fhir/v2/0002",
+                        "code": "T",
+                        "display": "Unreported"
+                      }
+                    ],
+                    "text": "Unreported"
+                  }
                 }
               },
               "application/fhir+xml": {
@@ -190,8 +295,30 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
-        }
+        },
+        "description": "Retrieve a single Patient resource by its MMI id."
       },
       "put": {
         "tags": [
@@ -213,31 +340,235 @@
           }
         ],
         "requestBody": {
-          "description": "Send Valid FHIR Patient information to update as JSON (be sure to include the \"ID\" element for the Patient)",
+          "required": true,
           "content": {
             "application/fhir+json": {
               "schema": {
                 "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
+              },
+              "example": {
+                "resourceType": "Patient",
+                "id": "50181",
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+                    "extension": [
+                      {
+                        "url": "ombCategory",
+                        "valueCoding": {
+                          "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+                          "code": "UNK",
+                          "display": "Unknown"
+                        }
+                      },
+                      {
+                        "url": "text",
+                        "valueString": "Unknown"
+                      }
+                    ]
+                  },
+                  {
+                    "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+                    "extension": [
+                      {
+                        "url": "text",
+                        "valueString": "Unspecified"
+                      }
+                    ]
+                  }
+                ],
+                "identifier": [
+                  {
+                    "system": "PMS",
+                    "value": "EXAMPLE-ID"
+                  },
+                  {
+                    "system": "http://hl7.org/fhir/sid/us-ssn",
+                    "value": "EXAMPLE-ID"
+                  },
+                  {
+                    "system": "http://www.hl7.org/fhir/v2/0203/index.html#v2-0203-MR",
+                    "value": "EXAMPLE-ID"
+                  }
+                ],
+                "active": true,
+                "name": [
+                  {
+                    "family": "Sample",
+                    "given": [
+                      "Test"
+                    ]
+                  }
+                ],
+                "telecom": [
+                  {
+                    "system": "email",
+                    "value": "test@example.com"
+                  },
+                  {
+                    "system": "phone",
+                    "value": "555-555-0100",
+                    "use": "home",
+                    "rank": 1
+                  }
+                ],
+                "gender": "male",
+                "birthDate": "1980-01-01",
+                "deceasedBoolean": false,
+                "address": [
+                  {
+                    "use": "home",
+                    "type": "both",
+                    "line": [
+                      "123 Example St"
+                    ],
+                    "city": "Anytown",
+                    "state": "FL",
+                    "postalCode": "00000",
+                    "country": "Chile"
+                  }
+                ],
+                "maritalStatus": {
+                  "coding": [
+                    {
+                      "system": "http://www.hl7.org/fhir/v2/0002",
+                      "code": "R",
+                      "display": "Registered Domestic Partner"
+                    }
+                  ],
+                  "text": "Registered Domestic Partner"
+                },
+                "contact": [
+                  {
+                    "relationship": [
+                      {
+                        "coding": [
+                          {
+                            "system": "http://www.hl7.org/fhir/v2/0131",
+                            "code": "C",
+                            "display": "Emergency Contact"
+                          }
+                        ],
+                        "text": "Emergency Contact"
+                      }
+                    ],
+                    "name": {
+                      "given": [
+                        "Test"
+                      ]
+                    },
+                    "telecom": [
+                      {
+                        "system": "phone",
+                        "value": "555-555-0100"
+                      }
+                    ]
+                  }
+                ],
+                "generalPractitioner": [
+                  {
+                    "identifier": {
+                      "type": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/ValueSet/encounter-participant-type",
+                            "code": "REF",
+                            "display": "referrer"
+                          }
+                        ],
+                        "text": "referrer"
+                      },
+                      "system": "NPI",
+                      "value": "EXAMPLE-ID"
+                    },
+                    "display": "GeorgeC Doe"
+                  }
+                ]
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "Updated",
             "content": {
               "application/fhir+json": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
-                }
-              },
-              "application/fhir+xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/FHIR-XML-RESOURCE"
+                },
+                "example": {
+                  "resourceType": "Patient",
+                  "id": "375390",
+                  "meta": {
+                    "lastUpdated": "2025-09-23T14:51:45.000+00:00"
+                  },
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+                      "extension": [
+                        {
+                          "url": "text",
+                          "valueString": "Unspecified"
+                        }
+                      ]
+                    }
+                  ],
+                  "identifier": [
+                    {
+                      "system": "http://www.hl7.org/fhir/v2/0203/index.html#v2-0203-MR",
+                      "value": "MM0000000002"
+                    },
+                    {
+                      "system": "PMS",
+                      "value": "112416PAT000000002"
+                    }
+                  ],
+                  "active": true,
+                  "name": [
+                    {
+                      "family": "Test",
+                      "given": [
+                        "Female"
+                      ]
+                    }
+                  ],
+                  "gender": "male",
+                  "birthDate": "2000-09-09",
+                  "deceasedBoolean": false,
+                  "maritalStatus": {
+                    "coding": [
+                      {
+                        "system": "http://www.hl7.org/fhir/v2/0002",
+                        "code": "T",
+                        "display": "Unreported"
+                      }
+                    ],
+                    "text": "Unreported"
+                  }
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -404,6 +735,19 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "Content-flag",
+            "in": "header",
+            "required": false,
+            "description": "Optional header to include additional content in the payload. For Patient: `Referral` (adds Referral Contact/Source) or `Universal_Id` (adds a GUID).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Referral",
+                "Universal_Id"
+              ]
+            }
           }
         ],
         "responses": {
@@ -413,6 +757,157 @@
               "application/fhir+json": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
+                },
+                "example": {
+                  "resourceType": "Bundle",
+                  "id": "8f9d2f0b-4990-4f69-b4f3-c80fe568ea47",
+                  "meta": {
+                    "lastUpdated": "2026-06-25T13:27:08.420+00:00"
+                  },
+                  "type": "searchset",
+                  "total": 2,
+                  "link": [
+                    {
+                      "relation": "self",
+                      "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient?_count=2"
+                    },
+                    {
+                      "relation": "next",
+                      "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient?_count=2&page=2"
+                    }
+                  ],
+                  "entry": [
+                    {
+                      "fullUrl": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/375390",
+                      "resource": {
+                        "resourceType": "Patient",
+                        "id": "375390",
+                        "meta": {
+                          "lastUpdated": "2025-09-23T14:51:45.000+00:00"
+                        },
+                        "extension": [
+                          {
+                            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+                            "extension": [
+                              {
+                                "url": "text",
+                                "valueString": "Unspecified"
+                              }
+                            ]
+                          }
+                        ],
+                        "identifier": [
+                          {
+                            "system": "http://www.hl7.org/fhir/v2/0203/index.html#v2-0203-MR",
+                            "value": "MM0000000002"
+                          },
+                          {
+                            "system": "PMS",
+                            "value": "112416PAT000000002"
+                          }
+                        ],
+                        "active": true,
+                        "name": [
+                          {
+                            "family": "Test",
+                            "given": [
+                              "Female"
+                            ]
+                          }
+                        ],
+                        "gender": "male",
+                        "birthDate": "2000-09-09",
+                        "deceasedBoolean": false,
+                        "maritalStatus": {
+                          "coding": [
+                            {
+                              "system": "http://www.hl7.org/fhir/v2/0002",
+                              "code": "T",
+                              "display": "Unreported"
+                            }
+                          ],
+                          "text": "Unreported"
+                        }
+                      }
+                    },
+                    {
+                      "fullUrl": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/375391",
+                      "resource": {
+                        "resourceType": "Patient",
+                        "id": "375391",
+                        "meta": {
+                          "lastUpdated": "2025-09-14T11:22:42.000+00:00"
+                        },
+                        "extension": [
+                          {
+                            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+                            "extension": [
+                              {
+                                "url": "text",
+                                "valueString": "Unspecified"
+                              }
+                            ]
+                          }
+                        ],
+                        "identifier": [
+                          {
+                            "system": "http://www.hl7.org/fhir/v2/0203/index.html#v2-0203-MR",
+                            "value": "MM0000000003"
+                          },
+                          {
+                            "system": "PMS",
+                            "value": "112416PAT000000001"
+                          }
+                        ],
+                        "active": true,
+                        "name": [
+                          {
+                            "family": "Test-updated",
+                            "given": [
+                              "check final name Test-updated"
+                            ]
+                          }
+                        ],
+                        "telecom": [
+                          {
+                            "system": "email",
+                            "value": "updated.email@example.com"
+                          },
+                          {
+                            "system": "phone",
+                            "value": "5551234567",
+                            "use": "mobile",
+                            "rank": 1
+                          }
+                        ],
+                        "gender": "male",
+                        "birthDate": "1995-09-12",
+                        "deceasedBoolean": false,
+                        "address": [
+                          {
+                            "use": "home",
+                            "type": "both",
+                            "line": [
+                              "123 Updated Street"
+                            ],
+                            "city": "New City",
+                            "state": "CA",
+                            "postalCode": "90210"
+                          }
+                        ],
+                        "maritalStatus": {
+                          "coding": [
+                            {
+                              "system": "http://www.hl7.org/fhir/v2/0002",
+                              "code": "T",
+                              "display": "Unreported"
+                            }
+                          ],
+                          "text": "Unreported"
+                        }
+                      }
+                    }
+                  ]
                 }
               },
               "application/fhir+xml": {
@@ -421,6 +916,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       },
@@ -430,15 +946,40 @@
         ],
         "summary": "Creates Patient Resource",
         "requestBody": {
-          "description": "Send Valid FHIR Patient information in JSON",
+          "required": true,
           "content": {
             "application/fhir+json": {
               "schema": {
                 "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
+              },
+              "example": {
+                "resourceType": "Patient",
+                "name": [
+                  {
+                    "use": "official",
+                    "family": "Sample",
+                    "given": [
+                      "Test"
+                    ]
+                  }
+                ],
+                "gender": "male",
+                "birthDate": "1980-01-01",
+                "telecom": [
+                  {
+                    "system": "phone",
+                    "value": "555-555-0100",
+                    "use": "home",
+                    "rank": 1
+                  },
+                  {
+                    "system": "email",
+                    "value": "test@example.com"
+                  }
+                ]
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "200": {
@@ -455,6 +996,87 @@
                 }
               }
             }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/fhir+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
+                },
+                "example": {
+                  "resourceType": "Patient",
+                  "id": "375390",
+                  "meta": {
+                    "lastUpdated": "2025-09-23T14:51:45.000+00:00"
+                  },
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+                      "extension": [
+                        {
+                          "url": "text",
+                          "valueString": "Unspecified"
+                        }
+                      ]
+                    }
+                  ],
+                  "identifier": [
+                    {
+                      "system": "http://www.hl7.org/fhir/v2/0203/index.html#v2-0203-MR",
+                      "value": "MM0000000002"
+                    },
+                    {
+                      "system": "PMS",
+                      "value": "112416PAT000000002"
+                    }
+                  ],
+                  "active": true,
+                  "name": [
+                    {
+                      "family": "Test",
+                      "given": [
+                        "Female"
+                      ]
+                    }
+                  ],
+                  "gender": "male",
+                  "birthDate": "2000-09-09",
+                  "deceasedBoolean": false,
+                  "maritalStatus": {
+                    "coding": [
+                      {
+                        "system": "http://www.hl7.org/fhir/v2/0002",
+                        "code": "T",
+                        "display": "Unreported"
+                      }
+                    ],
+                    "text": "Unreported"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -486,6 +1108,33 @@
               "application/fhir+json": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
+                },
+                "example": {
+                  "resourceType": "Practitioner",
+                  "id": "375387",
+                  "meta": {
+                    "lastUpdated": "2026-03-27T18:47:32.000+00:00"
+                  },
+                  "active": true,
+                  "name": [
+                    {
+                      "family": "Admin",
+                      "given": [
+                        "Firm"
+                      ]
+                    }
+                  ],
+                  "telecom": [
+                    {
+                      "system": "email",
+                      "value": "admin@modmed.com"
+                    },
+                    {
+                      "system": "phone",
+                      "value": "5611112222",
+                      "use": "mobile"
+                    }
+                  ]
                 }
               },
               "application/fhir+xml": {
@@ -494,6 +1143,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -605,6 +1275,82 @@
               "application/fhir+json": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
+                },
+                "example": {
+                  "resourceType": "Bundle",
+                  "id": "5d82594c-2cca-4bea-8b64-3a750c4da303",
+                  "meta": {
+                    "lastUpdated": "2026-06-25T14:56:02.625+00:00"
+                  },
+                  "type": "searchset",
+                  "total": 2,
+                  "link": [
+                    {
+                      "relation": "self",
+                      "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner?_count=2"
+                    },
+                    {
+                      "relation": "next",
+                      "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner?_count=2&page=2"
+                    }
+                  ],
+                  "entry": [
+                    {
+                      "fullUrl": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/375387",
+                      "resource": {
+                        "resourceType": "Practitioner",
+                        "id": "375387",
+                        "meta": {
+                          "lastUpdated": "2026-03-27T18:47:32.000+00:00"
+                        },
+                        "active": true,
+                        "name": [
+                          {
+                            "family": "Admin",
+                            "given": [
+                              "Firm"
+                            ]
+                          }
+                        ],
+                        "telecom": [
+                          {
+                            "system": "email",
+                            "value": "admin@modmed.com"
+                          },
+                          {
+                            "system": "phone",
+                            "value": "5611112222",
+                            "use": "mobile"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "fullUrl": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/375388",
+                      "resource": {
+                        "resourceType": "Practitioner",
+                        "id": "375388",
+                        "meta": {
+                          "lastUpdated": "2025-02-20T16:27:10.000+00:00"
+                        },
+                        "identifier": [
+                          {
+                            "system": "http://www.hl7.org/fhir/v2/0203/index.html#v2-0203-NPI",
+                            "value": "4623248728"
+                          }
+                        ],
+                        "active": true,
+                        "name": [
+                          {
+                            "family": "Account Do Not Use",
+                            "given": [
+                              "emasupport"
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
                 }
               },
               "application/fhir+xml": {
@@ -613,6 +1359,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       },
@@ -647,6 +1414,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -678,6 +1466,65 @@
               "application/fhir+json": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
+                },
+                "example": {
+                  "resourceType": "Encounter",
+                  "id": "339011",
+                  "meta": {
+                    "lastUpdated": "2025-02-20T16:24:56.000+00:00"
+                  },
+                  "status": "in-progress",
+                  "class": {
+                    "system": "http://terminology.hl7.org/ValueSet/v3-ActEncounterCode",
+                    "code": "AMB",
+                    "display": "ambulatory"
+                  },
+                  "type": [
+                    {
+                      "coding": [
+                        {
+                          "system": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/encounter-type",
+                          "code": "VISIT",
+                          "display": "Visit"
+                        }
+                      ]
+                    }
+                  ],
+                  "subject": {
+                    "reference": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/375390",
+                    "display": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/375390"
+                  },
+                  "participant": [
+                    {
+                      "type": [
+                        {
+                          "coding": [
+                            {
+                              "system": "http://hl7.org/fhir/ValueSet/encounter-participant-type",
+                              "code": "PPRF",
+                              "display": "primary performer"
+                            }
+                          ],
+                          "text": "primary performer"
+                        }
+                      ],
+                      "individual": {
+                        "reference": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/375399",
+                        "display": "Jane Doe, MD"
+                      }
+                    }
+                  ],
+                  "period": {
+                    "start": "2024-09-26T16:24:56+00:00"
+                  },
+                  "location": [
+                    {
+                      "location": {
+                        "reference": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/826",
+                        "display": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/826"
+                      }
+                    }
+                  ]
                 }
               },
               "application/fhir+xml": {
@@ -686,6 +1533,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -770,6 +1638,151 @@
               "application/fhir+json": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
+                },
+                "example": {
+                  "resourceType": "Bundle",
+                  "id": "1235c34f-2e75-45d7-a34c-ace1f884065b",
+                  "meta": {
+                    "lastUpdated": "2026-06-25T14:56:03.677+00:00"
+                  },
+                  "type": "searchset",
+                  "total": 2,
+                  "link": [
+                    {
+                      "relation": "self",
+                      "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Encounter?_count=2"
+                    },
+                    {
+                      "relation": "next",
+                      "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Encounter?_count=2&page=2"
+                    }
+                  ],
+                  "entry": [
+                    {
+                      "fullUrl": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Encounter/339011",
+                      "resource": {
+                        "resourceType": "Encounter",
+                        "id": "339011",
+                        "meta": {
+                          "lastUpdated": "2025-02-20T16:24:56.000+00:00"
+                        },
+                        "status": "in-progress",
+                        "class": {
+                          "system": "http://terminology.hl7.org/ValueSet/v3-ActEncounterCode",
+                          "code": "AMB",
+                          "display": "ambulatory"
+                        },
+                        "type": [
+                          {
+                            "coding": [
+                              {
+                                "system": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/encounter-type",
+                                "code": "VISIT",
+                                "display": "Visit"
+                              }
+                            ]
+                          }
+                        ],
+                        "subject": {
+                          "reference": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/375390",
+                          "display": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/375390"
+                        },
+                        "participant": [
+                          {
+                            "type": [
+                              {
+                                "coding": [
+                                  {
+                                    "system": "http://hl7.org/fhir/ValueSet/encounter-participant-type",
+                                    "code": "PPRF",
+                                    "display": "primary performer"
+                                  }
+                                ],
+                                "text": "primary performer"
+                              }
+                            ],
+                            "individual": {
+                              "reference": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/375399",
+                              "display": "Jane Doe, MD"
+                            }
+                          }
+                        ],
+                        "period": {
+                          "start": "2024-09-26T16:24:56+00:00"
+                        },
+                        "location": [
+                          {
+                            "location": {
+                              "reference": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/826",
+                              "display": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/826"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "fullUrl": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Encounter/339012",
+                      "resource": {
+                        "resourceType": "Encounter",
+                        "id": "339012",
+                        "meta": {
+                          "lastUpdated": "2025-02-20T16:24:57.000+00:00"
+                        },
+                        "status": "in-progress",
+                        "class": {
+                          "system": "http://terminology.hl7.org/ValueSet/v3-ActEncounterCode",
+                          "code": "AMB",
+                          "display": "ambulatory"
+                        },
+                        "type": [
+                          {
+                            "coding": [
+                              {
+                                "system": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/encounter-type",
+                                "code": "VISIT",
+                                "display": "Visit"
+                              }
+                            ]
+                          }
+                        ],
+                        "subject": {
+                          "reference": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/375391",
+                          "display": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/375391"
+                        },
+                        "participant": [
+                          {
+                            "type": [
+                              {
+                                "coding": [
+                                  {
+                                    "system": "http://hl7.org/fhir/ValueSet/encounter-participant-type",
+                                    "code": "PPRF",
+                                    "display": "primary performer"
+                                  }
+                                ],
+                                "text": "primary performer"
+                              }
+                            ],
+                            "individual": {
+                              "reference": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/375399",
+                              "display": "Jane Doe, MD"
+                            }
+                          }
+                        ],
+                        "period": {
+                          "start": "2025-02-02T16:24:57+00:00"
+                        },
+                        "location": [
+                          {
+                            "location": {
+                              "reference": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/826",
+                              "display": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/826"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
                 }
               },
               "application/fhir+xml": {
@@ -778,6 +1791,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -809,6 +1843,83 @@
               "application/fhir+json": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
+                },
+                "example": {
+                  "resourceType": "Coverage",
+                  "id": "271565",
+                  "meta": {
+                    "lastUpdated": "2025-05-19T14:13:33.000+00:00"
+                  },
+                  "identifier": [
+                    {
+                      "system": "payerId",
+                      "value": "09102"
+                    }
+                  ],
+                  "status": "active",
+                  "type": {
+                    "coding": [
+                      {
+                        "system": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/insurance-policy-type",
+                        "code": "MEDICARE",
+                        "display": "MEDICARE"
+                      }
+                    ],
+                    "text": "MEDICARE"
+                  },
+                  "policyHolder": {
+                    "display": "Costello, Valeria"
+                  },
+                  "beneficiary": {
+                    "reference": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/375404",
+                    "display": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/375404"
+                  },
+                  "relationship": {
+                    "coding": [
+                      {
+                        "system": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/insured-relationship",
+                        "code": "SEL",
+                        "display": "Self"
+                      }
+                    ],
+                    "text": "Self"
+                  },
+                  "payor": [
+                    {
+                      "reference": "Organization/pay|1280",
+                      "display": "Medicare of Florida / First Coast Service Opt - J9"
+                    }
+                  ],
+                  "class": [
+                    {
+                      "type": {
+                        "coding": [
+                          {
+                            "system": "https://www.hl7.org/fhir/codesystem-coverage-class.html#coverage-class-plan",
+                            "code": "plan",
+                            "display": "Plan"
+                          }
+                        ],
+                        "text": "Plan"
+                      },
+                      "value": "521151840",
+                      "name": "Parts B and D"
+                    },
+                    {
+                      "type": {
+                        "coding": [
+                          {
+                            "system": "https://www.hl7.org/fhir/codesystem-coverage-class.html#coverage-class-group",
+                            "code": "group",
+                            "display": "Group"
+                          }
+                        ],
+                        "text": "Group"
+                      },
+                      "value": "2147006"
+                    }
+                  ],
+                  "order": 1
                 }
               },
               "application/fhir+xml": {
@@ -817,6 +1928,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       },
@@ -865,6 +1997,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -939,6 +2092,164 @@
               "application/fhir+json": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
+                },
+                "example": {
+                  "resourceType": "Bundle",
+                  "id": "8426a2e1-1bde-46a7-9cad-6c630d253ba8",
+                  "meta": {
+                    "lastUpdated": "2026-06-25T14:56:04.357+00:00"
+                  },
+                  "type": "searchset",
+                  "total": 2,
+                  "link": [
+                    {
+                      "relation": "self",
+                      "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Coverage?_count=2"
+                    },
+                    {
+                      "relation": "next",
+                      "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Coverage?_count=2&page=2"
+                    }
+                  ],
+                  "entry": [
+                    {
+                      "fullUrl": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Coverage/271565",
+                      "resource": {
+                        "resourceType": "Coverage",
+                        "id": "271565",
+                        "meta": {
+                          "lastUpdated": "2025-05-19T14:13:33.000+00:00"
+                        },
+                        "identifier": [
+                          {
+                            "system": "payerId",
+                            "value": "09102"
+                          }
+                        ],
+                        "status": "active",
+                        "type": {
+                          "coding": [
+                            {
+                              "system": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/insurance-policy-type",
+                              "code": "MEDICARE",
+                              "display": "MEDICARE"
+                            }
+                          ],
+                          "text": "MEDICARE"
+                        },
+                        "policyHolder": {
+                          "display": "Costello, Valeria"
+                        },
+                        "beneficiary": {
+                          "reference": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/375404",
+                          "display": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/375404"
+                        },
+                        "relationship": {
+                          "coding": [
+                            {
+                              "system": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/insured-relationship",
+                              "code": "SEL",
+                              "display": "Self"
+                            }
+                          ],
+                          "text": "Self"
+                        },
+                        "payor": [
+                          {
+                            "reference": "Organization/pay|1280",
+                            "display": "Medicare of Florida / First Coast Service Opt - J9"
+                          }
+                        ],
+                        "class": [
+                          {
+                            "type": {
+                              "coding": [
+                                {
+                                  "system": "https://www.hl7.org/fhir/codesystem-coverage-class.html#coverage-class-plan",
+                                  "code": "plan",
+                                  "display": "Plan"
+                                }
+                              ],
+                              "text": "Plan"
+                            },
+                            "value": "521151840",
+                            "name": "Parts B and D"
+                          },
+                          {
+                            "type": {
+                              "coding": [
+                                {
+                                  "system": "https://www.hl7.org/fhir/codesystem-coverage-class.html#coverage-class-group",
+                                  "code": "group",
+                                  "display": "Group"
+                                }
+                              ],
+                              "text": "Group"
+                            },
+                            "value": "2147006"
+                          }
+                        ],
+                        "order": 1
+                      }
+                    },
+                    {
+                      "fullUrl": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Coverage/271612",
+                      "resource": {
+                        "resourceType": "Coverage",
+                        "id": "271612",
+                        "meta": {
+                          "lastUpdated": "2025-02-20T16:24:53.000+00:00"
+                        },
+                        "status": "active",
+                        "policyHolder": {
+                          "display": "O'hara, Shana"
+                        },
+                        "beneficiary": {
+                          "reference": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/375405",
+                          "display": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/375405"
+                        },
+                        "relationship": {
+                          "coding": [
+                            {
+                              "system": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/insured-relationship",
+                              "code": "SEL",
+                              "display": "Self"
+                            }
+                          ],
+                          "text": "Self"
+                        },
+                        "class": [
+                          {
+                            "type": {
+                              "coding": [
+                                {
+                                  "system": "https://www.hl7.org/fhir/codesystem-coverage-class.html#coverage-class-plan",
+                                  "code": "plan",
+                                  "display": "Plan"
+                                }
+                              ],
+                              "text": "Plan"
+                            },
+                            "value": "502880033"
+                          },
+                          {
+                            "type": {
+                              "coding": [
+                                {
+                                  "system": "https://www.hl7.org/fhir/codesystem-coverage-class.html#coverage-class-group",
+                                  "code": "group",
+                                  "display": "Group"
+                                }
+                              ],
+                              "text": "Group"
+                            },
+                            "value": "3959888"
+                          }
+                        ],
+                        "order": 1
+                      }
+                    }
+                  ]
                 }
               },
               "application/fhir+xml": {
@@ -947,6 +2258,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       },
@@ -981,6 +2313,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -1020,6 +2373,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -1116,6 +2490,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       },
@@ -1150,6 +2545,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -1181,6 +2597,33 @@
               "application/fhir+json": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
+                },
+                "example": {
+                  "resourceType": "InsurancePlan",
+                  "id": "74",
+                  "meta": {
+                    "lastUpdated": "2025-05-13T13:46:06.000+00:00"
+                  },
+                  "status": "active",
+                  "name": "PPO",
+                  "ownedBy": {
+                    "reference": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Organization/pay%7C1279",
+                    "display": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Organization/pay%7C1279"
+                  },
+                  "plan": [
+                    {
+                      "type": {
+                        "coding": [
+                          {
+                            "system": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/insurance-policy-type",
+                            "code": "PPO",
+                            "display": "PPO"
+                          }
+                        ],
+                        "text": "PPO"
+                      }
+                    }
+                  ]
                 }
               },
               "application/fhir+xml": {
@@ -1189,6 +2632,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -1254,6 +2718,87 @@
               "application/fhir+json": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
+                },
+                "example": {
+                  "resourceType": "Bundle",
+                  "id": "63023a33-b123-4dbe-aa55-a8cc2e930afc",
+                  "meta": {
+                    "lastUpdated": "2026-06-25T14:56:05.344+00:00"
+                  },
+                  "type": "searchset",
+                  "total": 2,
+                  "link": [
+                    {
+                      "relation": "self",
+                      "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/InsurancePlan?_count=2"
+                    },
+                    {
+                      "relation": "next",
+                      "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/InsurancePlan?_count=2&page=2"
+                    }
+                  ],
+                  "entry": [
+                    {
+                      "fullUrl": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/InsurancePlan/74",
+                      "resource": {
+                        "resourceType": "InsurancePlan",
+                        "id": "74",
+                        "meta": {
+                          "lastUpdated": "2025-05-13T13:46:06.000+00:00"
+                        },
+                        "status": "active",
+                        "name": "PPO",
+                        "ownedBy": {
+                          "reference": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Organization/pay%7C1279",
+                          "display": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Organization/pay%7C1279"
+                        },
+                        "plan": [
+                          {
+                            "type": {
+                              "coding": [
+                                {
+                                  "system": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/insurance-policy-type",
+                                  "code": "PPO",
+                                  "display": "PPO"
+                                }
+                              ],
+                              "text": "PPO"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "fullUrl": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/InsurancePlan/75",
+                      "resource": {
+                        "resourceType": "InsurancePlan",
+                        "id": "75",
+                        "meta": {
+                          "lastUpdated": "2025-05-13T13:48:09.000+00:00"
+                        },
+                        "status": "active",
+                        "name": "HMO",
+                        "ownedBy": {
+                          "reference": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Organization/pay%7C1300",
+                          "display": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Organization/pay%7C1300"
+                        },
+                        "plan": [
+                          {
+                            "type": {
+                              "coding": [
+                                {
+                                  "system": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/insurance-policy-type",
+                                  "code": "HMO",
+                                  "display": "HMO"
+                                }
+                              ],
+                              "text": "HMO"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
                 }
               },
               "application/fhir+xml": {
@@ -1262,6 +2807,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -1293,6 +2859,35 @@
               "application/fhir+json": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
+                },
+                "example": {
+                  "resourceType": "Location",
+                  "id": "826",
+                  "meta": {
+                    "lastUpdated": "2025-02-20T16:27:11.000+00:00"
+                  },
+                  "identifier": [
+                    {
+                      "system": "BusinessUnitId",
+                      "value": "722"
+                    },
+                    {
+                      "system": "PMSID",
+                      "value": "112416FAC000000001"
+                    }
+                  ],
+                  "status": "active",
+                  "name": "Main Street Clinic",
+                  "address": {
+                    "id": "720212",
+                    "line": [
+                      "123 Main Street"
+                    ],
+                    "city": "Boca Raton",
+                    "state": "FL",
+                    "postalCode": "33437-1111",
+                    "country": "United States of America"
+                  }
                 }
               },
               "application/fhir+xml": {
@@ -1301,6 +2896,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -1402,6 +3018,91 @@
               "application/fhir+json": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
+                },
+                "example": {
+                  "resourceType": "Bundle",
+                  "id": "cb70ba05-d700-4276-bde4-19592fa89672",
+                  "meta": {
+                    "lastUpdated": "2026-06-25T14:56:06.003+00:00"
+                  },
+                  "type": "searchset",
+                  "total": 2,
+                  "link": [
+                    {
+                      "relation": "self",
+                      "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location?_count=2"
+                    },
+                    {
+                      "relation": "next",
+                      "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location?_count=2&page=2"
+                    }
+                  ],
+                  "entry": [
+                    {
+                      "fullUrl": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/826",
+                      "resource": {
+                        "resourceType": "Location",
+                        "id": "826",
+                        "meta": {
+                          "lastUpdated": "2025-02-20T16:27:11.000+00:00"
+                        },
+                        "identifier": [
+                          {
+                            "system": "BusinessUnitId",
+                            "value": "722"
+                          },
+                          {
+                            "system": "PMSID",
+                            "value": "112416FAC000000001"
+                          }
+                        ],
+                        "status": "active",
+                        "name": "Main Street Clinic",
+                        "address": {
+                          "id": "720212",
+                          "line": [
+                            "123 Main Street"
+                          ],
+                          "city": "Boca Raton",
+                          "state": "FL",
+                          "postalCode": "33437-1111",
+                          "country": "United States of America"
+                        }
+                      }
+                    },
+                    {
+                      "fullUrl": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/827",
+                      "resource": {
+                        "resourceType": "Location",
+                        "id": "827",
+                        "meta": {
+                          "lastUpdated": "2025-02-20T16:39:18.000+00:00"
+                        },
+                        "identifier": [
+                          {
+                            "system": "BusinessUnitId",
+                            "value": "722"
+                          },
+                          {
+                            "system": "PMSID",
+                            "value": "112416FAC000000002"
+                          }
+                        ],
+                        "status": "active",
+                        "name": "Yamato Road Clinic",
+                        "address": {
+                          "id": "720858",
+                          "line": [
+                            "123 Yamato Road"
+                          ],
+                          "city": "Boca Raton",
+                          "state": "FL",
+                          "postalCode": "33437-1111",
+                          "country": "United States of America"
+                        }
+                      }
+                    }
+                  ]
                 }
               },
               "application/fhir+xml": {
@@ -1410,6 +3111,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -1449,6 +3171,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -1567,6 +3310,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       },
@@ -1601,6 +3365,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -1623,6 +3408,18 @@
               "type": "string"
             },
             "example": "123"
+          },
+          {
+            "name": "Content-flag",
+            "in": "header",
+            "required": false,
+            "description": "Optional. `Referral` adds Referral Contact/Source to the Appointment payload.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Referral"
+              ]
+            }
           }
         ],
         "responses": {
@@ -1632,6 +3429,69 @@
               "application/fhir+json": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
+                },
+                "example": {
+                  "resourceType": "Appointment",
+                  "id": "204865",
+                  "meta": {
+                    "lastUpdated": "2025-05-15T18:02:15.000+00:00"
+                  },
+                  "status": "pending",
+                  "appointmentType": {
+                    "coding": [
+                      {
+                        "system": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/appointment-type",
+                        "code": "1957",
+                        "display": "Follow-up"
+                      }
+                    ],
+                    "text": "Follow-up"
+                  },
+                  "reasonCode": [
+                    {
+                      "coding": [
+                        {
+                          "system": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/reportable-reason",
+                          "code": "Other",
+                          "display": "OTHER"
+                        }
+                      ],
+                      "text": "OTHER"
+                    }
+                  ],
+                  "supportingInformation": [
+                    {
+                      "identifier": {
+                        "system": "NEW_PATIENT",
+                        "value": "false"
+                      },
+                      "display": "New Patient: false"
+                    }
+                  ],
+                  "start": "2025-05-08T19:00:00.000+00:00",
+                  "end": "2025-05-08T19:10:00.000+00:00",
+                  "minutesDuration": 10,
+                  "created": "2025-05-08T18:41:05+00:00",
+                  "participant": [
+                    {
+                      "actor": {
+                        "reference": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/827",
+                        "display": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/827"
+                      }
+                    },
+                    {
+                      "actor": {
+                        "reference": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/385871",
+                        "display": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/385871"
+                      }
+                    },
+                    {
+                      "actor": {
+                        "reference": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/375399",
+                        "display": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/375399"
+                      }
+                    }
+                  ]
                 }
               },
               "application/fhir+xml": {
@@ -1640,6 +3500,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       },
@@ -1688,6 +3569,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -1800,6 +3702,18 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "Content-flag",
+            "in": "header",
+            "required": false,
+            "description": "Optional. `Referral` adds Referral Contact/Source to the Appointment payload.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Referral"
+              ]
+            }
           }
         ],
         "responses": {
@@ -1809,6 +3723,159 @@
               "application/fhir+json": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
+                },
+                "example": {
+                  "resourceType": "Bundle",
+                  "id": "09f7a0bc-d577-4854-bcad-b54fa68749e4",
+                  "meta": {
+                    "lastUpdated": "2026-06-25T14:56:06.963+00:00"
+                  },
+                  "type": "searchset",
+                  "total": 2,
+                  "link": [
+                    {
+                      "relation": "self",
+                      "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Appointment?_count=2"
+                    },
+                    {
+                      "relation": "next",
+                      "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Appointment?_count=2&page=2"
+                    }
+                  ],
+                  "entry": [
+                    {
+                      "fullUrl": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Appointment/204865",
+                      "resource": {
+                        "resourceType": "Appointment",
+                        "id": "204865",
+                        "meta": {
+                          "lastUpdated": "2025-05-15T18:02:15.000+00:00"
+                        },
+                        "status": "pending",
+                        "appointmentType": {
+                          "coding": [
+                            {
+                              "system": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/appointment-type",
+                              "code": "1957",
+                              "display": "Follow-up"
+                            }
+                          ],
+                          "text": "Follow-up"
+                        },
+                        "reasonCode": [
+                          {
+                            "coding": [
+                              {
+                                "system": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/reportable-reason",
+                                "code": "Other",
+                                "display": "OTHER"
+                              }
+                            ],
+                            "text": "OTHER"
+                          }
+                        ],
+                        "supportingInformation": [
+                          {
+                            "identifier": {
+                              "system": "NEW_PATIENT",
+                              "value": "false"
+                            },
+                            "display": "New Patient: false"
+                          }
+                        ],
+                        "start": "2025-05-08T19:00:00.000+00:00",
+                        "end": "2025-05-08T19:10:00.000+00:00",
+                        "minutesDuration": 10,
+                        "created": "2025-05-08T18:41:05+00:00",
+                        "participant": [
+                          {
+                            "actor": {
+                              "reference": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/827",
+                              "display": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/827"
+                            }
+                          },
+                          {
+                            "actor": {
+                              "reference": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/385871",
+                              "display": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/385871"
+                            }
+                          },
+                          {
+                            "actor": {
+                              "reference": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/375399",
+                              "display": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/375399"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "fullUrl": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Appointment/205149",
+                      "resource": {
+                        "resourceType": "Appointment",
+                        "id": "205149",
+                        "meta": {
+                          "lastUpdated": "2025-10-14T01:23:10.000+00:00"
+                        },
+                        "status": "fulfilled",
+                        "appointmentType": {
+                          "coding": [
+                            {
+                              "system": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/appointment-type",
+                              "code": "1957",
+                              "display": "Follow-up"
+                            }
+                          ],
+                          "text": "Follow-up"
+                        },
+                        "reasonCode": [
+                          {
+                            "coding": [
+                              {
+                                "system": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ValueSet/reportable-reason",
+                                "code": "Other",
+                                "display": "OTHER"
+                              }
+                            ],
+                            "text": "OTHER"
+                          }
+                        ],
+                        "supportingInformation": [
+                          {
+                            "identifier": {
+                              "system": "NEW_PATIENT",
+                              "value": "false"
+                            },
+                            "display": "New Patient: false"
+                          }
+                        ],
+                        "start": "2025-05-12T12:00:00.000+00:00",
+                        "end": "2025-05-12T12:10:00.000+00:00",
+                        "minutesDuration": 10,
+                        "created": "2025-05-09T16:32:26+00:00",
+                        "participant": [
+                          {
+                            "actor": {
+                              "reference": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/827",
+                              "display": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Location/827"
+                            }
+                          },
+                          {
+                            "actor": {
+                              "reference": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/385871",
+                              "display": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/385871"
+                            }
+                          },
+                          {
+                            "actor": {
+                              "reference": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/375399",
+                              "display": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Practitioner/375399"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
                 }
               },
               "application/fhir+xml": {
@@ -1817,6 +3884,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       },
@@ -1851,6 +3939,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -1906,6 +4015,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -1945,6 +4075,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       },
@@ -1993,6 +4144,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -2047,6 +4219,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       },
@@ -2081,6 +4274,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -2120,6 +4334,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       },
@@ -2168,6 +4403,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -2204,6 +4460,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       },
@@ -2238,6 +4515,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -2277,6 +4575,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       },
@@ -2325,6 +4644,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -2361,6 +4701,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       },
@@ -2395,6 +4756,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -2434,6 +4816,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -2488,6 +4891,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -2527,6 +4951,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -2646,6 +5091,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -2685,6 +5151,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -2776,6 +5263,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -2815,6 +5323,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -2854,6 +5383,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -2879,6 +5429,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -2943,6 +5514,104 @@
               "application/fhir+json": {
                 "schema": {
                   "$ref": "#/components/schemas/FHIR-JSON-RESOURCE"
+                },
+                "example": {
+                  "resourceType": "Bundle",
+                  "id": "a7f5fd64-b419-4a5d-8f08-70a8159c1feb",
+                  "meta": {
+                    "lastUpdated": "2026-06-25T14:56:09.966+00:00"
+                  },
+                  "type": "searchset",
+                  "total": 1,
+                  "link": [
+                    {
+                      "relation": "self",
+                      "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ChargeItem?_count=2"
+                    },
+                    {
+                      "relation": "next",
+                      "url": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ChargeItem?_count=2&page=2"
+                    }
+                  ],
+                  "entry": [
+                    {
+                      "fullUrl": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/ChargeItem/CHG%7C1722",
+                      "resource": {
+                        "resourceType": "ChargeItem",
+                        "id": "CHG|1722",
+                        "extension": [
+                          {
+                            "url": "financialTransaction",
+                            "extension": [
+                              {
+                                "url": "financialTransactionId",
+                                "valueString": "CHG|1722"
+                              },
+                              {
+                                "url": "transactionStatus",
+                                "valueString": "Charged"
+                              },
+                              {
+                                "url": "attendingProviderId",
+                                "valueString": "8944076359"
+                              },
+                              {
+                                "url": "locationId",
+                                "valueString": "826"
+                              },
+                              {
+                                "url": "businessUnitId",
+                                "valueString": "325678903"
+                              },
+                              {
+                                "url": "totalCost",
+                                "valueMoney": {
+                                  "value": 83.63,
+                                  "currency": "USD"
+                                }
+                              },
+                              {
+                                "url": "financialTransactionDetail",
+                                "extension": [
+                                  {
+                                    "url": "performingProviderId",
+                                    "valueString": "8944076359"
+                                  },
+                                  {
+                                    "url": "quantity",
+                                    "valueDecimal": 1
+                                  },
+                                  {
+                                    "url": "description",
+                                    "valueString": "Test"
+                                  },
+                                  {
+                                    "url": "postingDate",
+                                    "valueDateTime": "2025-06-18T00:00:00+00:00"
+                                  },
+                                  {
+                                    "url": "procedureDetail",
+                                    "extension": [
+                                      {
+                                        "url": "procedureDetailId",
+                                        "valueString": "CHG|1722"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ],
+                        "status": "billable",
+                        "subject": {
+                          "reference": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/375535",
+                          "display": "https://stage.ema-api.com/ema-dev/firm/apiportal/ema/fhir/v2/Patient/375535"
+                        },
+                        "occurrenceDateTime": "2025-06-18T00:00:00+00:00"
+                      }
+                    }
+                  ]
                 }
               },
               "application/fhir+xml": {
@@ -2951,6 +5620,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       },
@@ -2985,6 +5675,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -3021,6 +5732,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -3060,6 +5792,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -3099,6 +5852,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -3182,6 +5956,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -3218,6 +6013,27 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          },
+          "429": {
+            "$ref": "#/components/responses/TooManyRequests"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
           }
         }
       }
@@ -3252,6 +6068,29 @@
         "in": "header",
         "name": "x-api-key",
         "description": "Shared **sandbox** API key (public sandbox only). Send as the `x-api-key` header.\n\n`Zt9tXPIgz17uxEU6gkZPWa3ZAFhZOqm04oEDHC1f`"
+      }
+    },
+    "responses": {
+      "BadRequest": {
+        "description": "BAD REQUEST - The request was bad, often due to a missing required parameter"
+      },
+      "Unauthorized": {
+        "description": "NOT AUTHORIZED - Authentication error; this token is not allowed access to the API"
+      },
+      "Forbidden": {
+        "description": "FORBIDDEN"
+      },
+      "NotFound": {
+        "description": "NOT FOUND"
+      },
+      "UnprocessableEntity": {
+        "description": "UNPROCESSABLE ENTITY - Request could not be processed; typically a validation error"
+      },
+      "TooManyRequests": {
+        "description": "TOO MANY REQUESTS - Request was rate limited (1000 calls/min default); please retry"
+      },
+      "ServerError": {
+        "description": "SERVER ERROR - Internal Server Error"
       }
     }
   }
